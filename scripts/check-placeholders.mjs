@@ -80,12 +80,20 @@ console.log("");
 // finalised" notice (content/legal.ts → pending). Any other placeholder
 // still stops the build. Remove the variable once the approved text is in.
 const onlyLegal = found.every((f) => f.file.startsWith("content/legal/"));
-if (
-  args.has("--guard") &&
-  isProduction &&
-  onlyLegal &&
-  process.env.ALLOW_PENDING_LEGAL === "true"
-) {
+const rawOverride = process.env.ALLOW_PENDING_LEGAL;
+const allowPendingLegal = ["true", "1", "yes"].includes((rawOverride ?? "").trim().toLowerCase());
+if (args.has("--guard") && isProduction) {
+  // Say exactly what the build saw, so a missing or mistyped variable is obvious in the log.
+  console.log(
+    rawOverride === undefined
+      ? "ALLOW_PENDING_LEGAL is not set for this build."
+      : `ALLOW_PENDING_LEGAL is set to "${rawOverride}" (${allowPendingLegal ? "accepted" : 'not accepted: use "true"'}).`,
+  );
+  if (allowPendingLegal && !onlyLegal) {
+    console.log("Override ignored: placeholders remain outside content/legal/.");
+  }
+}
+if (args.has("--guard") && isProduction && onlyLegal && allowPendingLegal) {
   console.warn(
     "WARNING: ALLOW_PENDING_LEGAL=true. Building with legal pages marked as being finalised.\n" +
       "Replace content/legal/*.mdx with adviser-approved text and remove the variable.\n",
