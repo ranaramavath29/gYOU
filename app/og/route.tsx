@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
+import { LogoMark } from "@/components/LogoMark";
 import { site } from "@/content/site";
 
 /**
@@ -34,13 +35,14 @@ export function GET(request: NextRequest) {
         style={{
           display: "flex",
           alignItems: "center",
-          fontSize: 40,
+          gap: 16,
+          fontSize: 44,
           fontWeight: 700,
           letterSpacing: -1,
         }}
       >
-        {site.name.toLowerCase()}
-        <span style={{ color: "#D6FF5C", marginLeft: 4 }}>*</span>
+        <LogoMark width={52} height={48} />
+        {site.name}
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
         <div

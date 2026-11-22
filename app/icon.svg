@@ -1,9 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="14" fill="#0C0C0B"/>
-  <!-- "r" from the wordmark. Serif fallbacks keep it close to Playfair Display where the font isn't installed. -->
-  <text x="13" y="47" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="46" font-weight="600" fill="#F2F0EA">r</text>
-  <!-- Accent asterisk -->
-  <g stroke="#D6FF5C" stroke-width="3.6" stroke-linecap="round" transform="translate(45 18)">
-    <path d="M0 -8V8M-6.9 -4L6.9 4M-6.9 4L6.9 -4"/>
-  </g>
+  <!-- gYOU brand icon: same geometry and colours as components/LogoMark.tsx -->
+  <svg x="8" y="8" width="48" height="48" viewBox="33 75 368 340" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="54">
+    <g stroke="#B4FD10">
+      <path d="M83 152 L229 212 L62 303"/>
+      <path d="M249 104 L229 210"/>
+      <path d="M229 386 L243 293 L298 320"/>
+    </g>
+    <path d="M370 167 L291 236 L362 301" stroke="#FFFFFF"/>
+  </svg>
 </svg>

@@ -103,7 +103,7 @@ export function Header() {
             aria-label={uiLabels.homeLink}
             className="inline-flex min-h-11 items-center justify-self-start transition-opacity hover:opacity-80"
           >
-            <Wordmark className="text-[1.5rem]" />
+            <Wordmark className="text-[1.75rem]" />
           </Link>
 
           <DesktopNav pathname={pathname} />
@@ -146,7 +146,7 @@ export function Header() {
               onClick={closeMenu}
               className="inline-flex min-h-11 items-center"
             >
-              <Wordmark className="text-[1.5rem]" />
+              <Wordmark className="text-[1.75rem]" />
             </Link>
             <button
               ref={closeButtonRef}

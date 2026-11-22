@@ -104,7 +104,7 @@ export default function StyleguidePage() {
       <Container>
         <Block
           title="Wordmark"
-          note="Official logo: Playfair Display wordmark with an accent asterisk. The favicon (app/icon.svg) uses the same mark."
+          note="Official logo: the gYOU brand icon (components/LogoMark.tsx) with the wordmark in Playfair Display SemiBold. The favicon (app/icon.svg) uses the same mark."
         >
           <div className="flex items-center gap-10">
             <Wordmark />
