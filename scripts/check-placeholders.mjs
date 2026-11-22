@@ -74,6 +74,25 @@ console.log(`${found.length} placeholder(s) remaining:\n`);
 for (const f of found) console.log(`  ${`${f.file}:${f.line}`.padEnd(width)}  ${f.text}`);
 console.log("");
 
+// Temporary launch override (set ALLOW_PENDING_LEGAL=true in the host's env):
+// lets a production build through when the ONLY placeholders left are the
+// legal documents in content/legal/. Those pages then show a "being
+// finalised" notice (content/legal.ts → pending). Any other placeholder
+// still stops the build. Remove the variable once the approved text is in.
+const onlyLegal = found.every((f) => f.file.startsWith("content/legal/"));
+if (
+  args.has("--guard") &&
+  isProduction &&
+  onlyLegal &&
+  process.env.ALLOW_PENDING_LEGAL === "true"
+) {
+  console.warn(
+    "WARNING: ALLOW_PENDING_LEGAL=true. Building with legal pages marked as being finalised.\n" +
+      "Replace content/legal/*.mdx with adviser-approved text and remove the variable.\n",
+  );
+  process.exit(0);
+}
+
 if (args.has("--strict") || (args.has("--guard") && isProduction)) {
   console.error("Build stopped: replace every placeholder with real, approved content first.");
   process.exit(1);
