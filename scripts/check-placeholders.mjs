@@ -81,13 +81,24 @@ console.log("");
 // still stops the build. Remove the variable once the approved text is in.
 const onlyLegal = found.every((f) => f.file.startsWith("content/legal/"));
 const rawOverride = process.env.ALLOW_PENDING_LEGAL;
-const allowPendingLegal = ["true", "1", "yes"].includes((rawOverride ?? "").trim().toLowerCase());
+const envAllows = ["true", "1", "yes"].includes((rawOverride ?? "").trim().toLowerCase());
+// Same switch, committed in the repo so it doesn't depend on the host's env settings.
+let fileAllows = false;
+try {
+  const cfg = JSON.parse(await readFile(join(ROOT, "content", "legal", "launch.json"), "utf8"));
+  fileAllows = cfg.allowPendingLegal === true;
+} catch {
+  // No launch.json (or unreadable): the file switch is off.
+}
+const allowPendingLegal = envAllows || fileAllows;
 if (args.has("--guard") && isProduction) {
-  // Say exactly what the build saw, so a missing or mistyped variable is obvious in the log.
+  // Say exactly what the build saw, so a missing or mistyped switch is obvious in the log.
   console.log(
-    rawOverride === undefined
-      ? "ALLOW_PENDING_LEGAL is not set for this build."
-      : `ALLOW_PENDING_LEGAL is set to "${rawOverride}" (${allowPendingLegal ? "accepted" : 'not accepted: use "true"'}).`,
+    fileAllows
+      ? "content/legal/launch.json: allowPendingLegal is true."
+      : rawOverride === undefined
+        ? "ALLOW_PENDING_LEGAL is not set and content/legal/launch.json does not allow pending legal pages."
+        : `ALLOW_PENDING_LEGAL is set to "${rawOverride}" (${envAllows ? "accepted" : 'not accepted: use "true"'}).`,
   );
   if (allowPendingLegal && !onlyLegal) {
     console.log("Override ignored: placeholders remain outside content/legal/.");
@@ -95,8 +106,8 @@ if (args.has("--guard") && isProduction) {
 }
 if (args.has("--guard") && isProduction && onlyLegal && allowPendingLegal) {
   console.warn(
-    "WARNING: ALLOW_PENDING_LEGAL=true. Building with legal pages marked as being finalised.\n" +
-      "Replace content/legal/*.mdx with adviser-approved text and remove the variable.\n",
+    "WARNING: building with legal pages marked as being finalised.\n" +
+      "Replace content/legal/*.mdx with adviser-approved text, then set allowPendingLegal to false in content/legal/launch.json.\n",
   );
   process.exit(0);
 }
