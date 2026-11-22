@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+/*
+ * "Editorial Luxe" design tokens (docs/BUILD_PROMPT.md → Design system).
+ * Raw tokens live on :root so they can be swapped in one place
+ * (e.g. if gYOU supplies a brand colour to replace --accent).
+ * lib/tokens.ts mirrors these values for the /styleguide contrast table.
+ */
+:root {
+  --bg: #0c0c0b;
+  --bg-raised: #141413;
+  --bg-raised-2: #1c1c1a;
+  --fg: #f2f0ea;
+  --fg-muted: #bdbbb2;
+  --fg-subtle: #a9a79f;
+  --line: #2a2a27;
+  --line-strong: #3a3a36;
+  --accent: #d6ff5c;
+  --paper: #f2f0ea;
+  --ink: #0c0c0b;
+  --ink-muted: #45443e;
+  /* Not in the spec: needed for form error states. Flagged at PAUSE 1. */
+  --danger: #ff8f80;
+
+  /* Context-dependent tokens, swapped by .tone-paper */
+  --heading-accent: var(--accent);
+  --focus-ring: var(--accent);
+
+  color-scheme: dark;
+}
+
+/* Light "paper" sections: the lime accent fails contrast on paper,
+   so accent words and focus rings switch to ink there. */
+.tone-paper {
+  --heading-accent: var(--ink);
+  --focus-ring: var(--ink);
+  --danger: #b42318;
+  color-scheme: light;
+}
+
+/* Theme values that reference runtime variables (inlined into utilities). */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-raised: var(--bg-raised);
+  --color-bg-raised-2: var(--bg-raised-2);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-danger: var(--danger);
+
+  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-manrope), "Manrope", system-ui, sans-serif;
+}
+
+/* Static theme values (also emitted as CSS variables). */
+@theme {
+  /* Type scale, desktop → mobile via clamp() */
+  --text-hero: clamp(3.25rem, 1.6rem + 7.35vw, 8.25rem); /* 52 → 132px */
+  --text-hero--line-height: 0.92;
+  --text-hero--letter-spacing: -0.035em;
+  --text-h2: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem); /* 40 → 72px */
+  --text-h2--line-height: 0.95;
+  --text-h2--letter-spacing: -0.03em;
+  --text-title: clamp(1.5rem, 1.1rem + 1.4vw, 2.5rem); /* 24 → 40px */
+  --text-title--line-height: 1.05;
+  --text-title--letter-spacing: -0.03em;
+  --text-body: clamp(1.0625rem, 0.98rem + 0.3vw, 1.25rem); /* 17 → 20px */
+  --text-body--line-height: 1.55;
+  --text-small: clamp(0.8125rem, 0.78rem + 0.15vw, 0.9375rem); /* 13 → 15px */
+  --text-small--line-height: 1.5;
+
+  --radius-card: 24px;
+  --radius-media: 28px;
+  --radius-sheet: 40px;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-spin-slow: spin 36s linear infinite;
+  --animate-spin-slower: spin 60s linear infinite reverse;
+
+  @keyframes marquee {
+    to {
+      translate: -50% 0;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+    50% {
+      translate: 0 -12px;
+    }
+  }
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    scroll-behavior: smooth;
+  }
+  /* Nav hover cards link to sections by id; keep them clear of the sticky header. */
+  [id] {
+    scroll-margin-top: 7rem;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--ink);
+  }
+
+  /* Slim dark scrollbar that matches the theme. */
+  html {
+    scrollbar-color: var(--line-strong) var(--bg);
+    scrollbar-width: thin;
+  }
+
+  /* Smooth open/close for <details> (FAQ). Browsers without
+     ::details-content support simply open instantly. */
+  :root {
+    interpolate-size: allow-keywords;
+  }
+  details.smooth::details-content {
+    block-size: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      block-size 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.3s ease,
+      content-visibility 0.4s allow-discrete;
+  }
+  details.smooth[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@layer components {
+  .accent-word {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--heading-accent);
+  }
+  .marquee:hover .marquee-track,
+  .marquee:focus-within .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+/* Development-only outline for placeholder content (see lib/ph.ts). */
+[data-placeholder] {
+  outline: 1px dashed currentColor;
+  outline-offset: 3px;
+  opacity: 0.85;
+}
+
+/* Every animation and transition is switched off under reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
