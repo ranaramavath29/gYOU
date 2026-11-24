@@ -264,11 +264,14 @@ export function EnquiryForm() {
           </Button>
         ) : null}
         {step < TOTAL - 1 ? (
-          <Button variant="accent" onClick={next}>
+          // Distinct keys so React never reuses the Continue button as the submit button
+          // (otherwise the click that reaches the last step also submits it).
+          <Button key="next" variant="accent" onClick={next}>
             {c.enquiry.next}
           </Button>
         ) : (
           <Button
+            key="submit"
             type="submit"
             variant="accent"
             disabled={isSubmitting}

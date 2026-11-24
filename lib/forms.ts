@@ -54,6 +54,26 @@ export const enquirySteps = [
   ["fullName", "email", "phone", "consent"],
 ] as const;
 
+export const heroAuditSchema = z.object({
+  need: oneOf(c.heroAudit.needs, c.heroAudit.needError),
+  budget: oneOf(budgetOptions, c.required),
+  company: z.string().trim().min(1, c.required),
+  website: optionalUrl,
+  industry: oneOf(industryOptions, c.required),
+  fullName: z.string().trim().min(2, c.required),
+  phone,
+  email: z.email(c.invalidEmail),
+  consent: z.boolean().refine((v) => v, { message: c.consentRequired }),
+  hp: honeypot,
+});
+
+/** Fields validated on each hero audit step before moving on. */
+export const heroAuditSteps = [
+  ["need", "budget"],
+  ["company", "website", "industry"],
+  ["fullName", "phone", "email", "consent"],
+] as const;
+
 export const auditSchema = z.object({
   website: requiredUrl,
   email: z.email(c.invalidEmail),

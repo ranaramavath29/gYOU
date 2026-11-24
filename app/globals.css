@@ -51,6 +51,17 @@
   color-scheme: dark;
 }
 
+/* Light card placed on an ink panel (e.g. the hero audit form): restore light text tokens. */
+.tone-light {
+  --fg: #1d1b18;
+  --fg-muted: #5c5a55;
+  --fg-subtle: #67635b;
+  --heading-accent: var(--ink);
+  --focus-ring: var(--ink);
+  --danger: #b42318;
+  color-scheme: light;
+}
+
 /* Theme values that reference runtime variables (inlined into utilities). */
 @theme inline {
   --color-bg: var(--bg);

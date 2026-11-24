@@ -31,7 +31,17 @@ export const hero = {
   supporting:
     "We help businesses grow through strategic digital marketing, performance advertising, SEO and website solutions that connect brands with the right audience and turn opportunities into customers.",
   supportingLine: "Strategy First. Data Driven. Growth That Matters.",
-  primaryCta: ctas.primary,
+  /**
+   * Checklist under the supporting copy. Working copy, Nov 2026: each line restates
+   * what the service pages already say (no stats, prices or guarantees).
+   */
+  points: [
+    "Google Ads, Meta Ads, SEO and websites under one team",
+    "Campaigns planned around your business goals",
+    "Reporting on spend, enquiries and cost per lead",
+  ],
+  /** Primary CTA scrolls to the audit form in the hero card. */
+  primaryCta: { label: ctas.primary.label, href: "#free-audit" },
   secondaryCta: { label: "Explore Our Services", href: "/services" },
   /** Showcase card beside the headline: gYOU's shoot video with the brand statement. */
   showcase: {
