@@ -26,6 +26,7 @@ export default function AboutPage() {
         eyebrow={about.eyebrow}
         heading={about.heading}
         supporting={about.supporting}
+        media={about.heroMedia}
         breadcrumb={{
           label: uiLabels.breadcrumb,
           items: [{ label: uiLabels.home, href: "/" }],

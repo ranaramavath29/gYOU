@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { ArrowUpRightIcon, ChatIcon } from "@/components/icons";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 import { PageHero } from "@/components/sections/PageHero";
+import { SocialLinks } from "@/components/sections/SocialLinks";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { Button, Reveal, Section, SectionHeading } from "@/components/ui";
 import { contactPage as copy, mapsHref } from "@/content/contact";
@@ -161,6 +162,15 @@ export default function ContactPage() {
               </li>
             ))}
           </ul>
+          <div className="mt-6 flex flex-col gap-5 rounded-[var(--radius-card)] border border-line bg-paper p-6 sm:flex-row sm:items-center sm:justify-between md:px-8">
+            <span className="flex flex-col gap-1">
+              <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">
+                {copy.followHeading}
+              </h3>
+              <span className="text-small text-ink-muted">{copy.followIntro}</span>
+            </span>
+            <SocialLinks size="lg" />
+          </div>
         </Reveal>
       </Section>
 

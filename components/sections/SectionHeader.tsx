@@ -7,10 +7,30 @@ type SectionHeaderProps = {
   heading: Heading;
   intro?: ReactNode;
   cta?: Cta;
+  /** "split": heading left, intro/link right. "center": stacked and centred (Studio Daylight). */
+  align?: "split" | "center";
 };
 
-/** Heading on the left, intro or link on the right (as in the mockup). */
-export function SectionHeader({ id, heading, intro, cta }: SectionHeaderProps) {
+/** Section heading with an optional intro and link. */
+export function SectionHeader({ id, heading, intro, cta, align = "split" }: SectionHeaderProps) {
+  if (align === "center") {
+    return (
+      <Reveal className="mx-auto mb-12 flex max-w-3xl flex-col items-center gap-5 text-center md:mb-16">
+        <SectionHeading id={id} {...heading} align="center" headingClassName="max-w-[20ch]" />
+        {intro ? (
+          <p className="max-w-[56ch] text-body text-fg-muted [.tone-paper_&]:text-ink-muted">
+            {intro}
+          </p>
+        ) : null}
+        {cta ? (
+          <ArrowLink href={cta.href} variant="text">
+            {cta.label}
+          </ArrowLink>
+        ) : null}
+      </Reveal>
+    );
+  }
+
   return (
     <Reveal className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
       <SectionHeading id={id} {...heading} headingClassName="max-w-[18ch]" />

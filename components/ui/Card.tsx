@@ -24,9 +24,9 @@ const tones: Record<CardTone, string> = {
     "shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_30px_-18px_rgb(0_0_0/0.18)]",
     "hover:shadow-[0_2px_4px_rgb(0_0_0/0.04),0_30px_60px_-28px_rgb(0_0_0/0.22)]",
   ),
-  /** Dark contrast card on the warm page (accent words turn lime). */
+  /** Dark contrast card on the warm page (accent words turn peach). */
   ink: cn(
-    "tone-ink rounded-[var(--radius-card)] bg-ink text-paper [--heading-accent:var(--accent)] [--focus-ring:var(--accent)]",
+    "tone-ink rounded-[var(--radius-card)] bg-ink text-paper",
     "shadow-[0_30px_60px_-30px_rgb(0_0_0/0.6)]",
   ),
 };

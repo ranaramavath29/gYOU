@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Playfair_Display } from "next/font/google";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
 import type { ReactNode } from "react";
 import { Analytics } from "@/components/analytics/Analytics";
 import { Footer } from "@/components/layout/Footer";
@@ -13,18 +13,19 @@ import { organizationLd } from "@/lib/jsonld";
 import { SITE_URL } from "@/lib/siteUrl";
 import "./globals.css";
 
-const display = Playfair_Display({
+// "Studio Daylight" type: characterful grotesque headings, Inter for reading.
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["400", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-bricolage",
   display: "swap",
 });
 
-const sans = Manrope({
+const sans = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-manrope",
+  style: ["normal", "italic"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: "light",
-  themeColor: "#F2F0EA",
+  themeColor: "#FBF7F0",
 };
 
 // Without JavaScript, Reveal never runs, so show its content anyway.
@@ -58,7 +59,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <JsonLd data={organizationLd()} />
         <a
           href="#main"
-          className="sr-only rounded-full bg-accent px-5 py-3 font-semibold text-ink focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
+          className="sr-only rounded-full bg-accent px-5 py-3 font-semibold text-on-accent focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
         >
           {uiLabels.skipToContent}
         </a>

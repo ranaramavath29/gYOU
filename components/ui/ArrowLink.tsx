@@ -10,7 +10,7 @@ export function ArrowCircle({ className }: { className?: string }) {
       aria-hidden
       className={cn(
         "grid size-11 shrink-0 place-items-center rounded-full border border-line-strong transition-colors duration-200",
-        "group-hover:border-accent group-hover:bg-accent group-hover:text-ink",
+        "group-hover:border-accent group-hover:bg-accent group-hover:text-on-accent",
         "[.tone-paper_&]:border-ink/25 [.tone-paper_&]:group-hover:border-ink [.tone-paper_&]:group-hover:bg-ink [.tone-paper_&]:group-hover:text-paper",
         className,
       )}

@@ -1,4 +1,5 @@
 import { site } from "../site";
+import { media } from "../media";
 import type { ServicePageContent } from "./types";
 
 /**
@@ -8,6 +9,7 @@ import type { ServicePageContent } from "./types";
 export const seoContentMarketing: ServicePageContent = {
   slug: "seo-content-marketing",
   hero: {
+    media: media.mobileSearch,
     heading: { lead: "Be Found by the", accent: "Right", trail: "Customers." },
     supporting:
       "Technical SEO, local search and useful content that help the people searching for what you offer find your business.",

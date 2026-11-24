@@ -110,3 +110,50 @@ export function AsteriskIcon(props: IconProps) {
     </svg>
   );
 }
+
+/* Brand glyphs for social profile links (filled, brand-neutral colour via currentColor). */
+function brand({ size = 18, ...rest }: IconProps): SVGProps<SVGSVGElement> {
+  return {
+    width: size,
+    height: size,
+    viewBox: "0 0 24 24",
+    fill: "currentColor",
+    "aria-hidden": true,
+    focusable: false,
+    ...rest,
+  };
+}
+
+export function LinkedInIcon(props: IconProps) {
+  return (
+    <svg {...brand(props)}>
+      <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3.5a1.97 1.97 0 1 0 0 3.94 1.97 1.97 0 0 0 0-3.94ZM20.44 13.4c0-3.06-1.63-4.48-3.81-4.48a3.3 3.3 0 0 0-2.98 1.64V8.5h-3.38V20h3.38v-6.06c0-1.6.3-3.14 2.28-3.14 1.95 0 1.98 1.82 1.98 3.24V20h3.38v-6.6Z" />
+    </svg>
+  );
+}
+
+export function InstagramIcon(props: IconProps) {
+  return (
+    <svg {...base({ size: 18, ...props })}>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function FacebookIcon(props: IconProps) {
+  return (
+    <svg {...brand(props)}>
+      <path d="M14 8.5V6.8c0-.8.5-1.3 1.4-1.3H17V2.6h-2.4C12 2.6 10.6 4.1 10.6 6.6v1.9H8v3.1h2.6v9.8H14v-9.8h2.6l.4-3.1H14Z" />
+    </svg>
+  );
+}
+
+export function XIcon(props: IconProps) {
+  return (
+    <svg {...brand({ size: 16, ...props })}>
+      <path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77L17.75 3Zm-1.08 16.2h1.7L7.4 4.73H5.58l11.09 14.47Z" />
+    </svg>
+  );
+}

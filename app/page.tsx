@@ -1,5 +1,5 @@
 import { Hero } from "@/components/home/Hero";
-import { AgencyIntro, ClientCredibility, ServicesMarquee } from "@/components/home/IntroSections";
+import { AgencyIntro, CallbackBar, ClientCredibility } from "@/components/home/IntroSections";
 import { Challenges, Process, SelectedWork, ServicesList } from "@/components/home/OfferSections";
 import {
   Industries,
@@ -28,7 +28,8 @@ export const metadata = buildMetadata({
   path: "/",
 });
 
-// Section order follows docs/BUILD_PROMPT.md → Phase 3. Content: content/home.ts.
+// "Studio Daylight" layout (option J): hero, callback bar, facts, clients, then the
+// brief's sections. Content: content/home.ts.
 export default async function HomePage() {
   // Selected work comes from published case studies; hidden while there are none.
   const work: WorkCard[] = (await getCaseStudies())
@@ -50,11 +51,11 @@ export default async function HomePage() {
     <>
       {localBusiness ? <JsonLd data={localBusiness} /> : null}
       <Hero />
-      <ServicesMarquee />
+      <CallbackBar />
+      <ClientCredibility />
       <AgencyIntro />
       {/* Added at gYOU's request (PAUSE 4): highlights websites + marketing. */}
       <Spotlight id="spotlight-heading" />
-      <ClientCredibility />
       <Challenges />
       <ServicesList />
       <Process />

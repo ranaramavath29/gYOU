@@ -5,8 +5,9 @@ import { cn } from "@/lib/cn";
 import { isPlaceholder, SHOW_PLACEHOLDER_OUTLINE } from "@/lib/ph";
 
 /**
- * The supplied full logo is used when configured; the SVG mark and text
- * remain available for the wordmark setting and placeholder previews.
+ * The supplied gYOU logo (public/brand/gyou-logo.svg: traced from gYOU's
+ * artwork, charcoal with the tomato arrow and DIGITAL) is used when configured; the SVG
+ * mark and text remain for the "wordmark" setting and placeholder previews.
  */
 export function Wordmark({ className }: { className?: string }) {
   const pending = isPlaceholder(site.logo);
@@ -24,10 +25,12 @@ export function Wordmark({ className }: { className?: string }) {
         <Image
           src={imageSrc}
           alt=""
-          width={381}
-          height={101}
+          width={5521}
+          height={1356}
+          // Vector logo: served as-is (no re-encoding), sharp at any size.
+          unoptimized
           loading="eager"
-          className="h-[1.65em] w-auto shrink-0 object-contain transition-opacity duration-200 group-hover/logo:opacity-85"
+          className="h-[1.45em] w-auto shrink-0 object-contain transition-opacity duration-200 group-hover/logo:opacity-80"
         />
       ) : (
         <>

@@ -36,60 +36,58 @@ export function FinalCta({
   // Contact values that are still placeholders produce no href and are skipped.
   const links = candidates.filter((l): l is ContactLink & { href: string } => Boolean(l.href));
 
+  // "Studio Daylight" closing band: dark rounded panel, heading left, actions right.
   return (
-    <section
-      aria-labelledby="cta-heading"
-      className="relative overflow-hidden py-[clamp(5rem,3rem+7vw,10rem)]"
-    >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-[-30%] left-1/2 h-[520px] w-[min(1000px,140%)] -translate-x-1/2 rounded-full bg-accent/15 blur-[140px]"
-      />
-      <Container className="relative">
-        <Reveal className="flex flex-col items-center gap-10 text-center">
-          <SectionHeading
-            id="cta-heading"
-            size="hero"
-            align="center"
-            eyebrow={
-              <span className="text-small font-semibold tracking-[0.12em] text-fg-subtle uppercase">
-                {finalCta.eyebrow}
-              </span>
-            }
-            {...heading}
-            description={supporting}
-            headingClassName="max-w-[16ch]"
+    <section aria-labelledby="cta-heading" className="py-[clamp(3.5rem,2rem+5vw,7rem)]">
+      <Container>
+        <Reveal className="tone-ink relative overflow-hidden rounded-[var(--radius-sheet)] bg-ink px-6 py-12 text-bg md:px-12 md:py-16 lg:px-16">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -top-32 -right-24 h-[420px] w-[520px] rounded-full bg-accent/15 blur-[120px]"
           />
-          <EmailCapture form={form} page={page} />
-          <Button href={finalCta.secondaryCta.href} variant="outline">
-            {finalCta.secondaryCta.label}
-          </Button>
-          <p className="text-small text-fg-subtle">{finalCta.supportingLine}</p>
-          <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6">
-            <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-small text-fg-muted">
-              {links.map((link, i) => (
-                <li key={link.label} className="flex items-center gap-3">
-                  {i > 0 ? <span aria-hidden>·</span> : null}
-                  <a
-                    href={link.href}
-                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="inline-flex min-h-9 items-center underline decoration-line-strong underline-offset-4 hover:text-fg hover:decoration-fg"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            {combined ? (
-              <>
-                <span aria-hidden className="hidden h-5 w-px bg-line-strong sm:block" />
-                <PhoneWhatsApp
-                  inline
-                  className="justify-center text-small"
-                  location="closing-cta"
-                />
-              </>
-            ) : null}
+          <div className="relative grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-14">
+            <SectionHeading
+              id="cta-heading"
+              eyebrow={
+                <span className="text-small font-semibold tracking-[0.12em] text-fg-subtle uppercase">
+                  {finalCta.eyebrow}
+                </span>
+              }
+              {...heading}
+              description={supporting}
+              headingClassName="max-w-[16ch]"
+            />
+            <div className="flex flex-col gap-6">
+              <EmailCapture form={form} page={page} />
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+                <Button href={finalCta.secondaryCta.href} variant="outline">
+                  {finalCta.secondaryCta.label}
+                </Button>
+                <p className="text-small text-fg-subtle">{finalCta.supportingLine}</p>
+              </div>
+              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
+                <ul className="flex flex-wrap items-center gap-x-3 gap-y-1 text-small text-fg-muted">
+                  {links.map((link, i) => (
+                    <li key={link.label} className="flex items-center gap-3">
+                      {i > 0 ? <span aria-hidden>·</span> : null}
+                      <a
+                        href={link.href}
+                        {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        className="inline-flex min-h-9 items-center underline decoration-line-strong underline-offset-4 hover:text-fg hover:decoration-fg"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                {combined ? (
+                  <>
+                    <span aria-hidden className="hidden h-5 w-px bg-line-strong sm:block" />
+                    <PhoneWhatsApp inline className="text-small" location="closing-cta" />
+                  </>
+                ) : null}
+              </div>
+            </div>
           </div>
         </Reveal>
       </Container>

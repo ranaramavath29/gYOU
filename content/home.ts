@@ -1,4 +1,5 @@
-import type { MediaTint } from "@/components/ui/MediaFrame";
+import type { MediaSource, MediaTint } from "@/components/ui/MediaFrame";
+import { media } from "./media";
 import { industryList } from "./industries";
 import { site } from "./site";
 import { serviceHref, type ServiceSlug } from "./services";
@@ -24,9 +25,6 @@ export const ctas = {
   services: { label: "Explore Our Services", href: "/services" },
 } as const satisfies Record<string, Cta>;
 
-/** Decorative hero tile built from real services (no photos available yet). */
-export type HeroTile = { title: string; detail: string; tint: MediaTint };
-
 export const hero = {
   eyebrow: "DIGITAL MARKETING & GROWTH PARTNER",
   heading: { lead: "Make Your Brand Visible.", accent: "Turn Attention Into Growth." },
@@ -35,16 +33,12 @@ export const hero = {
   supportingLine: "Strategy First. Data Driven. Growth That Matters.",
   primaryCta: ctas.primary,
   secondaryCta: { label: "Explore Our Services", href: "/services" },
-  // Replace with real stills and a showreel when available (MediaFrame `media`).
-  tiles: [
-    { title: "Websites", detail: "UI/UX · Landing pages · Development", tint: "olive" },
-    {
-      title: "Creative Thinking. Strategic Marketing. Measurable Growth.",
-      detail: "gYOU",
-      tint: "graphite",
-    },
-    { title: "Marketing", detail: "Performance · SEO · Social", tint: "rust" },
-  ] satisfies readonly HeroTile[],
+  /** Showcase card beside the headline: gYOU's shoot video with the brand statement. */
+  showcase: {
+    media: media.studioShoot,
+    tag: "Inside the studio",
+    statement: "Creative Thinking. Strategic Marketing. Measurable Growth.",
+  },
 } as const;
 
 export const marqueeLabel = "Our services";
@@ -100,12 +94,15 @@ export const intro = {
     "We combine digital marketing strategy, performance-driven campaigns, search engine optimization and website development to help businesses build visibility, connect with their audience and generate meaningful opportunities.",
     "From improving your online presence to running targeted advertising campaigns, we bring the right strategies together to support your business goals.",
   ],
+  /** Screen-reader label for the facts row under the hero. */
+  factsLabel: "gYOU at a glance",
   // Verified facts only. Add years in business, projects, team size etc. when they can be proven.
   stats: [
     { value: "6", label: "Integrated services under one team" },
     { value: site.primaryMarket, label: "Where we are based" },
   ] satisfies readonly Stat[],
   cta: { label: "Discover gYOU Digital", href: "/about-us" },
+  image: media.hourglass,
 } as const;
 
 export type Credential = { name: string; logo?: string };
@@ -179,6 +176,13 @@ export const servicesSection = {
   intro:
     "Every business has different goals. We bring together digital marketing expertise and website development solutions to help businesses build visibility, attract customers and grow online.",
   cta: { label: "View All Services", href: "/services" },
+  /** Photo on each service card (supplied media; social uses its video still). */
+  media: {
+    "website-design-development": media.websiteDevices,
+    "performance-marketing": media.marketingTeam,
+    "seo-content-marketing": media.mobileSearch,
+    "social-media-marketing": media.socialMediaStill,
+  } satisfies Record<ServiceSlug, MediaSource>,
 } as const;
 
 export const process = {
@@ -236,10 +240,12 @@ export const industries = {
   // Brief §6 Section 08 (content/industries.ts).
   items: industryList.map((i) => i.name),
   cta: { label: "Explore industries", href: "/industries" },
+  ctaHint: "How we approach each sector",
 } as const;
 
 export const whyChoose = {
   heading: { lead: "The Right Strategy Makes", accent: "All the Difference." },
+  image: media.lightbulb,
   points: [
     {
       title: "Business-first approach",

@@ -44,7 +44,10 @@ const swatches: Array<{ token: ColorToken; use: string }> = [
   { token: "fg-subtle", use: "Labels, captions" },
   { token: "line", use: "Borders, dividers" },
   { token: "line-strong", use: "Outline buttons" },
-  { token: "accent", use: "CTA fills, highlights, marquee" },
+  { token: "accent", use: "Tomato: CTA fills, dots, active states" },
+  { token: "on-accent", use: "Text and icons on tomato" },
+  { token: "sage", use: "Secondary accent: tiles, work cards" },
+  { token: "peach", use: "Accent words on ink cards" },
   { token: "paper", use: "Process section" },
   { token: "ink", use: "Text on paper" },
   { token: "ink-muted", use: "Body on paper" },
@@ -58,7 +61,9 @@ const pairs: Array<{ fg: ColorToken; bg: ColorToken; large?: boolean }> = [
   { fg: "fg-subtle", bg: "bg" },
   { fg: "fg-subtle", bg: "bg-raised-2" },
   { fg: "accent", bg: "bg" },
-  { fg: "ink", bg: "accent" },
+  { fg: "on-accent", bg: "accent" },
+  { fg: "on-accent", bg: "sage" },
+  { fg: "ink", bg: "peach" },
   { fg: "bg", bg: "fg" },
   { fg: "ink", bg: "paper" },
   { fg: "ink-muted", bg: "paper" },
@@ -174,15 +179,15 @@ export default function StyleguidePage() {
             </table>
           </div>
           <p className="mt-4 text-small text-fg-subtle">
-            Lime on the warm page is{" "}
-            {contrastRatio(colorTokens.accent, colorTokens.paper).toFixed(2)}:1, so lime is reserved
-            for fills and decoration; headings use ink for contrast.
+            Tomato on the warm paper is{" "}
+            {contrastRatio(colorTokens.accent, colorTokens.paper).toFixed(2)}:1, so long text stays
+            ink; tomato is for fills (with white text), dots and short links.
           </p>
         </Block>
 
         <Block
           title="Typography"
-          note="Playfair Display 600 for headings, italic 400 for accent words. Manrope 400/500/600 for everything else. Sizes use clamp()."
+          note="Bricolage Grotesque 600 for headings, accent words plain (peach only on dark cards). Inter 400/500/600 for everything else. Sizes use clamp()."
         >
           <div className="flex flex-col gap-10">
             <div>
@@ -199,14 +204,16 @@ export default function StyleguidePage() {
             </div>
             <div>
               <p className="mb-2 text-small text-fg-subtle">Card title · 40 → 24px</p>
-              <p className="font-display text-title font-semibold">Card title in Playfair</p>
+              <p className="font-display text-title font-semibold">
+                Card title in Bricolage Grotesque
+              </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <p className="mb-2 text-small text-fg-subtle">Body · 20 → 17px · --fg-muted</p>
                 <p className="text-body text-fg-muted">
-                  Body copy is set in Manrope with a comfortable line height for long reading. It
-                  sits in muted ink on the warm background.
+                  Body copy is set in Inter with a comfortable line height for long reading. It sits
+                  in muted ink on the warm background.
                 </p>
               </div>
               <div>
@@ -265,6 +272,9 @@ export default function StyleguidePage() {
               <Pill>Outline tag</Pill>
               <Pill variant="raised">Raised tag</Pill>
               <Pill variant="accent">Accent tag</Pill>
+              <Pill dot variant="chip">
+                Eyebrow chip
+              </Pill>
             </div>
             <div className="flex flex-wrap items-center gap-10">
               <ArrowLink href="/styleguide">Arrow link</ArrowLink>
@@ -478,7 +488,7 @@ export default function StyleguidePage() {
 
 function PlayBadge() {
   return (
-    <span className="grid size-6 place-items-center rounded-full bg-accent text-ink">
+    <span className="grid size-6 place-items-center rounded-full bg-accent text-on-accent">
       <PlayIcon size={11} />
     </span>
   );

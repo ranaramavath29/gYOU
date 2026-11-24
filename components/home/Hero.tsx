@@ -1,102 +1,83 @@
-import { ArrowUpRightIcon, AsteriskIcon } from "@/components/icons";
-import { cn } from "@/lib/cn";
+import { ArrowUpRightIcon } from "@/components/icons";
 import { Button, Container, MediaFrame, Pill, Reveal, SectionHeading } from "@/components/ui";
 import { hero } from "@/content/home";
 
-// Offsets the three floats so the tiles drift out of step.
-const tileLayout = [
-  { tilt: -5, aspect: "4/5", wrapper: "translate-y-6 md:translate-y-10", delay: undefined },
-  { tilt: undefined, aspect: "4/3", wrapper: "z-10", delay: "[animation-delay:-2.3s]" },
-  {
-    tilt: 5,
-    aspect: "4/5",
-    wrapper: "translate-y-10 md:translate-y-16",
-    delay: "[animation-delay:-4.6s]",
-  },
-] as const;
-
-/** 1. Hero and 2. floating work tiles / showreel. */
+/**
+ * 1. Hero: headline, copy and CTAs on the left; on the right one framed
+ * showcase card (gYOU's studio video) with its statement underneath, so the
+ * media is never covered by labels.
+ */
 export function Hero() {
+  const { showcase } = hero;
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden pt-8 pb-24 md:pt-14 md:pb-36"
+      className="relative overflow-hidden pt-10 pb-16 md:pt-16 md:pb-24"
     >
+      {/* Soft warm panel behind the showcase, for depth without noise. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 right-[-10%] h-[520px] w-[720px] rounded-full bg-accent/10 blur-[140px]"
+        className="pointer-events-none absolute top-0 right-0 hidden h-[78%] w-[42%] rounded-bl-[160px] bg-paper lg:block"
       />
-      <Container className="relative">
-        <Reveal>
+      <Container className="relative grid items-center gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-16 xl:gap-24">
+        <Reveal className="flex flex-col">
           <SectionHeading
             as="h1"
             id="hero-heading"
-            size="hero"
-            eyebrow={<Pill dot>{hero.eyebrow}</Pill>}
+            size="split"
+            eyebrow={
+              <Pill dot variant="chip">
+                {hero.eyebrow}
+              </Pill>
+            }
             {...hero.heading}
-            className="gap-8"
-            headingClassName="max-w-[17ch]"
+            className="gap-7"
+            headingClassName="max-w-[15ch]"
           />
-          <div className="mt-10 flex flex-col gap-8 md:mt-12 lg:flex-row lg:items-end lg:justify-between">
-            <div className="flex max-w-[46ch] flex-col gap-3">
-              <p className="text-body text-fg-muted">{hero.supporting}</p>
-              <p className="text-small font-semibold text-fg">{hero.supportingLine}</p>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Button href={hero.primaryCta.href} variant="solid" size="lg">
-                {hero.primaryCta.label}
-              </Button>
-              <Button
-                href={hero.secondaryCta.href}
-                variant="outline"
-                size="lg"
-                icon={<ArrowUpRightIcon />}
-                iconPosition="end"
-              >
-                {hero.secondaryCta.label}
-              </Button>
-            </div>
+          <p className="mt-7 max-w-[46ch] text-body text-fg-muted">{hero.supporting}</p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Button href={hero.primaryCta.href} variant="accent" size="lg">
+              {hero.primaryCta.label}
+            </Button>
+            <Button
+              href={hero.secondaryCta.href}
+              variant="outline"
+              size="lg"
+              icon={<ArrowUpRightIcon />}
+              iconPosition="end"
+            >
+              {hero.secondaryCta.label}
+            </Button>
           </div>
+          <p className="mt-10 flex items-center gap-3 text-small font-semibold text-fg">
+            <span aria-hidden className="h-px w-10 bg-line-strong" />
+            {hero.supportingLine}
+          </p>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-[1fr_1.5fr_1fr] items-center gap-3 md:mt-24 md:gap-8">
-          {hero.tiles.map((tile, i) => {
-            const layout = tileLayout[i]!;
-            return (
-              <div key={tile.title} className={layout.wrapper}>
-                <MediaFrame
-                  placeholder={tile.title}
-                  tint={tile.tint}
-                  aspect={layout.aspect}
-                  tilt={layout.tilt}
-                  float
-                  className={layout.delay}
-                >
-                  <div
-                    className={cn(
-                      "items-start justify-between gap-2 text-[clamp(0.5rem,0.35rem+0.6vw,0.8125rem)] text-fg-subtle",
-                      // The centre tile is short on phones; give its tagline the room.
-                      i === 1 ? "hidden sm:flex" : "flex",
-                    )}
-                  >
-                    <span>{tile.detail}</span>
-                    <AsteriskIcon size={14} className="hidden shrink-0 text-ink sm:block" />
-                  </div>
-                  <p
-                    className={cn(
-                      "mt-auto font-display font-semibold tracking-[-0.03em] text-balance",
-                      i === 1
-                        ? "text-[clamp(0.6875rem,0.1rem+2.4vw,2.5rem)] leading-[1.05]"
-                        : "text-[clamp(0.8rem,0.4rem+1.6vw,1.75rem)] leading-none",
-                    )}
-                  >
-                    {tile.title}
-                  </p>
-                </MediaFrame>
-              </div>
-            );
-          })}
-        </div>
+        <Reveal className="relative mx-auto w-full max-w-[480px] lg:mr-0">
+          <figure className="rounded-[36px] border border-line bg-bg-raised p-2.5 shadow-[0_40px_80px_-40px_rgb(29_27_24/0.45)]">
+            <MediaFrame
+              media={showcase.media}
+              placeholder={showcase.statement}
+              aspect="4/5"
+              priority
+              flat
+              className="[--radius-media:28px]"
+              overlay={
+                <span className="pointer-events-none absolute top-3 left-3 rounded-full bg-bg/90 px-3.5 py-1.5 text-[0.75rem] font-semibold text-ink backdrop-blur">
+                  {showcase.tag}
+                </span>
+              }
+            />
+            <figcaption className="flex items-start gap-3 px-3 pt-4 pb-2.5">
+              <span aria-hidden className="mt-2 size-2 shrink-0 rounded-full bg-accent" />
+              <span className="font-display text-[clamp(1.0625rem,0.9rem+0.6vw,1.375rem)] leading-snug font-semibold tracking-[-0.02em] text-balance">
+                {showcase.statement}
+              </span>
+            </figcaption>
+          </figure>
+        </Reveal>
       </Container>
     </section>
   );

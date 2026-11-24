@@ -1,3 +1,4 @@
+import { media } from "../media";
 import type { ServicePageContent } from "./types";
 
 /**
@@ -8,6 +9,7 @@ import type { ServicePageContent } from "./types";
 export const performanceMarketing: ServicePageContent = {
   slug: "performance-marketing",
   hero: {
+    media: media.marketingTeam,
     heading: { lead: "Advertising That", accent: "Answers", trail: "to Your Goals." },
     supporting:
       "Meta Ads and Google Ads campaigns planned, run and refined around the outcomes that matter to your business: qualified enquiries, sales and a clear view of what your spend delivers.",

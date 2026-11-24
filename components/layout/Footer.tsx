@@ -5,6 +5,7 @@ import { ArrowUpRightIcon } from "@/components/icons";
 import { PlaceholderText } from "@/components/PlaceholderText";
 import { Button, Container } from "@/components/ui";
 import { Wordmark } from "@/components/Wordmark";
+import { SocialLinks } from "@/components/sections/SocialLinks";
 import { footerNav, navCta, uiLabels, type NavLink } from "@/content/navigation";
 import { site } from "@/content/site";
 import { PhoneWhatsApp } from "@/components/sections/PhoneWhatsApp";
@@ -54,7 +55,7 @@ function ContactItem({ label, value, href }: { label: string; value: string; hre
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const { address, socials } = site;
+  const { address } = site;
 
   return (
     <footer className="border-t border-line bg-bg">
@@ -144,24 +145,7 @@ export function Footer() {
           </div>
           <div>
             <ColumnTitle>{footerNav.socialTitle}</ColumnTitle>
-            {isPlaceholder(socials) ? (
-              <PlaceholderText value={socials} className="text-small text-fg-muted" />
-            ) : (
-              <ul className="flex flex-wrap gap-x-5">
-                {socials.map((s) => (
-                  <li key={s.href}>
-                    <a
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex min-h-9 items-center text-small text-fg-muted hover:text-fg"
-                    >
-                      {s.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
+            <SocialLinks className="mt-1" />
           </div>
         </div>
       </Container>

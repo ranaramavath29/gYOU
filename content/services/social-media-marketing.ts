@@ -1,9 +1,11 @@
+import { media } from "../media";
 import type { ServicePageContent } from "./types";
 
 /** Social Media Marketing. Deliverables: brief §4.1. Other copy is working copy. */
 export const socialMediaMarketing: ServicePageContent = {
   slug: "social-media-marketing",
   hero: {
+    media: media.socialMedia,
     heading: { lead: "Social Media That", accent: "Builds", trail: "Your Brand." },
     supporting:
       "Strategy, content and community management that give your brand a consistent, recognisable presence where your audience spends its time.",

@@ -44,7 +44,7 @@ function ActiveDot({ active }: { active: boolean }) {
   return active ? (
     <span
       aria-hidden
-      className="relative size-1.5 rounded-full bg-accent shadow-[0_0_10px_rgb(214_255_92/0.9)]"
+      className="relative size-1.5 rounded-full bg-accent shadow-[0_0_8px_rgb(200_65_44/0.55)]"
     />
   ) : null;
 }
@@ -88,7 +88,7 @@ export function DesktopNav({ pathname }: { pathname: string }) {
             setHovered(null);
             hideSoon();
           }}
-          className="flex items-center gap-0.5 rounded-full border border-line bg-bg-raised/90 p-1.5 shadow-[0_10px_30px_-18px_rgb(0_0_0/0.14)] backdrop-blur-xl"
+          className="flex items-center gap-0.5"
         >
           {primaryNav.map((item) => (
             <NavItem
@@ -250,7 +250,7 @@ function ServiceRow({
     <Link
       href={section.href}
       onClick={onNavigate}
-      className="group -mx-3 my-1 flex items-start gap-4 rounded-xl px-3 py-3 transition-colors duration-200 [--focus-ring:var(--ink)] hover:bg-accent focus-visible:bg-accent"
+      className="group -mx-3 my-1 flex items-start gap-4 rounded-xl px-3 py-3 transition-colors duration-200 [--focus-ring:var(--ink)] hover:bg-paper focus-visible:bg-paper"
     >
       <span
         aria-hidden

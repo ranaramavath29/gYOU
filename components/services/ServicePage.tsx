@@ -12,6 +12,7 @@ import {
   Button,
   Card,
   Container,
+  MediaFrame,
   Pill,
   Reveal,
   Section,
@@ -57,38 +58,71 @@ export function ServicePage({
             current={service.name}
             currentHref={path}
           />
-          <Reveal className="mt-10 md:mt-14">
-            <SectionHeading
-              as="h1"
-              id="service-hero"
-              size="hero"
-              eyebrow={
-                <Pill dot>
-                  {service.name} · {shared.eyebrowSuffix}
-                </Pill>
-              }
-              {...content.hero.heading}
-              className="gap-8"
-              headingClassName="max-w-[16ch]"
-            />
-            <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <p className="max-w-[48ch] text-body text-fg-muted">{content.hero.supporting}</p>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Button href={shared.primaryCta.href} variant="solid" size="lg">
-                  {shared.primaryCta.label}
-                </Button>
-                <Button
-                  href={shared.secondaryCta.href}
-                  variant="outline"
-                  size="lg"
-                  icon={<ArrowUpRightIcon />}
-                  iconPosition="end"
-                >
-                  {shared.secondaryCta.label}
-                </Button>
+          <div
+            className={
+              content.hero.media
+                ? "mt-10 grid items-center gap-12 md:mt-14 lg:grid-cols-[1.1fr_1fr] lg:gap-14"
+                : "mt-10 md:mt-14"
+            }
+          >
+            <Reveal>
+              <SectionHeading
+                as="h1"
+                id="service-hero"
+                size={content.hero.media ? "split" : "hero"}
+                eyebrow={
+                  <Pill dot variant="chip">
+                    {service.name} · {shared.eyebrowSuffix}
+                  </Pill>
+                }
+                {...content.hero.heading}
+                className="gap-8"
+                headingClassName="max-w-[16ch]"
+              />
+              <div
+                className={
+                  content.hero.media
+                    ? "mt-8 flex flex-col gap-8"
+                    : "mt-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between"
+                }
+              >
+                <p className="max-w-[48ch] text-body text-fg-muted">{content.hero.supporting}</p>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <Button href={shared.primaryCta.href} variant="accent" size="lg">
+                    {shared.primaryCta.label}
+                  </Button>
+                  <Button
+                    href={shared.secondaryCta.href}
+                    variant="outline"
+                    size="lg"
+                    icon={<ArrowUpRightIcon />}
+                    iconPosition="end"
+                  >
+                    {shared.secondaryCta.label}
+                  </Button>
+                </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+            {content.hero.media ? (
+              <Reveal>
+                <figure className="rounded-[32px] border border-line bg-bg-raised p-2.5 shadow-[0_40px_80px_-44px_rgb(29_27_24/0.45)]">
+                  <MediaFrame
+                    media={content.hero.media}
+                    placeholder={
+                      content.hero.media.kind === "image"
+                        ? content.hero.media.alt
+                        : content.hero.media.label
+                    }
+                    aspect="3/2"
+                    priority
+                    flat
+                    sizes="(min-width: 1024px) 45vw, 100vw"
+                    className="[--radius-media:24px]"
+                  />
+                </figure>
+              </Reveal>
+            ) : null}
+          </div>
         </Container>
       </section>
 
@@ -167,7 +201,7 @@ export function ServicePage({
                 key={item}
                 className="group flex min-h-24 items-center gap-4 rounded-[var(--radius-card)] border border-line bg-bg-raised px-6 py-5 shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_30px_-18px_rgb(0_0_0/0.16)] transition-[border-color,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-line-strong"
               >
-                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-ink/5 text-ink transition-colors duration-300 group-hover:bg-accent">
+                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-ink/5 text-ink transition-colors duration-300 group-hover:bg-accent group-hover:text-on-accent">
                   <AsteriskIcon
                     size={16}
                     className="transition-transform duration-700 group-hover:rotate-90"

@@ -20,6 +20,8 @@ export const contactPage = {
   /** Discovery-call booking link (Calendly, Cal.com…). null hides the block (PAUSE 6). */
   bookingUrl: null as string | null,
   bookingLabel: "Book a discovery call",
+  followHeading: "Follow gYOU",
+  followIntro: "Ideas, work and updates from the team.",
   metaTitle: "Contact Us",
   metaDescription: `Contact gYOU, a ${site.primaryMarket} website design and digital marketing agency, by WhatsApp, phone or email.`,
 } as const;

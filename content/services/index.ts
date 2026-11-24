@@ -4,7 +4,7 @@
  * (content/services/<slug>.ts), collected in ./pages.ts.
  *
  * Order matters: it drives the marquee, homepage list, footer and /services.
- * Website building and marketing lead, per gYOU's direction (PAUSE 4).
+ * Performance Marketing first, then Website Design & Development (gYOU, Nov 2026).
  */
 export type ServiceSummary = {
   slug: string;
@@ -19,18 +19,18 @@ export type ServiceSummary = {
 
 export const services = [
   {
-    slug: "website-design-development",
-    name: "Website Design & Development",
-    shortName: "Websites",
-    summary: "Websites and landing pages designed to turn visitors into enquiries.",
-    highlights: ["UI/UX", "Landing pages", "Development"],
-  },
-  {
     slug: "performance-marketing",
     name: "Performance Marketing",
     shortName: "Performance",
     summary: "Meta Ads and Google Ads campaigns planned and refined around business outcomes.",
     highlights: ["Meta Ads", "Google Ads", "Retargeting"],
+  },
+  {
+    slug: "website-design-development",
+    name: "Website Design & Development",
+    shortName: "Websites",
+    summary: "Websites and landing pages designed to turn visitors into enquiries.",
+    highlights: ["UI/UX", "Landing pages", "Development"],
   },
   {
     slug: "seo-content-marketing",

@@ -22,7 +22,7 @@ You are a senior frontend engineer building the production website for **Rozento
 
 - Next.js, current stable release, App Router, TypeScript in `strict` mode
 - Tailwind CSS v4 with design tokens as CSS variables
-- `next/font/google` for Playfair Display and Manrope
+- `next/font/google` for Bricolage Grotesque and Inter
 - `motion` (Framer Motion) for animation; every animation respects `prefers-reduced-motion`
 - MDX for Insights (blog) posts and case-study long-form content
 - `react-hook-form` + `zod` for forms
@@ -31,29 +31,35 @@ You are a senior frontend engineer building the production website for **Rozento
 
 Forms submit through a single adapter (`lib/submitLead.ts`) that posts to `NEXT_PUBLIC_LEAD_ENDPOINT`. While that is unset, the adapter runs in mock mode: it logs the payload in development and shows the real success state. No secrets in client code.
 
-## DESIGN SYSTEM — "Editorial Luxe" (warm ivory)
+## DESIGN SYSTEM — "Studio Daylight" (option J: cream, ink, tomato, sage, peach)
+
+Chosen by gYOU in Nov 2026 to replace "Editorial Luxe". The gYOU logo artwork keeps its own lime; the site UI uses tomato.
 
 **Type**
-- Display / headings: Playfair Display, weight 600, letter-spacing -0.03em (hero -0.035em), line-height 0.9–0.95 on large sizes
-- Accent words inside headings: Playfair Display italic 400, coloured with the accent
-- Body, nav, buttons, forms: Manrope 400/500/600
+- Display / headings: Bricolage Grotesque, weight 600, letter-spacing -0.03em (hero -0.035em), line-height 0.96–1 on large sizes
+- Accent words inside headings: plain and upright, same colour as the heading (no highlight or underline); on ink cards they turn peach. Bricolage has no italic, so italic is never synthesised
+- Body, nav, buttons, forms: Inter 400/500/600
 - Scale (desktop → mobile): hero 132px → 52px, section H2 72px → 40px, card titles 24–40px, body 17–20px, small 13–15px. Use `clamp()`.
 
 **Colour tokens**
 | Token | Value | Use |
 |---|---|---|
-| `--bg` | `#F2F0EA` | Warm ivory page background |
+| `--bg` | `#FBF7F0` | Warm cream page background |
 | `--bg-raised` | `#FFFFFF` | Cards and raised surfaces |
 | `--bg-raised-2` | `#FFFFFF` | Inputs and active navigation |
-| `--fg` | `#0C0C0B` | Primary text |
-| `--fg-muted` | `#55534F` | Body copy |
-| `--fg-subtle` | `#6D6B65` | Labels, captions |
-| `--line` | `#E2E0DA` | Borders, dividers |
-| `--line-strong` | `#88867F` | Accessible outlines |
-| `--accent` | `#D6FF5C` | CTA fills, decorative highlights, marquee band (text on it is `--ink`) |
-| `--paper` | `#F2F0EA` | Warm ivory surface |
-| `--ink` | `#0C0C0B` | Primary dark text and contrast cards |
-| `--ink-muted` | `#45443E` | Secondary text on warm surfaces |
+| `--fg` | `#1D1B18` | Primary text (warm ink) |
+| `--fg-muted` | `#5C5A55` | Body copy |
+| `--fg-subtle` | `#67635B` | Labels, captions |
+| `--line` | `#EBE4D8` | Borders, dividers |
+| `--line-strong` | `#8A8174` | Accessible outlines |
+| `--accent` | `#C8412C` | Tomato: CTA fills, dots, active states (text on it is `--on-accent`) |
+| `--accent-hover` | `#B3391F` | Hover state of tomato fills |
+| `--on-accent` | `#FFFFFF` | Text and icons on tomato (4.9:1) |
+| `--peach` | `#FFD7B8` | Accent text on ink cards |
+| `--sage` | `#5B6650` | Secondary accent: work cards, tiles (white text 6.1:1) |
+| `--paper` | `#F3ECE1` | Warm paper surface |
+| `--ink` | `#1D1B18` | Primary dark text and contrast cards |
+| `--ink-muted` | `#4D4A44` | Secondary text on warm surfaces |
 | `--danger` | `#B42318` | Error messages |
 
 Check every text/background pair for 4.5:1 contrast (3:1 for 24px+).
@@ -64,15 +70,23 @@ Check every text/background pair for 4.5:1 contrast (3:1 for 24px+).
 - Container max-width 1320px, side padding 32px (20px on mobile)
 - Section vertical padding 120–140px desktop, 72–88px mobile
 
-**Signature elements**
-- Floating nav pill with an active-state background
-- Hero: oversized serif headline with one italic accent word, supporting line, two CTAs (solid light pill + outline pill with a play icon)
-- Three gently floating, slightly rotated media tiles under the hero (showreel in the centre)
-- Tilted accent-colour marquee band listing the four services
-- Large numbered service rows with a circular arrow button
-- Staggered "Selected work" grid with a slow image zoom on hover
-- White cards on warm ivory, with an occasional dark contrast card; italic serif numerals and headings
-- Closing section: very large "Ready for your *next move?*" with a single pill email field and soft accent glow
+**Signature elements** (homepage layout, option J)
+- Flat header bar on cream: logo, plain nav links with the current page raised, tomato CTA pill
+- Sand eyebrow chip with a tomato dot; two-column hero: headline with a peach-highlighted accent line, supporting copy and two CTAs on the left; a stage of overlapping tiles on the right (statement tile, two tilted service tiles, floating note)
+- Callback bar directly under the hero: name, email, phone, service and consent (`components/forms/CallbackForm.tsx`)
+- Verified facts as tinted cards; client logos as a centred tile row (hidden until permitted logos exist)
+- Services as a two-column card grid with soft peach/sage/sand initial chips and highlight tags; centred section headings
+- Selected work as colour cards (tomato, sage, sand) with the cover image (hidden until case studies are published)
+- Process on the paper section; white cards with an occasional dark contrast card
+- Closing CTA as a dark rounded band: heading left, email capture and contact links right
+
+**Media** (supplied by gYOU, Nov 2026; files in `public/media`, defined in `content/media.ts`)
+- Home hero: studio-shoot video (muted loop, pause button, off under reduced motion) with the statement; website-devices and mobile-search photos on the service tiles
+- Home "More than marketing" intro: hourglass image. Home "Why choose": lightbulb image (desktop)
+- About: people-walking banner under the heading
+- Service heroes: website devices (Website Design), marketing lettering (Performance), mobile search (SEO), social-icons video (Social Media)
+- Industries: one stock photo per industry from Unsplash (free Unsplash Licence, no credit needed), in `public/media/industries`; source pages listed in `content/media.ts`. Replace with gYOU's own client or sector photos when available
+- Not used: the "Brand without digital marketing" car poster (grammar error in its baked-in headline) and the city billboard (shows another brand's ad, so it could read as gYOU's own work)
 
 **Motion**: one reveal per section (fade + 16px rise), marquee 30s linear, tile float 7s ease-in-out. Nothing that blocks reading. All disabled under reduced motion.
 

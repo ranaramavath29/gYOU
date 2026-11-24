@@ -1,14 +1,14 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-export type HeadingSize = "hero" | "section" | "title";
+export type HeadingSize = "hero" | "split" | "section" | "title";
 
 type SectionHeadingProps = {
   as?: "h1" | "h2" | "h3";
   size?: HeadingSize;
   /** Text before the accent word(s). */
   lead?: string;
-  /** Italic serif accent word(s). Lime on dark, ink on paper. */
+  /** Accent word(s): plain on light, peach text on ink cards. */
   accent?: string;
   /** Text after the accent word(s). */
   trail?: string;
@@ -24,12 +24,14 @@ type SectionHeadingProps = {
 
 const sizeClasses: Record<HeadingSize, string> = {
   hero: "text-hero",
+  // Hero headline beside the stage in the two-column homepage hero.
+  split: "text-[clamp(2.75rem,1.6rem+3.9vw,5rem)] leading-[1.02] tracking-[-0.035em]",
   section: "text-h2",
   title: "text-title",
 };
 
 /**
- * Serif heading with an optional italic accent word:
+ * Display heading with an optional highlighted accent word:
  * <SectionHeading lead="What we" accent="do best" />
  */
 export function SectionHeading({

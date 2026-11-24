@@ -29,7 +29,7 @@ export function Accordion({ items, className }: AccordionProps) {
             <span>{item.question}</span>
             <span
               aria-hidden
-              className="grid size-10 shrink-0 place-items-center rounded-full border border-line-strong text-fg transition-[rotate,background-color,border-color,color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45 group-open:border-accent group-open:bg-accent group-open:text-ink group-hover:border-accent"
+              className="grid size-10 shrink-0 place-items-center rounded-full border border-line-strong text-fg transition-[rotate,background-color,border-color,color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45 group-open:border-accent group-open:bg-accent group-open:text-on-accent group-hover:border-accent"
             >
               <PlusIcon size={16} />
             </span>
