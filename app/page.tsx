@@ -1,5 +1,5 @@
 import { Hero } from "@/components/home/Hero";
-import { AgencyIntro, CallbackBar, ClientCredibility } from "@/components/home/IntroSections";
+import { AgencyIntro, ClientCredibility } from "@/components/home/IntroSections";
 import { Challenges, Process, SelectedWork, ServicesList } from "@/components/home/OfferSections";
 import {
   Industries,
@@ -28,7 +28,7 @@ export const metadata = buildMetadata({
   path: "/",
 });
 
-// "Studio Daylight" layout (option J): hero, callback bar, facts, clients, then the
+// "Studio Daylight" layout (option J): hero (with audit form), facts, clients, then the
 // brief's sections. Content: content/home.ts.
 export default async function HomePage() {
   // Selected work comes from published case studies; hidden while there are none.
@@ -51,7 +51,6 @@ export default async function HomePage() {
     <>
       {localBusiness ? <JsonLd data={localBusiness} /> : null}
       <Hero />
-      <CallbackBar />
       <ClientCredibility />
       <AgencyIntro />
       {/* Added at gYOU's request (PAUSE 4): highlights websites + marketing. */}
