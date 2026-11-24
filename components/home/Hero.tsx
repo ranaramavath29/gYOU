@@ -15,11 +15,7 @@ export function Hero() {
   return (
     <section aria-labelledby="hero-heading" className="px-2 pt-2 pb-4 md:px-4 md:pb-6">
       <div className="tone-ink relative overflow-hidden rounded-[var(--radius-sheet)] bg-ink text-fg">
-        {/* Faint grid and warm glow for depth; decorative only. */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(to_right,#fbf7f0_1px,transparent_1px),linear-gradient(to_bottom,#fbf7f0_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(ellipse_at_30%_40%,black,transparent_75%)]"
-        />
+        {/* Soft accent glow for depth; decorative only. */}
         <div
           aria-hidden
           className="pointer-events-none absolute -top-40 -left-40 size-[520px] rounded-full bg-accent/25 blur-[120px]"
