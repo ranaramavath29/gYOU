@@ -23,7 +23,11 @@ export function AgencyIntro() {
       <Reveal className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
         <SectionHeading id="intro-heading" {...intro.heading} headingClassName="max-w-[14ch]" />
         <div className="flex flex-col gap-10">
-          <p className="text-body text-fg-muted">{intro.body}</p>
+          <div className="flex flex-col gap-4 text-body text-fg-muted">
+            {intro.body.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
           {intro.stats.length > 0 ? (
             <dl className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line pt-8">
               {intro.stats.map((stat) => (

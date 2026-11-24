@@ -38,7 +38,10 @@ export function Hero() {
             headingClassName="max-w-[17ch]"
           />
           <div className="mt-10 flex flex-col gap-8 md:mt-12 lg:flex-row lg:items-end lg:justify-between">
-            <p className="max-w-[46ch] text-body text-fg-muted">{hero.supporting}</p>
+            <div className="flex max-w-[46ch] flex-col gap-3">
+              <p className="text-body text-fg-muted">{hero.supporting}</p>
+              <p className="text-small font-semibold text-fg">{hero.supportingLine}</p>
+            </div>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button href={hero.primaryCta.href} variant="solid" size="lg">
                 {hero.primaryCta.label}
@@ -77,7 +80,7 @@ export function Hero() {
                     )}
                   >
                     <span>{tile.detail}</span>
-                    <AsteriskIcon size={14} className="hidden shrink-0 text-accent sm:block" />
+                    <AsteriskIcon size={14} className="hidden shrink-0 text-ink sm:block" />
                   </div>
                   <p
                     className={cn(

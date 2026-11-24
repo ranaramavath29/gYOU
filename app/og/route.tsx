@@ -4,8 +4,7 @@ import { LogoMark } from "@/components/LogoMark";
 import { site } from "@/content/site";
 
 /**
- * Dynamic Open Graph image (1200×630) in the Editorial Luxe style:
- * dark background, lime accent, large serif-style title.
+ * Dynamic Open Graph image (1200×630) in the warm ivory, ink and lime palette.
  * Uses ImageResponse's built-in font; no font files are fetched at runtime.
  * Usage: /og?title=…&eyebrow=…
  */
@@ -25,10 +24,10 @@ export function GET(request: NextRequest) {
         flexDirection: "column",
         justifyContent: "space-between",
         padding: "72px 80px",
-        background: "#0C0C0B",
-        color: "#F2F0EA",
+        background: "#F2F0EA",
+        color: "#0C0C0B",
         backgroundImage:
-          "radial-gradient(circle at 85% 10%, rgba(214,255,92,0.18), transparent 45%)",
+          "radial-gradient(circle at 85% 10%, rgba(214,255,92,0.24), transparent 45%)",
       }}
     >
       <div
@@ -46,7 +45,7 @@ export function GET(request: NextRequest) {
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
         <div
-          style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26, color: "#BDBBB2" }}
+          style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26, color: "#55534F" }}
         >
           <div style={{ width: 12, height: 12, borderRadius: 999, background: "#D6FF5C" }} />
           {eyebrow}
@@ -63,7 +62,7 @@ export function GET(request: NextRequest) {
         </div>
       </div>
       <div
-        style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#A9A79F" }}
+        style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#6D6B65" }}
       >
         <span>{site.tagline}</span>
         <span>{site.domain}</span>

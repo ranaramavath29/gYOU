@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0C0C0B"/>
+  <rect width="64" height="64" rx="14" fill="#F2F0EA"/>
   <!-- gYOU brand icon: same geometry and colours as components/LogoMark.tsx -->
   <svg x="8" y="8" width="48" height="48" viewBox="33 75 368 340" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="54">
     <g stroke="#B4FD10">
@@ -7,6 +7,6 @@
       <path d="M249 104 L229 210"/>
       <path d="M229 386 L243 293 L298 320"/>
     </g>
-    <path d="M370 167 L291 236 L362 301" stroke="#FFFFFF"/>
+    <path d="M370 167 L291 236 L362 301" stroke="#0C0C0B"/>
   </svg>
 </svg>

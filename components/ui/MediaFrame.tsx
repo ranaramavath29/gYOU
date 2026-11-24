@@ -43,10 +43,10 @@ const aspects: Record<MediaAspect, string> = {
 };
 
 const tints: Record<MediaTint, string> = {
-  olive: "bg-[linear-gradient(135deg,#2f3f1d_0%,#18200f_100%)]",
-  graphite: "bg-[linear-gradient(135deg,#2c2c2a_0%,#181817_100%)]",
-  rust: "bg-[linear-gradient(135deg,#3d2518_0%,#20140e_100%)]",
-  navy: "bg-[linear-gradient(135deg,#1f2740_0%,#111625_100%)]",
+  olive: "bg-[linear-gradient(135deg,#dce5ca_0%,#cbd6b6_100%)]",
+  graphite: "bg-[linear-gradient(135deg,#ffffff_0%,#e7e4dc_100%)]",
+  rust: "bg-[linear-gradient(135deg,#f3e5db_0%,#e7d3c4_100%)]",
+  navy: "bg-[linear-gradient(135deg,#e1e6ef_0%,#cdd5e3_100%)]",
 };
 
 /** Image or video in a rounded frame, with a clearly marked placeholder state. */
@@ -71,7 +71,7 @@ export function MediaFrame({
     <div
       style={style}
       className={cn(
-        "relative overflow-hidden rounded-[var(--radius-media)] shadow-[0_30px_60px_-30px_rgb(0_0_0/0.8)]",
+        "relative overflow-hidden rounded-[var(--radius-media)] shadow-[0_30px_60px_-30px_rgb(0_0_0/0.18)]",
         aspects[aspect],
         float && "animate-float",
         className,

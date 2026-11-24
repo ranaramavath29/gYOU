@@ -14,6 +14,7 @@ export function Challenges() {
         id="challenges-heading"
         heading={challenges.heading}
         intro={challenges.intro}
+        cta={challenges.cta}
       />
       <Reveal>
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -26,8 +27,12 @@ export function Challenges() {
                     {item.challenge}
                   </h3>
                   <p className="text-small text-fg-muted">{item.description}</p>
+                  <p className="text-small">
+                    <span className="font-semibold">Our approach: </span>
+                    <span className="text-fg-muted">{item.approach}</span>
+                  </p>
                 </div>
-                <ArrowLink href={serviceHref(service.slug)} variant="text" className="text-accent">
+                <ArrowLink href={serviceHref(service.slug)} variant="text" className="text-ink">
                   {service.name}
                 </ArrowLink>
               </Card>
@@ -55,7 +60,7 @@ export function ServicesList() {
             <li key={service.slug} className="border-b border-line">
               <Link
                 href={serviceHref(service.slug)}
-                className="group relative -mx-4 flex items-center justify-between gap-6 overflow-hidden rounded-2xl px-4 py-6 transition-colors duration-500 hover:bg-white/[0.03] md:-mx-6 md:px-6 md:py-7"
+                className="group relative -mx-4 flex items-center justify-between gap-6 overflow-hidden rounded-2xl px-4 py-6 transition-colors duration-500 hover:bg-ink/[0.04] md:-mx-6 md:px-6 md:py-7"
               >
                 {/* Lime bar that grows in from the left on hover. */}
                 <span
@@ -63,7 +68,7 @@ export function ServicesList() {
                   className="absolute top-1/2 left-0 h-0 w-[3px] -translate-y-1/2 rounded-full bg-accent transition-[height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:h-1/2"
                 />
                 <span className="flex items-baseline gap-4 md:gap-6">
-                  <span className="w-8 font-display text-lg text-fg-subtle italic tabular-nums transition-colors duration-300 group-hover:text-accent">
+                  <span className="w-8 font-display text-lg text-fg-subtle italic tabular-nums transition-colors duration-300 group-hover:text-fg">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="font-display text-title font-semibold transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-2">

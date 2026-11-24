@@ -22,9 +22,9 @@ import { buildMetadata } from "@/lib/seo";
 const tints: readonly MediaTint[] = ["olive", "rust", "navy"];
 
 export const metadata = buildMetadata({
-  title: `Website Design & Digital Marketing Agency in ${site.primaryMarket} | ${site.name}`,
+  title: `Digital Marketing Agency in ${site.primaryMarket} | ${site.name}`,
   absoluteTitle: true,
-  description: `${site.name} is a ${site.primaryMarket} website design and digital marketing agency. Websites built to convert, plus performance marketing, SEO, social media, branding and video.`,
+  description: `${site.name} helps businesses grow with digital marketing, Google Ads, Meta Ads, SEO, social media marketing and website development in ${site.primaryMarket}.`,
   path: "/",
 });
 

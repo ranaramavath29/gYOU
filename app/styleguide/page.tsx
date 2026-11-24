@@ -36,19 +36,19 @@ export const metadata: Metadata = {
 };
 
 const swatches: Array<{ token: ColorToken; use: string }> = [
-  { token: "bg", use: "Page background" },
-  { token: "bg-raised", use: "Raised surfaces" },
+  { token: "bg", use: "Warm page background" },
+  { token: "bg-raised", use: "White cards" },
   { token: "bg-raised-2", use: "Inputs, nav pill active" },
   { token: "fg", use: "Primary text" },
-  { token: "fg-muted", use: "Body copy on dark" },
+  { token: "fg-muted", use: "Body copy" },
   { token: "fg-subtle", use: "Labels, captions" },
   { token: "line", use: "Borders, dividers" },
   { token: "line-strong", use: "Outline buttons" },
-  { token: "accent", use: "CTAs, accent words, marquee" },
+  { token: "accent", use: "CTA fills, highlights, marquee" },
   { token: "paper", use: "Process section" },
   { token: "ink", use: "Text on paper" },
   { token: "ink-muted", use: "Body on paper" },
-  { token: "danger", use: "Errors on dark (added)" },
+  { token: "danger", use: "Errors" },
   { token: "danger-on-paper", use: "Errors on paper (added)" },
 ];
 
@@ -104,7 +104,7 @@ export default function StyleguidePage() {
       <Container>
         <Block
           title="Wordmark"
-          note="Official logo: the gYOU brand icon (components/LogoMark.tsx) with the wordmark in Playfair Display SemiBold. The favicon (app/icon.svg) uses the same mark."
+          note="The supplied full gYOU Digital logo is used in the header and footer. The favicon uses the standalone brand mark."
         >
           <div className="flex items-center gap-10">
             <Wordmark />
@@ -174,9 +174,9 @@ export default function StyleguidePage() {
             </table>
           </div>
           <p className="mt-4 text-small text-fg-subtle">
-            Lime accent on paper is{" "}
-            {contrastRatio(colorTokens.accent, colorTokens.paper).toFixed(2)}:1, so accent words
-            switch to ink inside paper sections.
+            Lime on the warm page is{" "}
+            {contrastRatio(colorTokens.accent, colorTokens.paper).toFixed(2)}:1, so lime is reserved
+            for fills and decoration; headings use ink for contrast.
           </p>
         </Block>
 
@@ -206,7 +206,7 @@ export default function StyleguidePage() {
                 <p className="mb-2 text-small text-fg-subtle">Body · 20 → 17px · --fg-muted</p>
                 <p className="text-body text-fg-muted">
                   Body copy is set in Manrope with a comfortable line height for long reading. It
-                  sits in muted ivory on the dark background.
+                  sits in muted ink on the warm background.
                 </p>
               </div>
               <div>
@@ -294,9 +294,7 @@ export default function StyleguidePage() {
           <div className="grid gap-4 md:grid-cols-3">
             <Card>
               <p className="font-display text-title font-semibold">Raised card</p>
-              <p className="mt-3 text-small text-fg-muted">
-                Dark card for content on the dark page.
-              </p>
+              <p className="mt-3 text-small text-fg-muted">White card on the warm page.</p>
             </Card>
             <Card className="flex flex-col justify-between gap-10">
               <Pill>Category</Pill>

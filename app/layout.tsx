@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, Playfair_Display } from "next/font/google";
 import type { ReactNode } from "react";
 import { Analytics } from "@/components/analytics/Analytics";
@@ -36,6 +36,11 @@ export const metadata: Metadata = {
   // Only the production site is indexable; local, preview and staging are noindex.
   robots: IS_PRODUCTION_SITE ? { index: true, follow: true } : { index: false, follow: false },
   formatDetection: { telephone: false, email: false, address: false },
+};
+
+export const viewport: Viewport = {
+  colorScheme: "light",
+  themeColor: "#F2F0EA",
 };
 
 // Without JavaScript, Reveal never runs, so show its content anyway.

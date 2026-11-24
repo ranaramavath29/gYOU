@@ -25,7 +25,7 @@ function ItemDecor({ active, hovered }: { active: boolean; hovered: boolean }) {
       {active ? (
         <span
           aria-hidden
-          className="absolute inset-0 rounded-full bg-bg-raised-2 shadow-[0_6px_16px_-8px_rgb(0_0_0/0.8),inset_0_1px_0_rgb(255_255_255/0.06)] ring-1 ring-white/10 ring-inset"
+          className="absolute inset-0 rounded-full bg-bg-raised-2 shadow-[0_6px_16px_-8px_rgb(0_0_0/0.12)] ring-1 ring-ink/10 ring-inset"
         />
       ) : null}
       {hovered && !active ? (
@@ -33,7 +33,7 @@ function ItemDecor({ active, hovered }: { active: boolean; hovered: boolean }) {
           layoutId="nav-hover"
           aria-hidden
           transition={SPRING}
-          className="absolute inset-0 rounded-full bg-white/[0.07]"
+          className="absolute inset-0 rounded-full bg-ink/[0.04]"
         />
       ) : null}
     </>
@@ -88,7 +88,7 @@ export function DesktopNav({ pathname }: { pathname: string }) {
             setHovered(null);
             hideSoon();
           }}
-          className="flex items-center gap-0.5 rounded-full border border-white/[0.08] bg-bg-raised/70 p-1.5 shadow-[0_10px_30px_-18px_rgb(0_0_0/0.9),inset_0_1px_0_rgb(255_255_255/0.04)] backdrop-blur-xl"
+          className="flex items-center gap-0.5 rounded-full border border-line bg-bg-raised/90 p-1.5 shadow-[0_10px_30px_-18px_rgb(0_0_0/0.14)] backdrop-blur-xl"
         >
           {primaryNav.map((item) => (
             <NavItem
@@ -216,7 +216,7 @@ function MenuPanel({
         open ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0",
       )}
     >
-      <div className="rounded-[24px] border border-line bg-bg-raised px-7 pt-6 pb-4 shadow-[0_30px_80px_-20px_rgb(0_0_0/0.95)]">
+      <div className="rounded-[24px] border border-line bg-bg-raised px-7 pt-6 pb-4 shadow-[0_30px_80px_-20px_rgb(0_0_0/0.16)]">
         <div className="mb-3 flex items-baseline justify-between gap-6">
           <span className="font-display text-[1.75rem] leading-none font-semibold tracking-[-0.02em] text-fg">
             {menu.title} {menu.accent ? <em className="accent-word">{menu.accent}</em> : null}
@@ -254,7 +254,7 @@ function ServiceRow({
     >
       <span
         aria-hidden
-        className="w-7 shrink-0 pt-0.5 font-display text-lg leading-none text-accent italic transition-colors group-hover:text-ink group-focus-visible:text-ink"
+        className="w-7 shrink-0 pt-0.5 font-display text-lg leading-none text-fg-subtle italic transition-colors group-hover:text-ink group-focus-visible:text-ink"
       >
         {String(index + 1).padStart(2, "0")}
       </span>

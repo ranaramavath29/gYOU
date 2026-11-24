@@ -31,7 +31,7 @@ You are a senior frontend engineer building the production website for **Rozento
 
 Forms submit through a single adapter (`lib/submitLead.ts`) that posts to `NEXT_PUBLIC_LEAD_ENDPOINT`. While that is unset, the adapter runs in mock mode: it logs the payload in development and shows the real success state. No secrets in client code.
 
-## DESIGN SYSTEM — "Editorial Luxe" (dark studio)
+## DESIGN SYSTEM — "Editorial Luxe" (warm ivory)
 
 **Type**
 - Display / headings: Playfair Display, weight 600, letter-spacing -0.03em (hero -0.035em), line-height 0.9–0.95 on large sizes
@@ -42,17 +42,19 @@ Forms submit through a single adapter (`lib/submitLead.ts`) that posts to `NEXT_
 **Colour tokens**
 | Token | Value | Use |
 |---|---|---|
-| `--bg` | `#0C0C0B` | Page background |
-| `--bg-raised` | `#141413` / `#1C1C1A` | Inputs, nav pill active |
-| `--fg` | `#F2F0EA` | Primary text |
-| `--fg-muted` | `#BDBBB2` | Body copy on dark |
-| `--fg-subtle` | `#A9A79F` | Labels, captions |
-| `--line` | `#2A2A27` | Borders, dividers |
-| `--line-strong` | `#3A3A36` | Outline buttons |
-| `--accent` | `#D6FF5C` | CTAs, accent words, marquee band (text on it is `--bg`) |
-| `--paper` | `#F2F0EA` | Light "process" section background |
-| `--ink` | `#0C0C0B` | Text on paper |
-| `--ink-muted` | `#45443E` | Body on paper |
+| `--bg` | `#F2F0EA` | Warm ivory page background |
+| `--bg-raised` | `#FFFFFF` | Cards and raised surfaces |
+| `--bg-raised-2` | `#FFFFFF` | Inputs and active navigation |
+| `--fg` | `#0C0C0B` | Primary text |
+| `--fg-muted` | `#55534F` | Body copy |
+| `--fg-subtle` | `#6D6B65` | Labels, captions |
+| `--line` | `#E2E0DA` | Borders, dividers |
+| `--line-strong` | `#88867F` | Accessible outlines |
+| `--accent` | `#D6FF5C` | CTA fills, decorative highlights, marquee band (text on it is `--ink`) |
+| `--paper` | `#F2F0EA` | Warm ivory surface |
+| `--ink` | `#0C0C0B` | Primary dark text and contrast cards |
+| `--ink-muted` | `#45443E` | Secondary text on warm surfaces |
+| `--danger` | `#B42318` | Error messages |
 
 Check every text/background pair for 4.5:1 contrast (3:1 for 24px+).
 
@@ -66,10 +68,10 @@ Check every text/background pair for 4.5:1 contrast (3:1 for 24px+).
 - Floating nav pill with an active-state background
 - Hero: oversized serif headline with one italic accent word, supporting line, two CTAs (solid light pill + outline pill with a play icon)
 - Three gently floating, slightly rotated media tiles under the hero (showreel in the centre)
-- Tilted accent-colour marquee band listing the six services
+- Tilted accent-colour marquee band listing the four services
 - Large numbered service rows with a circular arrow button
 - Staggered "Selected work" grid with a slow image zoom on hover
-- Light "paper" section for the process (four cards, italic serif numerals) and a large italic serif testimonial
+- White cards on warm ivory, with an occasional dark contrast card; italic serif numerals and headings
 - Closing section: very large "Ready for your *next move?*" with a single pill email field and soft accent glow
 
 **Motion**: one reveal per section (fade + 16px rise), marquee 30s linear, tile float 7s ease-in-out. Nothing that blocks reading. All disabled under reduced motion.
@@ -83,8 +85,6 @@ Check every text/background pair for 4.5:1 contrast (3:1 for 24px+).
 /services/social-media-marketing
 /services/seo-content-marketing
 /services/performance-marketing
-/services/branding-creative-design
-/services/video-content-production
 /services/website-design-development
 /our-work                           Portfolio grid with filters
 /case-studies/[slug]                Case study detail
@@ -233,7 +233,7 @@ Start with **Performance Marketing** as the reference page, then the other five.
 ## PHASE 8 — SEO
 
 - `generateMetadata` on every route: unique title and description, canonical URL, Open Graph and Twitter cards
-- Dynamic OG images with `next/og` in the Editorial Luxe style
+- Dynamic OG images with `next/og` in the warm ivory, ink and lime palette
 - `app/sitemap.ts` and `app/robots.ts`; non-production deployments are `noindex`
 - JSON-LD: `Organization`, `LocalBusiness` (only with a real address), `Service`, `BreadcrumbList`, `Article`, `FAQPage` (only where FAQs are visible on the page)
 - One H1 per page, logical H2/H3 order, descriptive alt text, internal links between services, case studies and posts

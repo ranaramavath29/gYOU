@@ -12,7 +12,7 @@ import { buildMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
-// Only the six known services exist; anything else is a 404.
+// Only the four known services exist; anything else is a 404.
 export const dynamicParams = false;
 
 export function generateStaticParams() {

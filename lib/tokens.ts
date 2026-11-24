@@ -3,19 +3,19 @@
  * show swatches and contrast ratios. Keep the two in sync.
  */
 export const colorTokens = {
-  bg: "#0C0C0B",
-  "bg-raised": "#141413",
-  "bg-raised-2": "#1C1C1A",
-  fg: "#F2F0EA",
-  "fg-muted": "#BDBBB2",
-  "fg-subtle": "#A9A79F",
-  line: "#2A2A27",
-  "line-strong": "#3A3A36",
+  bg: "#F2F0EA",
+  "bg-raised": "#FFFFFF",
+  "bg-raised-2": "#FFFFFF",
+  fg: "#0C0C0B",
+  "fg-muted": "#55534F",
+  "fg-subtle": "#6D6B65",
+  line: "#E2E0DA",
+  "line-strong": "#88867F",
   accent: "#D6FF5C",
   paper: "#F2F0EA",
   ink: "#0C0C0B",
   "ink-muted": "#45443E",
-  danger: "#FF8F80",
+  danger: "#B42318",
   "danger-on-paper": "#B42318",
 } as const;
 

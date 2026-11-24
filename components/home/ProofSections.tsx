@@ -20,7 +20,7 @@ export function Industries() {
           {industries.items.map((name, i) => (
             <li
               key={name}
-              className="group relative flex min-h-40 flex-col justify-between gap-6 overflow-hidden rounded-[var(--radius-card)] border border-white/[0.07] bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_70%)] p-6 transition-[border-color,translate,background-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-accent/35 hover:bg-white/[0.03]"
+              className="group relative flex min-h-40 flex-col justify-between gap-6 overflow-hidden rounded-[var(--radius-card)] border border-line bg-bg-raised p-6 shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_30px_-18px_rgb(0_0_0/0.16)] transition-[border-color,translate,background-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-line-strong"
             >
               {/* Soft lime glow that rises from the bottom on hover. */}
               <span
@@ -28,12 +28,12 @@ export function Industries() {
                 className="pointer-events-none absolute -bottom-24 left-1/2 h-40 w-3/4 -translate-x-1/2 rounded-full bg-accent/20 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
               />
               <span className="relative flex items-center justify-between">
-                <span className="font-display text-lg text-fg-subtle italic tabular-nums transition-colors duration-300 group-hover:text-accent">
+                <span className="font-display text-lg text-fg-subtle italic tabular-nums transition-colors duration-300 group-hover:text-fg">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <AsteriskIcon
                   size={16}
-                  className="text-fg-subtle/40 transition-[rotate,color] duration-700 group-hover:rotate-90 group-hover:text-accent"
+                  className="text-fg-subtle/60 transition-[rotate,color] duration-700 group-hover:rotate-90 group-hover:text-fg"
                 />
               </span>
               <span className="relative font-display text-2xl font-semibold tracking-[-0.02em]">
@@ -71,7 +71,7 @@ export function WhyChoose() {
                 key={point.title}
                 className="group grid grid-cols-[3rem_1fr] gap-4 border-b border-line py-6"
               >
-                <span className="pt-0.5 font-display text-2xl leading-none text-accent/60 italic tabular-nums transition-colors duration-300 group-hover:text-accent">
+                <span className="pt-0.5 font-display text-2xl leading-none text-ink/60 italic tabular-nums transition-colors duration-300 group-hover:text-ink">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="flex flex-col gap-1.5 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1.5">

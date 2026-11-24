@@ -11,7 +11,7 @@ import { whatsappHref } from "@/lib/contact";
 import { SHOW_PLACEHOLDER_OUTLINE } from "@/lib/ph";
 
 const classes =
-  "fixed right-5 bottom-5 z-30 grid size-14 place-items-center rounded-full bg-accent text-ink shadow-[0_12px_30px_-8px_rgb(0_0_0/0.7)] transition-transform hover:scale-105 md:right-8 md:bottom-8";
+  "fixed right-5 bottom-5 z-30 grid size-14 place-items-center rounded-full bg-accent text-ink shadow-[0_12px_30px_-8px_rgb(0_0_0/0.2)] transition-transform hover:scale-105 md:right-8 md:bottom-8";
 
 /** Pre-filled message for the current page (service pages name the service). */
 function messageFor(pathname: string): string {

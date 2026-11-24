@@ -21,11 +21,11 @@ type Props = {
 
 const styles: Record<Variant, { call: string; wa: string }> = {
   pills: {
-    call: "min-h-9 gap-1.5 border border-line-strong px-3.5 text-small font-semibold text-fg hover:border-fg-subtle hover:bg-white/5",
+    call: "min-h-9 gap-1.5 border border-line-strong px-3.5 text-small font-semibold text-fg hover:border-fg hover:bg-ink/5",
     wa: "min-h-9 gap-1.5 bg-accent px-3.5 text-small font-semibold text-ink hover:bg-[#c9f249]",
   },
   buttons: {
-    call: "min-h-12 gap-2 border border-line-strong px-5 text-sm font-semibold text-fg hover:border-fg-subtle hover:bg-white/5",
+    call: "min-h-12 gap-2 border border-line-strong px-5 text-sm font-semibold text-fg hover:border-fg hover:bg-ink/5",
     wa: "min-h-12 gap-2 bg-accent px-5 text-sm font-semibold text-ink hover:bg-[#c9f249]",
   },
 };
@@ -61,7 +61,7 @@ export function PhoneWhatsApp({
       data-track-location={location}
     >
       {showNumber ? (
-        <a href={tel} className="w-fit font-semibold text-fg tabular-nums hover:text-accent">
+        <a href={tel} className="w-fit font-semibold text-fg tabular-nums hover:text-fg-muted">
           {site.phone}
         </a>
       ) : null}

@@ -42,7 +42,7 @@ function ContactItem({ label, value, href }: { label: string; value: string; hre
     <li className="flex flex-col gap-0.5">
       <span className="text-small text-fg-subtle">{label}</span>
       {href ? (
-        <a href={href} className="text-fg hover:text-accent">
+        <a href={href} className="text-fg hover:text-fg-muted">
           {value}
         </a>
       ) : (
@@ -72,6 +72,7 @@ export function Footer() {
             value={site.footerDescription}
             className="max-w-[34ch] text-small text-fg-muted"
           />
+          <p className="text-small font-semibold text-fg">{site.tagline}</p>
           <Button
             href={navCta.href}
             variant="outline"
@@ -98,6 +99,11 @@ export function Footer() {
             <ColumnTitle>{footerNav.contactTitle}</ColumnTitle>
             <ul className="flex flex-col gap-4">
               <ContactItem label={uiLabels.email} value={site.email} href={mailHref(site.email)} />
+              <ContactItem
+                label="Website"
+                value={`www.${site.domain}`}
+                href={`https://${site.domain}`}
+              />
               {isSameNumber(site.phone, site.whatsapp) ? (
                 // Same number for calls and WhatsApp: show it once with both actions.
                 <li className="flex flex-col gap-2">

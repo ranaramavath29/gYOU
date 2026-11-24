@@ -63,10 +63,7 @@ export default function IndustriesPage() {
             >
               <Reveal className="grid gap-8 lg:grid-cols-[0.9fr_1.4fr] lg:gap-16">
                 <div className="flex flex-col gap-4">
-                  <span
-                    aria-hidden
-                    className="font-display text-3xl leading-none text-accent italic"
-                  >
+                  <span aria-hidden className="font-display text-3xl leading-none text-ink italic">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h2 className="font-display text-title font-semibold">{industry.name}</h2>
@@ -81,7 +78,7 @@ export default function IndustriesPage() {
                       <ul className="flex flex-col gap-2.5">
                         {industry.focus.map((f) => (
                           <li key={f} className="flex items-center gap-3">
-                            <AsteriskIcon size={14} className="shrink-0 text-accent" />
+                            <AsteriskIcon size={14} className="shrink-0 text-ink" />
                             {f}
                           </li>
                         ))}

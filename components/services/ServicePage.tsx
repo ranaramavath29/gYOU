@@ -5,7 +5,6 @@ import { formCopy } from "@/content/forms";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
 import { EngagementSection } from "@/components/sections/EngagementSection";
 import { FinalCta } from "@/components/sections/FinalCta";
-import { HeroBackdrop } from "@/components/sections/PageHero";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import {
@@ -48,7 +47,6 @@ export function ServicePage({
         aria-labelledby="service-hero"
         className="relative overflow-hidden pt-6 pb-20 md:pt-10 md:pb-28"
       >
-        <HeroBackdrop />
         <Container className="relative">
           <Breadcrumb
             label={shared.breadcrumb.label}
@@ -143,10 +141,7 @@ export function ServicePage({
                   key={item.title}
                   className="grid grid-cols-[3rem_1fr] gap-4 border-b border-line py-7"
                 >
-                  <span
-                    aria-hidden
-                    className="font-display text-3xl leading-none text-accent italic"
-                  >
+                  <span aria-hidden className="font-display text-3xl leading-none text-ink italic">
                     {pad(i)}
                   </span>
                   <span className="flex flex-col gap-2">
@@ -170,9 +165,9 @@ export function ServicePage({
             {content.deliverables.map((item) => (
               <li
                 key={item}
-                className="group flex min-h-24 items-center gap-4 rounded-[var(--radius-card)] border border-white/[0.07] bg-bg-raised bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_70%)] px-6 py-5 shadow-[inset_0_1px_0_rgb(255_255_255/0.05)] transition-[border-color,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-accent/35"
+                className="group flex min-h-24 items-center gap-4 rounded-[var(--radius-card)] border border-line bg-bg-raised px-6 py-5 shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_30px_-18px_rgb(0_0_0/0.16)] transition-[border-color,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-line-strong"
               >
-                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-ink">
+                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-ink/5 text-ink transition-colors duration-300 group-hover:bg-accent">
                   <AsteriskIcon
                     size={16}
                     className="transition-transform duration-700 group-hover:rotate-90"

@@ -22,7 +22,7 @@ export function Accordion({ items, className }: AccordionProps) {
             className={cn(
               "flex min-h-16 cursor-pointer list-none items-center justify-between gap-6 py-5",
               "font-display text-xl font-semibold tracking-[-0.02em] md:text-2xl",
-              "transition-colors duration-300 group-open:text-accent hover:text-accent",
+              "transition-colors duration-300 group-open:text-fg-muted hover:text-fg-muted",
               "[&::-webkit-details-marker]:hidden",
             )}
           >

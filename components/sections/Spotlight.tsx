@@ -32,7 +32,7 @@ export function Spotlight({ id }: { id: string }) {
           </div>
           <Link
             href={website.cta.href}
-            className="inline-flex min-h-12 w-fit items-center gap-2.5 rounded-full bg-ink px-6 text-sm font-semibold text-fg transition-colors hover:bg-[#262624]"
+            className="inline-flex min-h-12 w-fit items-center gap-2.5 rounded-full bg-ink px-6 text-sm font-semibold text-paper transition-colors hover:bg-fg-muted"
           >
             {website.cta.label}
             <ArrowUpRightIcon />
@@ -42,7 +42,7 @@ export function Spotlight({ id }: { id: string }) {
         {/* Marketing: raised card listing the marketing services */}
         <article className="flex min-w-0 flex-col justify-between gap-10 rounded-[var(--radius-media)] border border-line bg-bg-raised p-7 md:p-10">
           <div className="flex flex-col gap-5">
-            <span className="text-small font-semibold tracking-[0.12em] text-accent uppercase">
+            <span className="text-small font-semibold tracking-[0.12em] text-fg-muted uppercase">
               {marketing.label}
             </span>
             <h3 className="font-display text-title font-semibold">{marketing.title}</h3>

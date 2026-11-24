@@ -7,35 +7,41 @@
  * lib/tokens.ts mirrors these values for the /styleguide contrast table.
  */
 :root {
-  --bg: #0c0c0b;
-  --bg-raised: #141413;
-  --bg-raised-2: #1c1c1a;
-  --fg: #f2f0ea;
-  --fg-muted: #bdbbb2;
-  --fg-subtle: #a9a79f;
-  --line: #2a2a27;
-  --line-strong: #3a3a36;
+  --bg: #f2f0ea;
+  --bg-raised: #ffffff;
+  --bg-raised-2: #ffffff;
+  --fg: #0c0c0b;
+  --fg-muted: #55534f;
+  --fg-subtle: #6d6b65;
+  --line: #e2e0da;
+  --line-strong: #88867f;
   --accent: #d6ff5c;
   --paper: #f2f0ea;
   --ink: #0c0c0b;
   --ink-muted: #45443e;
-  /* Not in the spec: needed for form error states. Flagged at PAUSE 1. */
-  --danger: #ff8f80;
+  --danger: #b42318;
 
-  /* Context-dependent tokens, swapped by .tone-paper */
-  --heading-accent: var(--accent);
-  --focus-ring: var(--accent);
+  --heading-accent: var(--ink);
+  --focus-ring: var(--ink);
 
-  color-scheme: dark;
+  color-scheme: light;
 }
 
-/* Light "paper" sections: the lime accent fails contrast on paper,
-   so accent words and focus rings switch to ink there. */
+/* Keep paper sections and dark highlight cards readable in their own tone. */
 .tone-paper {
   --heading-accent: var(--ink);
   --focus-ring: var(--ink);
   --danger: #b42318;
   color-scheme: light;
+}
+
+.tone-ink {
+  --fg: var(--paper);
+  --fg-muted: #bdbbb2;
+  --fg-subtle: #a9a79f;
+  --heading-accent: var(--accent);
+  --focus-ring: var(--accent);
+  color-scheme: dark;
 }
 
 /* Theme values that reference runtime variables (inlined into utilities). */
@@ -81,9 +87,6 @@
 
   --animate-marquee: marquee 30s linear infinite;
   --animate-float: float 7s ease-in-out infinite;
-  --animate-spin-slow: spin 36s linear infinite;
-  --animate-spin-slower: spin 60s linear infinite reverse;
-
   @keyframes marquee {
     to {
       translate: -50% 0;
@@ -127,7 +130,7 @@
     color: var(--ink);
   }
 
-  /* Slim dark scrollbar that matches the theme. */
+  /* Slim scrollbar that follows the page and border tokens. */
   html {
     scrollbar-color: var(--line-strong) var(--bg);
     scrollbar-width: thin;
@@ -151,13 +154,6 @@
     block-size: auto;
     opacity: 1;
   }
-}
-
-@utility bg-grid {
-  background-image:
-    linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
-  background-size: 64px 64px;
 }
 
 @layer components {

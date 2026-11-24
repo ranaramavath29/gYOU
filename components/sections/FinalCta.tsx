@@ -1,4 +1,4 @@
-import { Container, Reveal, SectionHeading } from "@/components/ui";
+import { Button, Container, Reveal, SectionHeading } from "@/components/ui";
 import { finalCta, type Heading } from "@/content/home";
 import { site } from "@/content/site";
 import { isSameNumber, mailHref, telHref, whatsappHref } from "@/lib/contact";
@@ -51,11 +51,20 @@ export function FinalCta({
             id="cta-heading"
             size="hero"
             align="center"
+            eyebrow={
+              <span className="text-small font-semibold tracking-[0.12em] text-fg-subtle uppercase">
+                {finalCta.eyebrow}
+              </span>
+            }
             {...heading}
             description={supporting}
             headingClassName="max-w-[16ch]"
           />
           <EmailCapture form={form} page={page} />
+          <Button href={finalCta.secondaryCta.href} variant="outline">
+            {finalCta.secondaryCta.label}
+          </Button>
+          <p className="text-small text-fg-subtle">{finalCta.supportingLine}</p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6">
             <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-small text-fg-muted">
               {links.map((link, i) => (

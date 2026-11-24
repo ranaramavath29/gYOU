@@ -89,7 +89,7 @@ export function Header() {
       <header
         className={cn(
           "sticky top-0 z-40 border-b transition-[background-color,border-color,backdrop-filter] duration-300",
-          scrolled ? "border-white/[0.06] bg-bg/75 backdrop-blur-xl" : "border-transparent",
+          scrolled ? "border-line bg-bg/85 backdrop-blur-xl" : "border-transparent",
         )}
       >
         <Container
@@ -119,7 +119,7 @@ export function Header() {
               aria-haspopup="dialog"
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
-              className="grid size-11 place-items-center rounded-full border border-white/10 bg-bg-raised/70 text-fg backdrop-blur-xl transition-[background-color,transform] hover:bg-bg-raised-2 active:scale-95 lg:hidden"
+              className="grid size-11 place-items-center rounded-full border border-line bg-bg-raised/80 text-fg backdrop-blur-xl transition-[background-color,transform] hover:bg-bg-raised-2 active:scale-95 lg:hidden"
             >
               <MenuIcon size={20} />
               <span className="sr-only">{uiLabels.openMenu}</span>
@@ -152,7 +152,7 @@ export function Header() {
               ref={closeButtonRef}
               type="button"
               onClick={closeMenu}
-              className="grid size-11 place-items-center rounded-full border border-white/10 bg-bg-raised transition-transform active:scale-95"
+              className="grid size-11 place-items-center rounded-full border border-line bg-bg-raised transition-transform active:scale-95"
             >
               <CloseIcon size={20} />
               <span className="sr-only">{uiLabels.closeMenu}</span>
@@ -182,7 +182,7 @@ export function Header() {
                           <span
                             className={cn(
                               "w-7 text-small tabular-nums",
-                              active ? "text-accent" : "text-fg-subtle",
+                              active ? "text-fg" : "text-fg-subtle",
                             )}
                           >
                             {String(i + 1).padStart(2, "0")}

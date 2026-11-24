@@ -12,8 +12,8 @@ export type SiteContent = {
   tagline: string;
   /** Primary target market (confirmed at PAUSE 2). */
   primaryMarket: string;
-  /** "wordmark" renders the text logo (components/Wordmark.tsx); a file path would render an image. */
-  logo: "wordmark" | Placeholder;
+  /** Full logo image path, or "wordmark" to render the SVG mark and text. */
+  logo: "wordmark" | `/${string}` | Placeholder;
   footerDescription: string | Placeholder;
   email: string | Placeholder;
   /** Display format; links are built from the digits. */
@@ -35,18 +35,16 @@ export type SiteContent = {
 };
 
 export const site: SiteContent = {
-  name: "gYOU",
-  domain: "rozento.in",
-  // From the strategy brief (proposed tagline). Confirm before launch.
-  tagline: "Creative Thinking. Strategic Marketing. Measurable Growth.",
+  name: "gYOU Digital",
+  domain: "gyoudigital.com",
+  tagline: "Think Digital. Grow Smarter.",
   primaryMarket: "Hyderabad",
-  // Text wordmark approved as the official logo (after PAUSE 3).
-  logo: "wordmark",
+  logo: "/gyou-logo-light.png",
   // Drafted from the brief's positioning at gYOU's request (PAUSE 2). Awaiting approval.
   footerDescription:
-    "A Hyderabad website design and digital marketing agency bringing strategy, creativity and performance together to help businesses grow.",
+    "Helping businesses build a stronger digital presence through strategic marketing and website solutions.",
   // Confirmed at PAUSE 2.
-  email: "rozento.in@gmail.com",
+  email: "support@gyoudigital.com",
   phone: "+91 96666 96153",
   whatsapp: "+91 96666 96153",
   address: [

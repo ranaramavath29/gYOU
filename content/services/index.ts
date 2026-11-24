@@ -1,5 +1,5 @@
 /**
- * The six service categories and routes, from the strategy brief (§4, §5).
+ * The four service categories and routes, from the strategy brief (§4, §5).
  * Full page content for each service lives next to this file
  * (content/services/<slug>.ts), collected in ./pages.ts.
  *
@@ -46,20 +46,6 @@ export const services = [
     summary: "Strategy, content and community management for a consistent social presence.",
     highlights: ["Strategy", "Content calendars", "Reels"],
   },
-  {
-    slug: "branding-creative-design",
-    name: "Branding & Creative Design",
-    shortName: "Branding",
-    summary: "Brand strategy, visual identity and creative that make your business recognisable.",
-    highlights: ["Identity", "Logo", "Campaign design"],
-  },
-  {
-    slug: "video-content-production",
-    name: "Video & Content Production",
-    shortName: "Video",
-    summary: "Promotional videos, reels and motion graphics made to hold attention.",
-    highlights: ["Promotional videos", "Reels", "Motion graphics"],
-  },
 ] as const satisfies readonly ServiceSummary[];
 
 export type ServiceSlug = (typeof services)[number]["slug"];
@@ -74,8 +60,6 @@ export const serviceSeoTitles: Record<ServiceSlug, string> = {
   "performance-marketing": "Performance Marketing Agency",
   "seo-content-marketing": "SEO & Content Marketing Services",
   "social-media-marketing": "Social Media Marketing Agency",
-  "branding-creative-design": "Branding & Creative Design Agency",
-  "video-content-production": "Video & Content Production Services",
 };
 
 export const serviceHref = (slug: string) => `/services/${slug}`;

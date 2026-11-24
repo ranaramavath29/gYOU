@@ -12,7 +12,7 @@ export function EngagementSection({ id }: { id: string }) {
         <ul className="grid gap-4 md:grid-cols-3">
           {models.map((model, i) => (
             <Card as="li" key={model.title} className="flex flex-col gap-8">
-              <span aria-hidden className="font-display text-3xl leading-none text-accent italic">
+              <span aria-hidden className="font-display text-3xl leading-none text-ink italic">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span className="flex flex-col gap-3">
