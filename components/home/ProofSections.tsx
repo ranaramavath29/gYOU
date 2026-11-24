@@ -58,7 +58,7 @@ export function Industries() {
           <li>
             <Link
               href={industries.cta.href}
-              className="group flex aspect-[4/5] h-full flex-col justify-between rounded-[24px] bg-accent p-4 text-on-accent shadow-[0_24px_50px_-34px_rgb(200_65_44/0.7)] transition-[translate,background-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-accent-hover md:p-5"
+              className="group flex aspect-[4/5] h-full flex-col justify-between rounded-[24px] bg-accent p-4 text-on-accent shadow-[0_24px_50px_-34px_rgb(31_95_209/0.7)] transition-[translate,background-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-accent-hover md:p-5"
             >
               <span className="grid size-11 place-items-center rounded-full bg-on-accent text-accent transition-transform duration-300 group-hover:rotate-45">
                 <ArrowUpRightIcon size={16} />

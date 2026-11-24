@@ -32,7 +32,7 @@ export function Hero() {
               id="hero-heading"
               size="split"
               eyebrow={
-                <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/8 px-3.5 py-1.5 text-[0.75rem] font-bold tracking-[0.08em] text-peach uppercase">
+                <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/8 px-3.5 py-1.5 text-[0.75rem] font-bold tracking-[0.08em] text-sky uppercase">
                   <span aria-hidden className="size-1.5 rounded-full bg-accent" />
                   {hero.eyebrow}
                 </span>
@@ -48,7 +48,7 @@ export function Hero() {
                 <li key={point} className="flex items-start gap-3 font-semibold">
                   <span
                     aria-hidden
-                    className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-white/10 text-peach"
+                    className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-white/10 text-sky"
                   >
                     <CheckIcon size={13} />
                   </span>

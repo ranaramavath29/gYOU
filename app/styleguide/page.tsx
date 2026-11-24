@@ -44,10 +44,10 @@ const swatches: Array<{ token: ColorToken; use: string }> = [
   { token: "fg-subtle", use: "Labels, captions" },
   { token: "line", use: "Borders, dividers" },
   { token: "line-strong", use: "Outline buttons" },
-  { token: "accent", use: "Tomato: CTA fills, dots, active states" },
-  { token: "on-accent", use: "Text and icons on tomato" },
+  { token: "accent", use: "Cobalt blue: CTA fills, dots, active states" },
+  { token: "on-accent", use: "Text and icons on blue" },
   { token: "sage", use: "Secondary accent: tiles, work cards" },
-  { token: "peach", use: "Accent words on ink cards" },
+  { token: "sky", use: "Accent words on ink cards" },
   { token: "paper", use: "Process section" },
   { token: "ink", use: "Text on paper" },
   { token: "ink-muted", use: "Body on paper" },
@@ -63,7 +63,7 @@ const pairs: Array<{ fg: ColorToken; bg: ColorToken; large?: boolean }> = [
   { fg: "accent", bg: "bg" },
   { fg: "on-accent", bg: "accent" },
   { fg: "on-accent", bg: "sage" },
-  { fg: "ink", bg: "peach" },
+  { fg: "ink", bg: "sky" },
   { fg: "bg", bg: "fg" },
   { fg: "ink", bg: "paper" },
   { fg: "ink-muted", bg: "paper" },
@@ -179,15 +179,15 @@ export default function StyleguidePage() {
             </table>
           </div>
           <p className="mt-4 text-small text-fg-subtle">
-            Tomato on the warm paper is{" "}
+            Blue on the warm paper is{" "}
             {contrastRatio(colorTokens.accent, colorTokens.paper).toFixed(2)}:1, so long text stays
-            ink; tomato is for fills (with white text), dots and short links.
+            ink; blue is for fills (with white text), dots and short links.
           </p>
         </Block>
 
         <Block
           title="Typography"
-          note="Bricolage Grotesque 600 for headings, accent words plain (peach only on dark cards). Inter 400/500/600 for everything else. Sizes use clamp()."
+          note="Bricolage Grotesque 600 for headings, accent words plain (sky blue only on dark cards). Inter 400/500/600 for everything else. Sizes use clamp()."
         >
           <div className="flex flex-col gap-10">
             <div>

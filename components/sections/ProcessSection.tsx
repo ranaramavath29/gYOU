@@ -15,7 +15,7 @@ type ProcessSectionProps = {
 /**
  * Process stepper on the paper section. Desktop: numbered nodes on one
  * horizontal track with white step cards below. Mobile: a vertical timeline.
- * The final step is highlighted in tomato (the outcome).
+ * The final step is highlighted in the accent blue (the outcome).
  */
 export function ProcessSection({ id, heading, steps }: ProcessSectionProps) {
   return (
@@ -44,7 +44,7 @@ export function ProcessSection({ id, heading, steps }: ProcessSectionProps) {
                   className={cn(
                     "relative z-10 grid size-14 place-items-center rounded-full font-display text-lg font-semibold tabular-nums transition-[background-color,color,box-shadow,scale] duration-300 group-hover:scale-105",
                     last
-                      ? "bg-accent text-on-accent shadow-[0_0_0_8px_rgb(200_65_44/0.12)]"
+                      ? "bg-accent text-on-accent shadow-[0_0_0_8px_rgb(31_95_209/0.12)]"
                       : "bg-bg-raised text-ink shadow-[0_0_0_8px_var(--paper)] ring-1 ring-ink/10 group-hover:bg-ink group-hover:text-bg",
                   )}
                 >
@@ -61,7 +61,7 @@ export function ProcessSection({ id, heading, steps }: ProcessSectionProps) {
                   <span
                     className={cn(
                       "text-[0.75rem] font-semibold tracking-[0.14em] uppercase",
-                      last ? "text-peach" : "text-accent",
+                      last ? "text-sky" : "text-accent",
                     )}
                   >
                     {uiLabels.processStep} {i + 1}

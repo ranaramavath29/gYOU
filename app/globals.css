@@ -2,7 +2,7 @@
 
 /*
  * "Studio Daylight" design tokens, option J (docs/BUILD_PROMPT.md → Design system).
- * Warm cream pages, near-black warm ink, tomato-red accent, sage and peach.
+ * Warm cream pages, near-black warm ink, cobalt-blue accent (changed from tomato, 24 Nov 2026), sage and sky.
  * Raw tokens live on :root so they can be swapped in one place.
  * lib/tokens.ts mirrors these values for the /styleguide contrast table.
  */
@@ -15,12 +15,12 @@
   --fg-subtle: #67635b;
   --line: #ebe4d8;
   --line-strong: #8a8174;
-  --accent: #c8412c;
-  --accent-hover: #b3391f;
-  /* Text and icons on tomato fills (white on tomato 4.9:1). */
+  --accent: #1f5fd1;
+  --accent-hover: #1a4fb0;
+  /* Text and icons on blue fills (white on #1f5fd1 5.8:1; blue text on cream 5.4:1). */
   --on-accent: #ffffff;
   --sage: #5b6650;
-  --peach: #ffd7b8;
+  --sky: #a9c4f5;
   --paper: #f3ece1;
   --ink: #1d1b18;
   --ink-muted: #4d4a44;
@@ -40,13 +40,13 @@
   color-scheme: light;
 }
 
-/* On ink, accent words turn peach (tomato is too dark on ink for text). */
+/* On ink, accent words turn sky blue (the cobalt accent is too dark on ink for text). */
 .tone-ink {
   --fg: var(--bg);
   --fg-muted: #bdb6a8;
   --fg-subtle: #a9a294;
-  --heading-accent: var(--peach);
-  --focus-ring: var(--peach);
+  --heading-accent: var(--sky);
+  --focus-ring: var(--sky);
   --danger: #ff8f80;
   color-scheme: dark;
 }
@@ -76,7 +76,7 @@
   --color-accent-hover: var(--accent-hover);
   --color-on-accent: var(--on-accent);
   --color-sage: var(--sage);
-  --color-peach: var(--peach);
+  --color-sky: var(--sky);
   --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
@@ -148,7 +148,7 @@
     outline-offset: 3px;
   }
   ::selection {
-    background: var(--peach);
+    background: var(--sky);
     color: var(--ink);
   }
 
@@ -180,7 +180,7 @@
 
 @layer components {
   /* Accent words: plain, upright, same weight as the heading (no highlighter or
-     underline). On ink cards --heading-accent turns them peach. */
+     underline). On ink cards --heading-accent turns them sky blue. */
   .accent-word {
     font-style: normal;
     color: var(--heading-accent);

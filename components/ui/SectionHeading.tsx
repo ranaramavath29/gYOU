@@ -8,7 +8,7 @@ type SectionHeadingProps = {
   size?: HeadingSize;
   /** Text before the accent word(s). */
   lead?: string;
-  /** Accent word(s): plain on light, peach text on ink cards. */
+  /** Accent word(s): plain on light, sky-blue text on ink cards. */
   accent?: string;
   /** Text after the accent word(s). */
   trail?: string;

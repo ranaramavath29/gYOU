@@ -8,7 +8,7 @@ import { site } from "@/content/site";
 const LOGO = `data:image/png;base64,${readFileSync(path.join(process.cwd(), "public/brand/gyou-logo.png")).toString("base64")}`;
 
 /**
- * Dynamic Open Graph image (1200×630) in the cream, ink and tomato palette.
+ * Dynamic Open Graph image (1200×630) in the cream, ink and cobalt-blue palette.
  * Uses ImageResponse's built-in font; no font files are fetched at runtime.
  * Usage: /og?title=…&eyebrow=…
  */
@@ -42,7 +42,7 @@ export function GET(request: NextRequest) {
         <div
           style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26, color: "#5C5A55" }}
         >
-          <div style={{ width: 12, height: 12, borderRadius: 999, background: "#C8412C" }} />
+          <div style={{ width: 12, height: 12, borderRadius: 999, background: "#1F5FD1" }} />
           {eyebrow}
         </div>
         <div
