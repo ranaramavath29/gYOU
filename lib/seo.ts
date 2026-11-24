@@ -51,6 +51,7 @@ export function buildMetadata(input: SeoInput): Metadata {
     },
     twitter: {
       card: "summary_large_image",
+      site: "@gYOUdigital",
       title: input.title,
       description: input.description,
       images: [image],

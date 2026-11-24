@@ -49,6 +49,10 @@ export const footerNav = {
 /** Accessibility and interface labels (not business facts). */
 export const uiLabels = {
   breadcrumb: "Breadcrumb",
+  /** Prefix on process step cards: "Step 1". */
+  processStep: "Step",
+  /** Screen-reader label for social icon links: "gYOU on LinkedIn (opens in a new tab)". */
+  socialLink: (site: string, platform: string) => `${site} on ${platform} (opens in a new tab)`,
   home: "Home",
   skipToContent: "Skip to content",
   homeLink: "gYOU home",

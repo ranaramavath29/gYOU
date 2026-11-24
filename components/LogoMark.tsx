@@ -5,9 +5,9 @@
  * Decorative: the wordmark text next to it carries the name.
  */
 export const LOGO_LIME = "#B4FD10";
-export const LOGO_WHITE = "#FFFFFF";
+export const LOGO_WHITE = "#0C0C0B";
 
-/** Shared geometry, also used by app/icon.svg and app/apple-icon.tsx. */
+/** Shared geometry (favicon and Apple icon now use app/icon.png and app/apple-icon.png). */
 export const LOGO_VIEWBOX = "33 75 368 340";
 export const LOGO_PATHS = {
   lime: [

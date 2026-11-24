@@ -60,6 +60,15 @@ export const auditSchema = z.object({
   hp: honeypot,
 });
 
+export const callbackSchema = z.object({
+  fullName: z.string().trim().min(2, c.required),
+  email: z.email(c.invalidEmail),
+  phone,
+  service: oneOf(serviceOptions, c.required),
+  consent: z.boolean().refine((v) => v, { message: c.consentRequired }),
+  hp: honeypot,
+});
+
 export const consultationSchema = z.object({
   email: z.email(c.invalidEmail),
   hp: honeypot,

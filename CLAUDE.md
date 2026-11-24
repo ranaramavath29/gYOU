@@ -44,13 +44,13 @@ Read BUILD_PROMPT.md before starting any phase. These rules condense it; the spe
 
 ## Design source of truth
 
-- Visuals: the mockup + the "Editorial Luxe" design system in BUILD_PROMPT.md (tokens in `app/globals.css`).
+- Visuals: the "Studio Daylight" design system in BUILD_PROMPT.md (tokens in `app/globals.css`); the mockup is layout reference only.
 - Copy, nav labels, routes, CTAs: BUILD_PROMPT.md and the brief. Build with the spec's wording.
 - Known differences to raise (not decide): hero headline (mockup "We make brands impossible to scroll past." vs
   brief "Your Growth Deserves More Than Just Marketing."); nav (mockup 5 items vs spec 7); nav CTA (mockup
   "Let's talk" vs spec "Let's Discuss Your Project"); hero secondary CTA (brief "Explore Our Services" vs spec
   "Explore Our Work").
-- Accent `#D6FF5C` unless gYOU supplies a brand colour. Logo: text wordmark placeholder until a file arrives.
+- Accent: tomato `#C8412C` with white text (Studio Daylight, option J). Logo: `public/brand/gyou-logo.svg` (vector; PNG copy for the OG image) (gYOU artwork recoloured charcoal + tomato for the cream site, approved Nov 2026); favicon `app/icon.png` is the logo's "g" and arrow.
 - Accessibility: 4.5:1 contrast (3:1 for 24px+), 44px targets, visible focus, all motion off under
   `prefers-reduced-motion`.
 

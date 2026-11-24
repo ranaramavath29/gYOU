@@ -18,13 +18,16 @@ function formatValue(v: unknown): string {
 }
 
 export async function POST(request: Request) {
-  const user = process.env.SMTP_USER;
-  // Google shows app passwords in groups of four; the spaces aren't part of it.
+  // Blank values in .env count as "not set" (|| rather than ??).
+  const host = process.env.SMTP_HOST?.trim() || "";
+  const port = Number(process.env.SMTP_PORT?.trim() || 465);
+  const user = process.env.SMTP_USER?.trim();
+  // App passwords are sometimes shown in spaced groups; the spaces aren't part of them.
   const pass = process.env.SMTP_PASS?.replace(/\s+/g, "");
-  const to = process.env.LEAD_TO_EMAIL ?? site.email;
+  const to = process.env.LEAD_TO_EMAIL?.trim() || site.email;
 
-  if (!user || !pass || typeof to !== "string" || !to.includes("@")) {
-    console.error("[api/lead] SMTP_USER / SMTP_PASS / LEAD_TO_EMAIL not configured");
+  if (!host || !user || !pass || typeof to !== "string" || !to.includes("@")) {
+    console.error("[api/lead] SMTP_HOST / SMTP_USER / SMTP_PASS / LEAD_TO_EMAIL not configured");
     return NextResponse.json({ error: "not_configured" }, { status: 503 });
   }
 
@@ -61,13 +64,17 @@ export async function POST(request: Request) {
 
   // Reply-To lets you answer the enquirer straight from your inbox.
   const emailField = rows.find(([k]) => k.toLowerCase().includes("email"))?.[1] ?? "";
-  const replyTo = /^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]+$/.test(emailField) ? emailField : undefined;
+  const replyTo = /^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]+$/.test(emailField)
+    ? emailField
+    : undefined;
 
   try {
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST ?? "smtp.gmail.com",
-      port: Number(process.env.SMTP_PORT ?? 465),
-      secure: (process.env.SMTP_PORT ?? "465") === "465",
+      host,
+      port,
+      // 465 = SSL from the start; 587 = STARTTLS upgrade.
+      secure: port === 465,
+      requireTLS: port === 587,
       auth: { user, pass },
     });
     await transporter.sendMail({

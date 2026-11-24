@@ -62,7 +62,7 @@ export function Analytics() {
         <section
           role="region"
           aria-label={copy.label}
-          className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-3xl rounded-[var(--radius-card)] border border-line-strong bg-bg-raised p-5 shadow-[0_20px_60px_-20px_rgb(0_0_0/0.9)] md:inset-x-6 md:bottom-6 md:p-6"
+          className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-3xl rounded-[var(--radius-card)] border border-line bg-bg-raised p-5 shadow-[0_20px_60px_-20px_rgb(0_0_0/0.16)] md:inset-x-6 md:bottom-6 md:p-6"
         >
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-8">
             <p className="text-small text-fg-muted">
@@ -84,7 +84,7 @@ export function Analytics() {
               <button
                 type="button"
                 onClick={() => choose("granted")}
-                className="inline-flex min-h-11 items-center rounded-full bg-fg px-5 text-sm font-semibold text-bg hover:bg-white"
+                className="inline-flex min-h-11 items-center rounded-full bg-fg px-5 text-sm font-semibold text-bg hover:bg-fg-muted"
               >
                 {copy.accept}
               </button>

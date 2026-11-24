@@ -1,4 +1,5 @@
-import type { MediaTint } from "@/components/ui/MediaFrame";
+import type { MediaSource, MediaTint } from "@/components/ui/MediaFrame";
+import { media } from "./media";
 import { industryList } from "./industries";
 import { site } from "./site";
 import { serviceHref, type ServiceSlug } from "./services";
@@ -19,35 +20,25 @@ export type Cta = { label: string; href: string };
 
 export const ctas = {
   // Brief §8: primary and secondary CTAs site-wide.
-  primary: { label: "Get a Free Marketing Consultation", href: "/contact#enquiry" },
+  primary: { label: "Let's Grow Your Business", href: "/contact#enquiry" },
   secondary: { label: "Explore Our Work", href: "/our-work" },
   services: { label: "Explore Our Services", href: "/services" },
 } as const satisfies Record<string, Cta>;
 
-/** Decorative hero tile built from real services (no photos available yet). */
-export type HeroTile = { title: string; detail: string; tint: MediaTint };
-
 export const hero = {
-  // Leads with websites + marketing (gYOU's direction at PAUSE 4).
-  eyebrow: `Website Design & Digital Marketing · ${site.primaryMarket}`,
-  // Brief §6 proposed headline. Italic accent word ("More") is working copy.
-  heading: { lead: "Your Growth Deserves", accent: "More", trail: "Than Just Marketing." },
-  // Adapted from the brief §6 supporting copy to name websites first.
+  eyebrow: "DIGITAL MARKETING & GROWTH PARTNER",
+  heading: { lead: "Make Your Brand Visible.", accent: "Turn Attention Into Growth." },
   supporting:
-    "We help businesses grow with websites built to convert and digital marketing that brings the right audience to them, backed by clear strategy, creative content and performance-driven campaigns.",
+    "We help businesses grow through strategic digital marketing, performance advertising, SEO and website solutions that connect brands with the right audience and turn opportunities into customers.",
+  supportingLine: "Strategy First. Data Driven. Growth That Matters.",
   primaryCta: ctas.primary,
-  // Brief §6 hero secondary CTA. Used instead of "Explore Our Work" until a portfolio exists.
-  secondaryCta: ctas.services,
-  // Replace with real stills and a showreel when available (MediaFrame `media`).
-  tiles: [
-    { title: "Websites", detail: "UI/UX · Landing pages · Development", tint: "olive" },
-    {
-      title: "Creative Thinking. Strategic Marketing. Measurable Growth.",
-      detail: "gYOU",
-      tint: "graphite",
-    },
-    { title: "Marketing", detail: "Performance · SEO · Social", tint: "rust" },
-  ] satisfies readonly HeroTile[],
+  secondaryCta: { label: "Explore Our Services", href: "/services" },
+  /** Showcase card beside the headline: gYOU's shoot video with the brand statement. */
+  showcase: {
+    media: media.studioShoot,
+    tag: "Inside the studio",
+    statement: "Creative Thinking. Strategic Marketing. Measurable Growth.",
+  },
 } as const;
 
 export const marqueeLabel = "Our services";
@@ -57,52 +48,61 @@ export const marqueeLabel = "Our services";
  * gYOU's two lead offers, per gYOU's direction at PAUSE 4. Working copy.
  */
 export const spotlight = {
-  heading: {
-    lead: "A Website That Converts.",
-    accent: "Marketing",
-    trail: "That Brings People to It.",
-  },
+  heading: { lead: "Digital Strategies That", accent: "Move Your Business Forward." },
   intro:
-    "Most growing businesses need both: a website that turns visitors into enquiries, and marketing that brings the right people to it. We plan and deliver the two together, so nothing is lost between them.",
+    "We help businesses strengthen their online presence, reach the right audience and generate growth opportunities through strategic digital marketing and website solutions.",
   website: {
-    label: "Build",
+    label: "02",
     title: "Website Design & Development",
     description:
-      "Business websites and landing pages designed around your customers and built to work on every device.",
+      "Turn your website into a business asset with a professional digital experience that communicates your brand, engages visitors and encourages action.",
     points: [
-      "Business websites and landing pages",
+      "Business websites",
+      "WordPress websites",
+      "E-commerce websites",
+      "Landing page design",
       "UI/UX design",
       "Responsive development",
-      "Conversion-focused experiences",
+      "Website optimization",
     ],
-    cta: { label: "Explore website services", href: serviceHref("website-design-development") },
+    cta: { label: "Explore Website Solutions", href: serviceHref("website-design-development") },
   },
   marketing: {
-    label: "Grow",
+    label: "01",
     title: "Digital Marketing",
     description:
-      "Paid, organic and social channels working together to bring qualified visitors to your website.",
+      "Make every digital interaction count. Build visibility, attract the right audience and generate business opportunities through strategic digital marketing.",
     services: [
       "performance-marketing",
       "seo-content-marketing",
       "social-media-marketing",
     ] satisfies readonly ServiceSlug[],
-    cta: { label: "Explore marketing services", href: "/services" },
+    cta: { label: "Explore Digital Marketing", href: "/services" },
   },
 } as const;
 
 export type Stat = { value: string; label: string };
 
 export const intro = {
-  heading: { lead: "More Than Marketing.", accent: "A Partner", trail: "in Your Growth." },
-  // Brief §3 proposed positioning.
-  body: "gYOU is an integrated digital marketing agency combining strategy, creativity and performance marketing to help businesses establish stronger digital identities and achieve sustainable growth.",
+  heading: {
+    lead: "More Than Marketing.",
+    accent: "A Strategic Partner",
+    trail: "in Your Growth.",
+  },
+  body: [
+    "At gYOU Digital, we believe successful marketing starts with understanding your business.",
+    "We combine digital marketing strategy, performance-driven campaigns, search engine optimization and website development to help businesses build visibility, connect with their audience and generate meaningful opportunities.",
+    "From improving your online presence to running targeted advertising campaigns, we bring the right strategies together to support your business goals.",
+  ],
+  /** Screen-reader label for the facts row under the hero. */
+  factsLabel: "gYOU at a glance",
   // Verified facts only. Add years in business, projects, team size etc. when they can be proven.
   stats: [
     { value: "6", label: "Integrated services under one team" },
     { value: site.primaryMarket, label: "Where we are based" },
   ] satisfies readonly Stat[],
-  cta: { label: "About gYOU", href: "/about-us" },
+  cta: { label: "Discover gYOU Digital", href: "/about-us" },
+  image: media.hourglass,
 } as const;
 
 export type Credential = { name: string; logo?: string };
@@ -117,64 +117,96 @@ export const credibility = {
 
 export const challenges = {
   heading: { lead: "Your Business Has Goals.", accent: "We Have", trail: "the Strategy." },
-  intro: "Common growth problems, and the gYOU service built to solve each one.", // draft
-  // Challenges from brief §6. Service matches and descriptions are drafts.
+  intro:
+    "Growing a business online takes more than simply being present. It requires the right strategy, consistent execution and continuous improvement.",
+  cta: { label: "Let's Solve Your Growth Challenges", href: "/contact#enquiry" },
   items: [
     {
       challenge: "Low brand visibility",
-      description: "Your brand is hard to recognise or remember in a crowded market.",
-      service: "branding-creative-design",
+      description:
+        "Your potential customers are searching online, but your brand isn't reaching them.",
+      approach:
+        "Improve online visibility through SEO, content marketing and strategic social media activities.",
+      service: "seo-content-marketing",
     },
     {
       challenge: "Inconsistent social presence",
-      description: "Posting is irregular and off-brand, so your audience never builds.",
+      description:
+        "Your brand struggles to maintain consistent communication and engagement with its audience.",
+      approach:
+        "Build a structured social media strategy with consistent content planning and management.",
       service: "social-media-marketing",
     },
     {
       challenge: "Poor-quality leads",
-      description: "Enquiries arrive, but few of them fit your business.",
+      description:
+        "Your marketing campaigns generate enquiries, but they don't always reach the right audience.",
+      approach: "Improve audience targeting, campaign strategy and lead generation activities.",
       service: "performance-marketing",
     },
     {
       challenge: "Low website traffic",
-      description: "The people searching for what you offer are not finding you.",
+      description: "Your website exists, but the right audience isn't discovering it.",
+      approach:
+        "Strengthen search visibility and drive relevant traffic through SEO and paid advertising.",
       service: "seo-content-marketing",
     },
     {
       challenge: "Inefficient advertising spend",
-      description: "Budget goes out every month without a clear return.",
+      description: "Your advertising budget isn't delivering the expected marketing performance.",
+      approach: "Improve campaign structure, audience targeting, tracking and optimization.",
       service: "performance-marketing",
     },
     {
       challenge: "Weak conversion rates",
-      description: "Visitors arrive on your website but leave without acting.",
+      description: "Visitors reach your website, but too few take the next step.",
+      approach: "Improve website experiences, messaging, calls to action and conversion pathways.",
       service: "website-design-development",
     },
-  ] satisfies ReadonlyArray<{ challenge: string; description: string; service: ServiceSlug }>,
+  ] satisfies ReadonlyArray<{
+    challenge: string;
+    description: string;
+    approach: string;
+    service: ServiceSlug;
+  }>,
 } as const;
 
 export const servicesSection = {
-  heading: { lead: "Everything Your Brand Needs to", accent: "Grow Digitally." },
-  intro: "Choose one service or bring them together under one integrated plan.", // draft
-  cta: { label: "All services", href: "/services" },
+  heading: { lead: "The Right Digital Strategy.", accent: "The Right Execution." },
+  intro:
+    "Every business has different goals. We bring together digital marketing expertise and website development solutions to help businesses build visibility, attract customers and grow online.",
+  cta: { label: "View All Services", href: "/services" },
+  /** Photo on each service card (supplied media; social uses its video still). */
+  media: {
+    "website-design-development": media.websiteDevices,
+    "performance-marketing": media.marketingTeam,
+    "seo-content-marketing": media.mobileSearch,
+    "social-media-marketing": media.socialMediaStill,
+  } satisfies Record<ServiceSlug, MediaSource>,
 } as const;
 
 export const process = {
   heading: { lead: "A Clear Strategy.", accent: "A Smarter Way to Grow." },
-  // Brief §6 Section 06.
   steps: [
     {
       title: "Discover",
-      description: "Understand the business, objectives, audience and challenges.",
+      description:
+        "We understand your business, target audience, objectives and current digital presence.",
     },
-    { title: "Strategise", description: "Develop a tailored marketing roadmap." },
+    {
+      title: "Strategise",
+      description:
+        "We develop a customized strategy based on your goals, market opportunities and marketing requirements.",
+    },
     {
       title: "Execute",
-      description: "Create content, implement campaigns and deliver marketing activities.",
+      description:
+        "We put the strategy into action through digital marketing campaigns, website development and digital implementation.",
     },
     {
       title: "Optimise",
-      description: "Monitor results, analyse performance and improve campaigns.",
+      description:
+        "We monitor performance, analyze results and identify opportunities to continuously improve your digital activities.",
     },
   ],
 } as const;
@@ -198,44 +230,56 @@ export const selectedWork = {
 };
 
 export const industries = {
-  heading: { lead: "Industries", accent: "We Serve" },
-  intro: "Marketing shaped around how each sector buys, decides and grows.", // draft
+  heading: {
+    lead: "Different Industries.",
+    accent: "Different Challenges.",
+    trail: "One Strategic Approach.",
+  },
+  intro:
+    "Every industry has its own audience, challenges and opportunities. We develop digital strategies that align with the specific needs of your business.",
   // Brief §6 Section 08 (content/industries.ts).
   items: industryList.map((i) => i.name),
   cta: { label: "Explore industries", href: "/industries" },
+  ctaHint: "How we approach each sector",
 } as const;
 
 export const whyChoose = {
   heading: { lead: "The Right Strategy Makes", accent: "All the Difference." },
-  // Points from brief §6 Section 09. Descriptions are drafts; keep/cut/add at PAUSE 3.
+  image: media.lightbulb,
   points: [
     {
       title: "Business-first approach",
-      description: "We start from your commercial goals, not from a list of channels.",
+      description:
+        "We understand your business objectives before recommending marketing activities.",
     },
     {
-      title: "Creative and analytical thinking",
-      description: "Ideas that stand out, checked against what the numbers say.",
+      title: "Strategic & analytical thinking",
+      description:
+        "We combine strategic planning with performance insights to develop effective digital marketing strategies.",
     },
     {
-      title: "Integrated capabilities",
-      description: "Strategy, content, media and web planned together as one programme.",
+      title: "Integrated digital solutions",
+      description:
+        "From digital marketing to website development, we bring complementary services together to support your goals.",
     },
     {
       title: "Transparent communication",
-      description: "Clear reporting on what was done, what it cost and what it delivered.",
+      description:
+        "We value clear communication, structured updates and alignment throughout the engagement.",
     },
     {
       title: "Data-led optimisation",
-      description: "Campaigns are reviewed and refined on performance data.",
+      description:
+        "We use campaign insights and performance data to identify opportunities for improvement.",
     },
     {
-      title: "Custom strategies",
-      description: "Plans built for your market, audience and budget.",
+      title: "Strategies built around you",
+      description: "Our approach is shaped around your audience, objectives and requirements.",
     },
     {
       title: "Focus on meaningful outcomes",
-      description: "Success measured in enquiries, sales and growth rather than vanity metrics.",
+      description:
+        "We focus on activities that support business visibility, relevant enquiries and sustainable growth.",
     },
   ],
 } as const;
@@ -261,13 +305,15 @@ export const insights = {
 };
 
 export const finalCta = {
-  // Brief §6 Section 12 heading and copy.
-  heading: { lead: "Ready to Make Your", accent: "Next Move?" },
+  eyebrow: "READY TO GROW?",
+  heading: { lead: "Your Next Stage of Growth Starts", accent: "With the Right Strategy." },
   supporting:
-    "Let’s understand your business goals and create a marketing strategy that moves you forward.",
+    "Whether you want to strengthen your digital presence, generate more enquiries or build a better website, gYOU Digital is ready to help you move forward. Let's understand your goals, explore the opportunities and create a digital strategy that works for your business.",
+  supportingLine: "Have a project in mind? Let's turn your ideas into action.",
+  primaryCta: { label: "Let's Discuss Your Project", href: "/contact#enquiry" },
+  secondaryCta: { label: "Get in Touch", href: "/contact" },
   emailLabel: "Your business email",
-  emailPlaceholder: "you@company.com",
-  submitLabel: "Start a Conversation",
+  submitLabel: "Let's Discuss Your Project",
   sendingLabel: "Sending…",
   errorMessage: "Something went wrong. Please try again or reach us on WhatsApp.",
   invalidEmail: "Enter a valid business email address.",

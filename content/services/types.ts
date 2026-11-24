@@ -1,3 +1,4 @@
+import type { MediaSource } from "@/components/ui/MediaFrame";
 import type { Heading } from "../home";
 import type { ServiceSlug } from "./index";
 
@@ -10,7 +11,11 @@ export type Faq = { question: string; answer: string };
  */
 export type ServicePageContent = {
   slug: ServiceSlug;
-  hero: { heading: Heading; supporting: string };
+  hero: {
+    heading: Heading;
+    supporting: string;
+    /** Photo or video beside the hero copy. */ media?: MediaSource;
+  };
   intro: { heading: Heading; paragraphs: readonly string[] };
   /** Business challenges this service addresses. */
   challenges: readonly Point[];

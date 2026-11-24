@@ -36,19 +36,22 @@ export const metadata: Metadata = {
 };
 
 const swatches: Array<{ token: ColorToken; use: string }> = [
-  { token: "bg", use: "Page background" },
-  { token: "bg-raised", use: "Raised surfaces" },
+  { token: "bg", use: "Warm page background" },
+  { token: "bg-raised", use: "White cards" },
   { token: "bg-raised-2", use: "Inputs, nav pill active" },
   { token: "fg", use: "Primary text" },
-  { token: "fg-muted", use: "Body copy on dark" },
+  { token: "fg-muted", use: "Body copy" },
   { token: "fg-subtle", use: "Labels, captions" },
   { token: "line", use: "Borders, dividers" },
   { token: "line-strong", use: "Outline buttons" },
-  { token: "accent", use: "CTAs, accent words, marquee" },
+  { token: "accent", use: "Tomato: CTA fills, dots, active states" },
+  { token: "on-accent", use: "Text and icons on tomato" },
+  { token: "sage", use: "Secondary accent: tiles, work cards" },
+  { token: "peach", use: "Accent words on ink cards" },
   { token: "paper", use: "Process section" },
   { token: "ink", use: "Text on paper" },
   { token: "ink-muted", use: "Body on paper" },
-  { token: "danger", use: "Errors on dark (added)" },
+  { token: "danger", use: "Errors" },
   { token: "danger-on-paper", use: "Errors on paper (added)" },
 ];
 
@@ -58,7 +61,9 @@ const pairs: Array<{ fg: ColorToken; bg: ColorToken; large?: boolean }> = [
   { fg: "fg-subtle", bg: "bg" },
   { fg: "fg-subtle", bg: "bg-raised-2" },
   { fg: "accent", bg: "bg" },
-  { fg: "ink", bg: "accent" },
+  { fg: "on-accent", bg: "accent" },
+  { fg: "on-accent", bg: "sage" },
+  { fg: "ink", bg: "peach" },
   { fg: "bg", bg: "fg" },
   { fg: "ink", bg: "paper" },
   { fg: "ink-muted", bg: "paper" },
@@ -104,7 +109,7 @@ export default function StyleguidePage() {
       <Container>
         <Block
           title="Wordmark"
-          note="Official logo: the gYOU brand icon (components/LogoMark.tsx) with the wordmark in Playfair Display SemiBold. The favicon (app/icon.svg) uses the same mark."
+          note="The supplied full gYOU Digital logo is used in the header and footer. The favicon uses the standalone brand mark."
         >
           <div className="flex items-center gap-10">
             <Wordmark />
@@ -174,15 +179,15 @@ export default function StyleguidePage() {
             </table>
           </div>
           <p className="mt-4 text-small text-fg-subtle">
-            Lime accent on paper is{" "}
-            {contrastRatio(colorTokens.accent, colorTokens.paper).toFixed(2)}:1, so accent words
-            switch to ink inside paper sections.
+            Tomato on the warm paper is{" "}
+            {contrastRatio(colorTokens.accent, colorTokens.paper).toFixed(2)}:1, so long text stays
+            ink; tomato is for fills (with white text), dots and short links.
           </p>
         </Block>
 
         <Block
           title="Typography"
-          note="Playfair Display 600 for headings, italic 400 for accent words. Manrope 400/500/600 for everything else. Sizes use clamp()."
+          note="Bricolage Grotesque 600 for headings, accent words plain (peach only on dark cards). Inter 400/500/600 for everything else. Sizes use clamp()."
         >
           <div className="flex flex-col gap-10">
             <div>
@@ -199,14 +204,16 @@ export default function StyleguidePage() {
             </div>
             <div>
               <p className="mb-2 text-small text-fg-subtle">Card title · 40 → 24px</p>
-              <p className="font-display text-title font-semibold">Card title in Playfair</p>
+              <p className="font-display text-title font-semibold">
+                Card title in Bricolage Grotesque
+              </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <p className="mb-2 text-small text-fg-subtle">Body · 20 → 17px · --fg-muted</p>
                 <p className="text-body text-fg-muted">
-                  Body copy is set in Manrope with a comfortable line height for long reading. It
-                  sits in muted ivory on the dark background.
+                  Body copy is set in Inter with a comfortable line height for long reading. It sits
+                  in muted ink on the warm background.
                 </p>
               </div>
               <div>
@@ -265,6 +272,9 @@ export default function StyleguidePage() {
               <Pill>Outline tag</Pill>
               <Pill variant="raised">Raised tag</Pill>
               <Pill variant="accent">Accent tag</Pill>
+              <Pill dot variant="chip">
+                Eyebrow chip
+              </Pill>
             </div>
             <div className="flex flex-wrap items-center gap-10">
               <ArrowLink href="/styleguide">Arrow link</ArrowLink>
@@ -294,9 +304,7 @@ export default function StyleguidePage() {
           <div className="grid gap-4 md:grid-cols-3">
             <Card>
               <p className="font-display text-title font-semibold">Raised card</p>
-              <p className="mt-3 text-small text-fg-muted">
-                Dark card for content on the dark page.
-              </p>
+              <p className="mt-3 text-small text-fg-muted">White card on the warm page.</p>
             </Card>
             <Card className="flex flex-col justify-between gap-10">
               <Pill>Category</Pill>
@@ -480,7 +488,7 @@ export default function StyleguidePage() {
 
 function PlayBadge() {
   return (
-    <span className="grid size-6 place-items-center rounded-full bg-accent text-ink">
+    <span className="grid size-6 place-items-center rounded-full bg-accent text-on-accent">
       <PlayIcon size={11} />
     </span>
   );

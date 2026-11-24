@@ -120,7 +120,7 @@ function FilterGroup({
               className={cn(
                 "inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-semibold transition-colors",
                 active
-                  ? "border-accent bg-accent text-ink"
+                  ? "border-accent bg-accent text-on-accent"
                   : "border-line bg-bg-raised-2 text-fg hover:border-fg-subtle",
               )}
             >

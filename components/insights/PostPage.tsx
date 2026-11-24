@@ -37,7 +37,7 @@ export function PostPage({ meta, Content, related }: Props) {
       {meta.draft ? (
         <p
           role="note"
-          className="bg-accent px-5 py-2 text-center text-small font-semibold text-ink"
+          className="bg-accent px-5 py-2 text-center text-small font-semibold text-on-accent"
         >
           {copy.draftBanner}
         </p>
@@ -56,7 +56,9 @@ export function PostPage({ meta, Content, related }: Props) {
               currentHref={postHref(meta.slug)}
             />
             <div className="mx-auto mt-10 flex max-w-[52rem] flex-col gap-6 md:mt-14">
-              <Pill dot>{categoryName(meta.category)}</Pill>
+              <Pill dot variant="chip">
+                {categoryName(meta.category)}
+              </Pill>
               <h1 id="post-title" className="font-display text-h2 font-semibold text-balance">
                 {meta.title}
               </h1>

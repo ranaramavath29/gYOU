@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { ArrowUpRightIcon, ChatIcon } from "@/components/icons";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 import { PageHero } from "@/components/sections/PageHero";
+import { SocialLinks } from "@/components/sections/SocialLinks";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { Button, Reveal, Section, SectionHeading } from "@/components/ui";
 import { contactPage as copy, mapsHref } from "@/content/contact";
@@ -120,7 +121,7 @@ export default function ContactPage() {
           >
             {combined ? (
               <li className="sm:col-span-2 lg:col-span-1">
-                <div className="flex h-full flex-col justify-between gap-8 rounded-[var(--radius-card)] border border-accent/40 bg-bg-raised p-6 shadow-[0_0_0_1px_rgb(214_255_92/0.06),0_20px_50px_-30px_rgb(214_255_92/0.35)] md:p-8">
+                <div className="flex h-full flex-col justify-between gap-8 rounded-[var(--radius-card)] border border-line bg-bg-raised p-6 shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_30px_-18px_rgb(0_0_0/0.16)] md:p-8">
                   <span className="flex flex-col gap-3">
                     <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">
                       {copy.methods.combined.title}
@@ -141,7 +142,7 @@ export default function ContactPage() {
                   <a
                     href={m.href}
                     {...(m.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="group flex h-full flex-col justify-between gap-8 rounded-[var(--radius-card)] border border-white/[0.07] bg-bg-raised bg-[linear-gradient(180deg,rgb(255_255_255/0.035),transparent_60%)] p-6 shadow-[inset_0_1px_0_rgb(255_255_255/0.05)] transition-[border-color,translate,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-accent/35 hover:shadow-[0_28px_60px_-32px_rgb(0_0_0/0.95)] md:p-8"
+                    className="group flex h-full flex-col justify-between gap-8 rounded-[var(--radius-card)] border border-line bg-bg-raised p-6 shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_30px_-18px_rgb(0_0_0/0.16)] transition-[border-color,translate,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-line-strong hover:shadow-[0_2px_4px_rgb(0_0_0/0.04),0_30px_60px_-28px_rgb(0_0_0/0.22)] md:p-8"
                   >
                     <span className="flex flex-col gap-3">
                       <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">
@@ -149,7 +150,7 @@ export default function ContactPage() {
                       </h3>
                       <span className="[overflow-wrap:anywhere] text-fg-muted">{m.detail}</span>
                     </span>
-                    <span className="inline-flex items-center gap-2 text-small font-semibold text-accent">
+                    <span className="inline-flex items-center gap-2 text-small font-semibold text-fg-muted">
                       {m.action}
                       <ArrowUpRightIcon
                         size={14}
@@ -161,6 +162,15 @@ export default function ContactPage() {
               </li>
             ))}
           </ul>
+          <div className="mt-6 flex flex-col gap-5 rounded-[var(--radius-card)] border border-line bg-paper p-6 sm:flex-row sm:items-center sm:justify-between md:px-8">
+            <span className="flex flex-col gap-1">
+              <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">
+                {copy.followHeading}
+              </h3>
+              <span className="text-small text-ink-muted">{copy.followIntro}</span>
+            </span>
+            <SocialLinks size="lg" />
+          </div>
         </Reveal>
       </Section>
 
@@ -172,7 +182,7 @@ export default function ContactPage() {
             description={formCopy.enquiry.intro}
             className="lg:sticky lg:top-32 lg:self-start"
           />
-          <div className="relative flex flex-col gap-6 rounded-[var(--radius-media)] border border-white/[0.08] bg-bg-raised bg-[linear-gradient(180deg,rgb(255_255_255/0.04),transparent_40%)] p-6 shadow-[0_40px_80px_-40px_rgb(0_0_0/0.9),inset_0_1px_0_rgb(255_255_255/0.06)] md:p-10">
+          <div className="relative flex flex-col gap-6 rounded-[var(--radius-media)] border border-line bg-bg-raised p-6 shadow-[0_1px_2px_rgb(0_0_0/0.04),0_18px_40px_-24px_rgb(0_0_0/0.18)] md:p-10">
             {/* Lime edge-light along the top of the form panel. */}
             <span
               aria-hidden

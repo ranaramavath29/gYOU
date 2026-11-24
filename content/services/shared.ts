@@ -30,7 +30,7 @@ export const serviceShared = {
       {
         title: "Project fee",
         description:
-          "Defined projects with a clear scope, such as a new website, a brand identity or a video.",
+          "Defined projects with a clear scope, such as a new website or marketing campaign.",
       },
       {
         title: "Campaign management",
@@ -47,7 +47,7 @@ export const servicesOverview = {
   // Brief §6 Section 05 heading.
   heading: { lead: "Everything Your Brand Needs to", accent: "Grow Digitally." },
   supporting:
-    "Six integrated services, planned around your business goals. Choose one, or bring them together under a single strategy.", // working copy
+    "Four integrated services, planned around your business goals. Choose one, or bring them together under a single strategy.", // working copy
   listHeading: { lead: "Our", accent: "Services" },
   exploreLabel: "Explore service",
   cta: {
@@ -57,5 +57,5 @@ export const servicesOverview = {
   },
   metaTitle: "Digital Marketing Services",
   metaDescription:
-    "Social media, SEO, performance marketing, branding, video and website services from gYOU, a Hyderabad digital marketing agency.",
+    "Social media, SEO, performance marketing and website services from gYOU, a Hyderabad digital marketing agency.",
 } as const;

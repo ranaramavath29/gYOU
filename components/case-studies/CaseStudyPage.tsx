@@ -40,7 +40,7 @@ export function CaseStudyPage({ meta, Content, next }: Props) {
       {meta.draft ? (
         <p
           role="note"
-          className="bg-accent px-5 py-2 text-center text-small font-semibold text-ink"
+          className="bg-accent px-5 py-2 text-center text-small font-semibold text-on-accent"
         >
           {L.draftBanner}
         </p>
@@ -59,7 +59,7 @@ export function CaseStudyPage({ meta, Content, next }: Props) {
             currentHref={caseStudyHref(meta.slug)}
           />
           <Reveal className="mt-10 flex flex-col gap-8 md:mt-14">
-            <Pill dot>
+            <Pill dot variant="chip">
               {meta.client} · {industryName(meta.industry)}
             </Pill>
             <h1

@@ -23,8 +23,6 @@ const routes = [
   "/services/performance-marketing",
   "/services/seo-content-marketing",
   "/services/social-media-marketing",
-  "/services/branding-creative-design",
-  "/services/video-content-production",
   "/our-work",
   "/industries",
   "/insights",
@@ -48,6 +46,8 @@ for (const route of routes) {
 test("unknown routes and drafts are 404", async ({ page }) => {
   for (const route of [
     "/services/not-a-service",
+    "/services/branding-creative-design",
+    "/services/video-content-production",
     "/case-studies/example-case-study",
     "/insights/example-post",
   ]) {

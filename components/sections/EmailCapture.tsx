@@ -73,12 +73,12 @@ export function EmailCapture({ form: source, page }: { form: string; page: strin
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? errorId : undefined}
           {...register("email")}
-          className="min-h-12 flex-1 rounded-full bg-transparent px-5 text-base text-fg placeholder:text-fg-subtle focus-visible:outline-offset-0"
+          className="min-h-12 flex-1 rounded-full bg-transparent px-5 text-base text-ink placeholder:text-ink-muted focus-visible:outline-offset-0"
         />
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex min-h-12 items-center justify-center rounded-full bg-accent px-6 text-sm font-semibold text-ink transition-colors hover:bg-[#c9f249] disabled:opacity-60"
+          className="inline-flex min-h-12 items-center justify-center rounded-full bg-accent px-6 text-sm font-semibold whitespace-nowrap text-on-accent transition-colors hover:bg-accent-hover disabled:opacity-60"
         >
           {isSubmitting ? finalCta.sendingLabel : finalCta.submitLabel}
         </button>

@@ -4,7 +4,14 @@ import type { Placeholder } from "@/lib/ph";
  * Site-wide business details. Only confirmed facts go in as plain strings.
  * Anything not yet supplied by gYOU stays as ph(...).
  */
-export type SocialLink = { label: string; href: string };
+export type SocialPlatform = "linkedin" | "instagram" | "facebook" | "x";
+export type SocialLink = {
+  platform: SocialPlatform;
+  label: string;
+  href: string;
+  /** Public handle shown next to the icon where there is room, e.g. "@gyoudigital". */
+  handle?: string;
+};
 
 export type SiteContent = {
   name: string;
@@ -12,8 +19,8 @@ export type SiteContent = {
   tagline: string;
   /** Primary target market (confirmed at PAUSE 2). */
   primaryMarket: string;
-  /** "wordmark" renders the text logo (components/Wordmark.tsx); a file path would render an image. */
-  logo: "wordmark" | Placeholder;
+  /** Full logo image path, or "wordmark" to render the SVG mark and text. */
+  logo: "wordmark" | `/${string}` | Placeholder;
   footerDescription: string | Placeholder;
   email: string | Placeholder;
   /** Display format; links are built from the digits. */
@@ -35,18 +42,16 @@ export type SiteContent = {
 };
 
 export const site: SiteContent = {
-  name: "gYOU",
-  domain: "rozento.in",
-  // From the strategy brief (proposed tagline). Confirm before launch.
-  tagline: "Creative Thinking. Strategic Marketing. Measurable Growth.",
+  name: "gYOU Digital",
+  domain: "gyoudigital.com",
+  tagline: "Think Digital. Grow Smarter.",
   primaryMarket: "Hyderabad",
-  // Text wordmark approved as the official logo (after PAUSE 3).
-  logo: "wordmark",
+  logo: "/brand/gyou-logo.svg",
   // Drafted from the brief's positioning at gYOU's request (PAUSE 2). Awaiting approval.
   footerDescription:
-    "A Hyderabad website design and digital marketing agency bringing strategy, creativity and performance together to help businesses grow.",
+    "Helping businesses build a stronger digital presence through strategic marketing and website solutions.",
   // Confirmed at PAUSE 2.
-  email: "rozento.in@gmail.com",
+  email: "support@gyoudigital.com",
   phone: "+91 96666 96153",
   whatsapp: "+91 96666 96153",
   address: [
@@ -54,7 +59,27 @@ export const site: SiteContent = {
     "Near Durgam Cheruvu Metro, Madhapur",
     "Hyderabad 500081",
   ],
-  socials: [{ label: "Facebook", href: "https://www.facebook.com/share/1FzqVuKcek/" }],
+  // Public profile URLs (the LinkedIn admin dashboard link is not public, so the
+  // company page URL is used). Order: most important for B2B first.
+  socials: [
+    {
+      platform: "linkedin",
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/145511224/",
+    },
+    {
+      platform: "instagram",
+      label: "Instagram",
+      href: "https://www.instagram.com/gyoudigital/",
+      handle: "@gyoudigital",
+    },
+    {
+      platform: "facebook",
+      label: "Facebook",
+      href: "https://www.facebook.com/profile.php?id=61596724598139",
+    },
+    { platform: "x", label: "X", href: "https://x.com/gYOUdigital", handle: "@gYOUdigital" },
+  ],
   // From the PAUSE 2 address. Madhapur, Hyderabad is in Telangana.
   postalAddress: {
     streetAddress: "Building No. 12, Main Street, Near Durgam Cheruvu Metro, Madhapur",

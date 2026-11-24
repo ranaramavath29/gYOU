@@ -61,6 +61,17 @@ export const formCopy = {
     next: "Continue",
     submit: "Send enquiry",
   },
+  /** Quick callback bar under the homepage hero (Studio Daylight layout). Working copy. */
+  callback: {
+    heading: "Prefer a quick call?",
+    intro: "Leave your details and we’ll call you back to talk about your goals.",
+    fullName: "Your name",
+    email: "Business email",
+    phone: "Phone or WhatsApp",
+    service: "What do you need?",
+    servicePlaceholder: "Choose a service",
+    submit: "Get a callback",
+  },
   audit: {
     heading: { lead: "Request a Free", accent: "Website Audit" },
     intro:
@@ -80,6 +91,7 @@ export const thankYouCopy = {
       "We’ve received your enquiry. Our team will review your project details and get in touch.",
     consultation: "We’ve received your request for a free consultation and will be in touch.",
     audit: "We’ve received your audit request. We’ll review your website and get back to you.",
+    callback: "We’ve received your callback request and will be in touch.",
   } as Record<string, string>,
   next: "While you wait",
   links: [
@@ -96,7 +108,6 @@ export const thankYouCopy = {
  */
 export const whatsappMessages = {
   default: "Hi gYOU, I’d like to know more about your services.",
-  service: (serviceName: string) =>
-    `Hi gYOU, I’d like to discuss ${serviceName} for my business.`,
+  service: (serviceName: string) => `Hi gYOU, I’d like to discuss ${serviceName} for my business.`,
   contact: "Hi gYOU, I’d like to discuss a project.",
 } as const;

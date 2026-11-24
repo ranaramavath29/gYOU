@@ -69,7 +69,7 @@ export function ChipGroup({
                   "inline-flex min-h-11 items-center rounded-full border px-5 text-sm font-semibold transition-colors duration-150",
                   "peer-focus-visible:outline-2 peer-focus-visible:outline-offset-3 peer-focus-visible:outline-[var(--focus-ring)]",
                   checked
-                    ? "border-accent bg-accent text-ink"
+                    ? "border-accent bg-accent text-on-accent"
                     : cn(
                         "bg-bg-raised-2 text-fg hover:border-fg-subtle",
                         error ? "border-danger" : "border-line",

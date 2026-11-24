@@ -5,6 +5,7 @@ import { ArrowUpRightIcon } from "@/components/icons";
 import { PlaceholderText } from "@/components/PlaceholderText";
 import { Button, Container } from "@/components/ui";
 import { Wordmark } from "@/components/Wordmark";
+import { SocialLinks } from "@/components/sections/SocialLinks";
 import { footerNav, navCta, uiLabels, type NavLink } from "@/content/navigation";
 import { site } from "@/content/site";
 import { PhoneWhatsApp } from "@/components/sections/PhoneWhatsApp";
@@ -42,7 +43,7 @@ function ContactItem({ label, value, href }: { label: string; value: string; hre
     <li className="flex flex-col gap-0.5">
       <span className="text-small text-fg-subtle">{label}</span>
       {href ? (
-        <a href={href} className="text-fg hover:text-accent">
+        <a href={href} className="text-fg hover:text-fg-muted">
           {value}
         </a>
       ) : (
@@ -54,7 +55,7 @@ function ContactItem({ label, value, href }: { label: string; value: string; hre
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const { address, socials } = site;
+  const { address } = site;
 
   return (
     <footer className="border-t border-line bg-bg">
@@ -72,6 +73,7 @@ export function Footer() {
             value={site.footerDescription}
             className="max-w-[34ch] text-small text-fg-muted"
           />
+          <p className="text-small font-semibold text-fg">{site.tagline}</p>
           <Button
             href={navCta.href}
             variant="outline"
@@ -98,6 +100,11 @@ export function Footer() {
             <ColumnTitle>{footerNav.contactTitle}</ColumnTitle>
             <ul className="flex flex-col gap-4">
               <ContactItem label={uiLabels.email} value={site.email} href={mailHref(site.email)} />
+              <ContactItem
+                label="Website"
+                value={`www.${site.domain}`}
+                href={`https://${site.domain}`}
+              />
               {isSameNumber(site.phone, site.whatsapp) ? (
                 // Same number for calls and WhatsApp: show it once with both actions.
                 <li className="flex flex-col gap-2">
@@ -138,24 +145,7 @@ export function Footer() {
           </div>
           <div>
             <ColumnTitle>{footerNav.socialTitle}</ColumnTitle>
-            {isPlaceholder(socials) ? (
-              <PlaceholderText value={socials} className="text-small text-fg-muted" />
-            ) : (
-              <ul className="flex flex-wrap gap-x-5">
-                {socials.map((s) => (
-                  <li key={s.href}>
-                    <a
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex min-h-9 items-center text-small text-fg-muted hover:text-fg"
-                    >
-                      {s.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
+            <SocialLinks className="mt-1" />
           </div>
         </div>
       </Container>

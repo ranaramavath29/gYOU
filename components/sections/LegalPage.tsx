@@ -42,7 +42,7 @@ export function LegalPage({ page, Content }: { page: LegalPageKey; Content: Comp
                 <p className="mt-3 text-fg-muted">{legalLabels.pendingBody}</p>
                 <a
                   href={mailHref(site.email)}
-                  className="mt-5 inline-flex min-h-11 items-center font-semibold text-accent underline decoration-1 underline-offset-4 hover:decoration-2"
+                  className="mt-5 inline-flex min-h-11 items-center font-semibold text-ink underline decoration-1 underline-offset-4 hover:decoration-2"
                 >
                   {site.email}
                 </a>

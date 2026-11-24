@@ -35,7 +35,7 @@ export default function ThankYouPage() {
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-accent"
+                  className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-fg-muted"
                 >
                   {l.label}
                 </Link>

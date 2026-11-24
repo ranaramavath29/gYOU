@@ -1,10 +1,10 @@
 /**
- * The six service categories and routes, from the strategy brief (§4, §5).
+ * The four service categories and routes, from the strategy brief (§4, §5).
  * Full page content for each service lives next to this file
  * (content/services/<slug>.ts), collected in ./pages.ts.
  *
  * Order matters: it drives the marquee, homepage list, footer and /services.
- * Website building and marketing lead, per gYOU's direction (PAUSE 4).
+ * Performance Marketing first, then Website Design & Development (gYOU, Nov 2026).
  */
 export type ServiceSummary = {
   slug: string;
@@ -19,18 +19,18 @@ export type ServiceSummary = {
 
 export const services = [
   {
-    slug: "website-design-development",
-    name: "Website Design & Development",
-    shortName: "Websites",
-    summary: "Websites and landing pages designed to turn visitors into enquiries.",
-    highlights: ["UI/UX", "Landing pages", "Development"],
-  },
-  {
     slug: "performance-marketing",
     name: "Performance Marketing",
     shortName: "Performance",
     summary: "Meta Ads and Google Ads campaigns planned and refined around business outcomes.",
     highlights: ["Meta Ads", "Google Ads", "Retargeting"],
+  },
+  {
+    slug: "website-design-development",
+    name: "Website Design & Development",
+    shortName: "Websites",
+    summary: "Websites and landing pages designed to turn visitors into enquiries.",
+    highlights: ["UI/UX", "Landing pages", "Development"],
   },
   {
     slug: "seo-content-marketing",
@@ -46,20 +46,6 @@ export const services = [
     summary: "Strategy, content and community management for a consistent social presence.",
     highlights: ["Strategy", "Content calendars", "Reels"],
   },
-  {
-    slug: "branding-creative-design",
-    name: "Branding & Creative Design",
-    shortName: "Branding",
-    summary: "Brand strategy, visual identity and creative that make your business recognisable.",
-    highlights: ["Identity", "Logo", "Campaign design"],
-  },
-  {
-    slug: "video-content-production",
-    name: "Video & Content Production",
-    shortName: "Video",
-    summary: "Promotional videos, reels and motion graphics made to hold attention.",
-    highlights: ["Promotional videos", "Reels", "Motion graphics"],
-  },
 ] as const satisfies readonly ServiceSummary[];
 
 export type ServiceSlug = (typeof services)[number]["slug"];
@@ -74,8 +60,6 @@ export const serviceSeoTitles: Record<ServiceSlug, string> = {
   "performance-marketing": "Performance Marketing Agency",
   "seo-content-marketing": "SEO & Content Marketing Services",
   "social-media-marketing": "Social Media Marketing Agency",
-  "branding-creative-design": "Branding & Creative Design Agency",
-  "video-content-production": "Video & Content Production Services",
 };
 
 export const serviceHref = (slug: string) => `/services/${slug}`;

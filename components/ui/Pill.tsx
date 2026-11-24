@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 type PillProps = {
-  variant?: "outline" | "raised" | "accent";
-  /** Small lime dot before the label (as in the hero eyebrow). */
+  variant?: "outline" | "raised" | "accent" | "chip";
+  /** Small tomato dot before the label (as in the hero eyebrow). */
   dot?: boolean;
   className?: string;
   children: ReactNode;
@@ -12,7 +12,9 @@ type PillProps = {
 const variants = {
   outline: "border border-line text-fg-subtle",
   raised: "bg-bg-raised-2 text-fg",
-  accent: "bg-accent text-ink",
+  accent: "bg-accent text-on-accent",
+  /** Warm sand chip with a tomato dot: page eyebrows (option J). */
+  chip: "bg-[#f3e6d6] font-semibold text-[#5b3a22]",
 } as const;
 
 /** Non-interactive label pill: eyebrows, tags, categories. */

@@ -1,11 +1,14 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
-import { LogoMark } from "@/components/LogoMark";
 import { site } from "@/content/site";
 
+// The site logo, inlined so ImageResponse needs no network fetch.
+const LOGO = `data:image/png;base64,${readFileSync(path.join(process.cwd(), "public/brand/gyou-logo.png")).toString("base64")}`;
+
 /**
- * Dynamic Open Graph image (1200×630) in the Editorial Luxe style:
- * dark background, lime accent, large serif-style title.
+ * Dynamic Open Graph image (1200×630) in the cream, ink and tomato palette.
  * Uses ImageResponse's built-in font; no font files are fetched at runtime.
  * Usage: /og?title=…&eyebrow=…
  */
@@ -25,30 +28,21 @@ export function GET(request: NextRequest) {
         flexDirection: "column",
         justifyContent: "space-between",
         padding: "72px 80px",
-        background: "#0C0C0B",
-        color: "#F2F0EA",
+        background: "#FBF7F0",
+        color: "#1D1B18",
         backgroundImage:
-          "radial-gradient(circle at 85% 10%, rgba(214,255,92,0.18), transparent 45%)",
+          "radial-gradient(circle at 85% 10%, rgba(255,215,184,0.55), transparent 45%)",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 16,
-          fontSize: 44,
-          fontWeight: 700,
-          letterSpacing: -1,
-        }}
-      >
-        <LogoMark width={52} height={48} />
-        {site.name}
+      <div style={{ display: "flex" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse needs a plain img */}
+        <img src={LOGO} alt={site.name} width={283} height={70} />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
         <div
-          style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26, color: "#BDBBB2" }}
+          style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26, color: "#5C5A55" }}
         >
-          <div style={{ width: 12, height: 12, borderRadius: 999, background: "#D6FF5C" }} />
+          <div style={{ width: 12, height: 12, borderRadius: 999, background: "#C8412C" }} />
           {eyebrow}
         </div>
         <div
@@ -63,7 +57,7 @@ export function GET(request: NextRequest) {
         </div>
       </div>
       <div
-        style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#A9A79F" }}
+        style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#67635B" }}
       >
         <span>{site.tagline}</span>
         <span>{site.domain}</span>

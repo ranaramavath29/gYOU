@@ -1,3 +1,4 @@
+import { media } from "./media";
 import { services } from "./services";
 import { site } from "./site";
 
@@ -17,6 +18,8 @@ export type TeamMember = {
 export const about = {
   eyebrow: "About gYOU",
   heading: { lead: "Websites and Marketing,", accent: "Built Around", trail: "Your Growth." },
+  /** Wide banner under the page heading. */
+  heroMedia: media.peopleWalking,
   supporting: `gYOU is a ${site.primaryMarket} website design and digital marketing agency. We combine strategy, creativity and performance marketing to help businesses build stronger digital identities and grow.`,
   whoWeAre: {
     heading: { lead: "Who", accent: "We Are" },

@@ -1,9 +1,11 @@
+import { media } from "../media";
 import type { ServicePageContent } from "./types";
 
 /** Website Design & Development. Deliverables: brief §4.6. Other copy is working copy. */
 export const websiteDesignDevelopment: ServicePageContent = {
   slug: "website-design-development",
   hero: {
+    media: media.websiteDevices,
     heading: { lead: "Websites Built to", accent: "Convert." },
     supporting:
       "Business websites and landing pages designed around your customers, built to work on every device and easy to keep up to date.",

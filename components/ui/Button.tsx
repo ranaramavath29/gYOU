@@ -29,11 +29,10 @@ export type ButtonProps = LinkButtonProps | NativeButtonProps;
 
 const variants: Record<ButtonVariant, string> = {
   solid:
-    "bg-fg text-bg shadow-[inset_0_-2px_0_rgb(0_0_0/0.08)] hover:bg-white hover:shadow-[0_12px_32px_-12px_rgb(255_255_255/0.45)]",
-  outline:
-    "border border-line-strong bg-white/[0.02] text-fg backdrop-blur-sm hover:border-fg-subtle hover:bg-white/[0.07]",
+    "bg-fg text-bg shadow-[inset_0_-2px_0_rgb(0_0_0/0.08)] hover:bg-fg-muted hover:shadow-[0_12px_32px_-12px_rgb(0_0_0/0.2)]",
+  outline: "border border-line-strong bg-transparent text-fg hover:border-fg hover:bg-bg-raised",
   accent:
-    "bg-accent text-ink shadow-[inset_0_-2px_0_rgb(0_0_0/0.1)] hover:bg-[#ddff75] hover:shadow-[0_14px_36px_-12px_rgb(214_255_92/0.6)]",
+    "bg-accent text-on-accent shadow-[inset_0_-2px_0_rgb(0_0_0/0.12)] hover:bg-accent-hover hover:shadow-[0_14px_36px_-12px_rgb(200_65_44/0.5)]",
 };
 
 const sizes: Record<ButtonSize, string> = {

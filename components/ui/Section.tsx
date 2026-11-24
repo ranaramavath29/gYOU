@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/cn";
 import { Container } from "./Container";
 
-export type SectionTone = "dark" | "paper";
+export type SectionTone = "default" | "paper";
 
 type SectionProps = ComponentPropsWithoutRef<"section"> & {
   tone?: SectionTone;
@@ -13,14 +13,14 @@ type SectionProps = ComponentPropsWithoutRef<"section"> & {
 };
 
 const tones: Record<SectionTone, string> = {
-  dark: "bg-bg text-fg",
-  // Light "paper" section with 40px top corners. .tone-paper swaps accent/focus tokens.
+  default: "bg-bg text-fg",
+  // Warm paper section with 40px top corners.
   paper: "tone-paper bg-paper text-ink rounded-t-[var(--radius-sheet)]",
 };
 
 /** Page section: 120–140px vertical padding on desktop, 72–88px on mobile. */
 export function Section({
-  tone = "dark",
+  tone = "default",
   spacing = "default",
   contained = true,
   className,

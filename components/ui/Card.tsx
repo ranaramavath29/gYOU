@@ -11,22 +11,22 @@ type CardProps = {
 };
 
 const tones: Record<CardTone, string> = {
-  /** Dark card on the dark page: soft top sheen, lime edge-light on hover. */
+  /** White card on the warm page, with a soft lift on hover. */
   raised: cn(
-    "border border-white/[0.07] bg-bg-raised bg-[linear-gradient(180deg,rgb(255_255_255/0.035),rgb(255_255_255/0)_60%)] text-fg",
-    "shadow-[inset_0_1px_0_rgb(255_255_255/0.05)]",
-    "hover:border-white/[0.14] hover:shadow-[0_28px_60px_-32px_rgb(0_0_0/0.95),inset_0_1px_0_rgb(255_255_255/0.08)]",
+    "border border-line bg-bg-raised text-fg",
+    "shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_30px_-18px_rgb(0_0_0/0.18)]",
+    "hover:border-line-strong hover:shadow-[0_2px_4px_rgb(0_0_0/0.04),0_30px_60px_-28px_rgb(0_0_0/0.22)]",
     "before:pointer-events-none before:absolute before:inset-x-8 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-accent/70 before:to-transparent before:opacity-0 before:transition-opacity before:duration-500 hover:before:opacity-100",
   ),
   /** White card on the paper section. */
   paper: cn(
     "bg-white text-ink ring-1 ring-ink/[0.06]",
-    "shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_30px_-18px_rgb(0_0_0/0.25)]",
-    "hover:shadow-[0_2px_4px_rgb(0_0_0/0.04),0_30px_60px_-28px_rgb(0_0_0/0.35)]",
+    "shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_30px_-18px_rgb(0_0_0/0.18)]",
+    "hover:shadow-[0_2px_4px_rgb(0_0_0/0.04),0_30px_60px_-28px_rgb(0_0_0/0.22)]",
   ),
-  /** Dark highlight card on the paper section (accent words turn lime again). */
+  /** Dark contrast card on the warm page (accent words turn peach). */
   ink: cn(
-    "bg-ink text-fg [--heading-accent:var(--accent)] [--focus-ring:var(--accent)]",
+    "tone-ink rounded-[var(--radius-card)] bg-ink text-paper",
     "shadow-[0_30px_60px_-30px_rgb(0_0_0/0.6)]",
   ),
 };

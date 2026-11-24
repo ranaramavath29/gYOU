@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { PlaceholderText } from "@/components/PlaceholderText";
 import { PostCard, type PostCardData } from "@/components/insights/PostCard";
-import { AsteriskIcon } from "@/components/icons";
-import { ArrowCircle, Reveal, Section, SectionHeading } from "@/components/ui";
+import { ArrowUpRightIcon } from "@/components/icons";
+import { MediaFrame, Reveal, Section, SectionHeading } from "@/components/ui";
 import { industries, insights, testimonial, whyChoose } from "@/content/home";
+import { industryList } from "@/content/industries";
+import { industryMedia } from "@/content/media";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 
-/** 10. Industries we serve. */
+/** 10. Industries we serve: photo cards linking to each industry on /industries. */
 export function Industries() {
   return (
     <Section aria-labelledby="industries-heading">
@@ -16,38 +18,57 @@ export function Industries() {
         intro={industries.intro}
       />
       <Reveal>
-        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {industries.items.map((name, i) => (
-            <li
-              key={name}
-              className="group relative flex min-h-40 flex-col justify-between gap-6 overflow-hidden rounded-[var(--radius-card)] border border-white/[0.07] bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_70%)] p-6 transition-[border-color,translate,background-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-accent/35 hover:bg-white/[0.03]"
-            >
-              {/* Soft lime glow that rises from the bottom on hover. */}
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -bottom-24 left-1/2 h-40 w-3/4 -translate-x-1/2 rounded-full bg-accent/20 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
-              />
-              <span className="relative flex items-center justify-between">
-                <span className="font-display text-lg text-fg-subtle italic tabular-nums transition-colors duration-300 group-hover:text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <AsteriskIcon
-                  size={16}
-                  className="text-fg-subtle/40 transition-[rotate,color] duration-700 group-hover:rotate-90 group-hover:text-accent"
-                />
-              </span>
-              <span className="relative font-display text-2xl font-semibold tracking-[-0.02em]">
-                {name}
-              </span>
-            </li>
-          ))}
+        <ul className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4">
+          {industryList.map((industry, i) => {
+            const image = industryMedia[industry.slug as keyof typeof industryMedia];
+            return (
+              <li key={industry.slug}>
+                <Link
+                  href={`${industries.cta.href}#${industry.slug}`}
+                  className="group relative block overflow-hidden rounded-[24px] shadow-[0_24px_50px_-34px_rgb(29_27_24/0.5)] transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-[0_34px_60px_-30px_rgb(29_27_24/0.55)]"
+                >
+                  <MediaFrame
+                    media={image}
+                    placeholder={industry.name}
+                    aspect="4/5"
+                    flat
+                    zoomOnHover
+                    sizes="(min-width: 1024px) 300px, 50vw"
+                    className="[--radius-media:24px]"
+                    overlay={
+                      <span className="pointer-events-none absolute inset-0 flex flex-col justify-between bg-[linear-gradient(to_top,rgb(29_27_24/0.78)_0%,rgb(29_27_24/0.35)_32%,transparent_58%)] p-4 text-bg md:p-5">
+                        <span className="flex items-center justify-between">
+                          <span className="rounded-full bg-bg/90 px-2.5 py-1 text-[0.75rem] font-semibold text-ink tabular-nums">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <span className="grid size-9 place-items-center rounded-full bg-bg/95 text-ink shadow-[0_6px_16px_-8px_rgb(0_0_0/0.5)] transition-[background-color,color,rotate] duration-300 group-hover:rotate-45 group-hover:bg-accent group-hover:text-on-accent">
+                            <ArrowUpRightIcon size={15} />
+                          </span>
+                        </span>
+                        <span className="font-display text-[clamp(1rem,0.8rem+0.8vw,1.375rem)] leading-tight font-semibold tracking-[-0.02em] text-balance">
+                          {industry.name}
+                        </span>
+                      </span>
+                    }
+                  />
+                </Link>
+              </li>
+            );
+          })}
           <li>
             <Link
               href={industries.cta.href}
-              className="group flex h-full min-h-40 flex-col justify-between gap-6 rounded-[var(--radius-card)] border border-accent/25 bg-accent/[0.06] p-6 transition-[background-color,border-color,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-accent/50 hover:bg-accent/[0.1]"
+              className="group flex aspect-[4/5] h-full flex-col justify-between rounded-[24px] bg-accent p-4 text-on-accent shadow-[0_24px_50px_-34px_rgb(200_65_44/0.7)] transition-[translate,background-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-accent-hover md:p-5"
             >
-              <ArrowCircle />
-              <span className="font-semibold">{industries.cta.label}</span>
+              <span className="grid size-11 place-items-center rounded-full bg-on-accent text-accent transition-transform duration-300 group-hover:rotate-45">
+                <ArrowUpRightIcon size={16} />
+              </span>
+              <span className="flex flex-col gap-2">
+                <span className="font-display text-[clamp(1.125rem,0.9rem+0.9vw,1.625rem)] leading-tight font-semibold tracking-[-0.02em]">
+                  {industries.cta.label}
+                </span>
+                <span className="text-small opacity-90">{industries.ctaHint}</span>
+              </span>
             </Link>
           </li>
         </ul>
@@ -61,8 +82,18 @@ export function WhyChoose() {
   return (
     <Section aria-labelledby="why-heading">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-        <Reveal className="lg:sticky lg:top-32 lg:self-start">
+        <Reveal className="flex flex-col gap-10 lg:sticky lg:top-32 lg:self-start">
           <SectionHeading id="why-heading" {...whyChoose.heading} headingClassName="max-w-[14ch]" />
+          <figure className="hidden max-w-[400px] rounded-[32px] border border-line bg-bg-raised p-2.5 shadow-[0_30px_60px_-36px_rgb(29_27_24/0.35)] lg:block">
+            <MediaFrame
+              media={whyChoose.image}
+              placeholder={whyChoose.image.alt}
+              aspect="4/5"
+              flat
+              sizes="400px"
+              className="[--radius-media:24px]"
+            />
+          </figure>
         </Reveal>
         <Reveal>
           <ol className="border-t border-line">
@@ -71,7 +102,7 @@ export function WhyChoose() {
                 key={point.title}
                 className="group grid grid-cols-[3rem_1fr] gap-4 border-b border-line py-6"
               >
-                <span className="pt-0.5 font-display text-2xl leading-none text-accent/60 italic tabular-nums transition-colors duration-300 group-hover:text-accent">
+                <span className="pt-0.5 font-display text-2xl leading-none text-ink/60 italic tabular-nums transition-colors duration-300 group-hover:text-ink">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="flex flex-col gap-1.5 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1.5">

@@ -26,6 +26,7 @@ export default function AboutPage() {
         eyebrow={about.eyebrow}
         heading={about.heading}
         supporting={about.supporting}
+        media={about.heroMedia}
         breadcrumb={{
           label: uiLabels.breadcrumb,
           items: [{ label: uiLabels.home, href: "/" }],
@@ -78,7 +79,7 @@ export default function AboutPage() {
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {values.items.map((v, i) => (
               <Card as="li" key={v.title} className="flex flex-col gap-6">
-                <span aria-hidden className="font-display text-3xl leading-none text-accent italic">
+                <span aria-hidden className="font-display text-3xl leading-none text-ink italic">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="flex flex-col gap-2">

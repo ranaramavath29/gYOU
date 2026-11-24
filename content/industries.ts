@@ -18,19 +18,19 @@ export const industryList = [
     slug: "real-estate-infrastructure",
     name: "Real Estate & Infrastructure",
     description:
-      "Property decisions are high-value and considered. Marketing needs to build trust, present projects clearly and generate enquiries from serious buyers.",
+      "Build visibility, attract potential buyers and generate relevant property enquiries.",
     focus: [
       "Project launch campaigns",
       "Lead generation for site visits",
       "Project websites and landing pages",
     ],
-    services: ["website-design-development", "performance-marketing", "video-content-production"],
+    services: ["website-design-development", "performance-marketing", "seo-content-marketing"],
   },
   {
     slug: "healthcare-wellness",
     name: "Healthcare & Wellness",
     description:
-      "Patients and clients look for credibility and clarity before they book. Marketing should be informative, respectful and easy to act on.",
+      "Strengthen digital presence, improve discoverability and connect healthcare brands with their communities.",
     focus: [
       "Local search visibility",
       "Appointment-focused websites",
@@ -42,7 +42,7 @@ export const industryList = [
     slug: "education-training",
     name: "Education & Training",
     description:
-      "Students and parents compare options carefully. Clear information and well-timed campaigns around admission cycles make the difference.",
+      "Increase institutional visibility, reach prospective students and generate admission enquiries.",
     focus: [
       "Admission and enrolment campaigns",
       "Course and programme landing pages",
@@ -54,49 +54,49 @@ export const industryList = [
     slug: "fintech-financial-services",
     name: "Fintech & Financial Services",
     description:
-      "Financial decisions depend on trust. Marketing has to explain products clearly and accurately, and build confidence over time.",
+      "Communicate financial solutions through clear content, strategic marketing and effective digital experiences.",
     focus: [
       "Clear product explainers",
       "Trust-building content",
       "Websites that simplify complex offers",
     ],
-    services: ["website-design-development", "seo-content-marketing", "video-content-production"],
+    services: ["website-design-development", "seo-content-marketing", "performance-marketing"],
   },
   {
     slug: "ecommerce-retail",
     name: "E-commerce & Retail",
     description:
-      "Online shoppers move quickly. Visibility, strong product content and well-run campaigns help turn browsing into sales.",
+      "Improve product visibility, reach potential customers and support online sales growth.",
     focus: [
       "Product and catalogue campaigns",
       "Conversion-focused store experiences",
-      "Product videos and reels",
+      "Product page SEO and content",
     ],
-    services: ["performance-marketing", "website-design-development", "video-content-production"],
+    services: ["performance-marketing", "website-design-development", "social-media-marketing"],
   },
   {
     slug: "technology-saas",
     name: "Technology & SaaS",
     description:
-      "Technology buyers research thoroughly. Content that explains value clearly and campaigns that reach decision-makers support a longer sales cycle.",
+      "Build brand awareness, communicate product value and reach relevant business audiences.",
     focus: [
       "Product websites and landing pages",
       "SEO and content for research-led buyers",
-      "Explainer videos",
+      "Product and feature page content",
     ],
-    services: ["website-design-development", "seo-content-marketing", "video-content-production"],
+    services: ["website-design-development", "seo-content-marketing", "performance-marketing"],
   },
   {
     slug: "hospitality-lifestyle",
     name: "Hospitality & Lifestyle",
     description:
-      "Guests choose with their eyes. Strong visuals, active social channels and easy booking journeys drive interest and reservations.",
+      "Strengthen online visibility, showcase experiences and attract potential customers.",
     focus: [
       "Visual social media content",
-      "Reels and short-form video",
+      "Social content showcasing experiences",
       "Websites with clear booking journeys",
     ],
-    services: ["social-media-marketing", "video-content-production", "website-design-development"],
+    services: ["social-media-marketing", "seo-content-marketing", "website-design-development"],
   },
 ] as const satisfies readonly Industry[];
 
@@ -112,7 +112,7 @@ export function industryName(slug: IndustrySlug): string {
 export const industriesPage = {
   heading: { lead: "Industries", accent: "We Serve" },
   supporting:
-    "Every sector buys, decides and grows differently. We shape websites and marketing around how your customers actually choose.",
+    "Every industry has its own audience, challenges and opportunities. We develop digital strategies that align with the specific needs of your business.",
   focusLabel: "Where we focus",
   servicesLabel: "Relevant services",
   cta: {

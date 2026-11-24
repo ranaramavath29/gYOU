@@ -22,14 +22,14 @@ export function Accordion({ items, className }: AccordionProps) {
             className={cn(
               "flex min-h-16 cursor-pointer list-none items-center justify-between gap-6 py-5",
               "font-display text-xl font-semibold tracking-[-0.02em] md:text-2xl",
-              "transition-colors duration-300 group-open:text-accent hover:text-accent",
+              "transition-colors duration-300 group-open:text-fg-muted hover:text-fg-muted",
               "[&::-webkit-details-marker]:hidden",
             )}
           >
             <span>{item.question}</span>
             <span
               aria-hidden
-              className="grid size-10 shrink-0 place-items-center rounded-full border border-line-strong text-fg transition-[rotate,background-color,border-color,color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45 group-open:border-accent group-open:bg-accent group-open:text-ink group-hover:border-accent"
+              className="grid size-10 shrink-0 place-items-center rounded-full border border-line-strong text-fg transition-[rotate,background-color,border-color,color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45 group-open:border-accent group-open:bg-accent group-open:text-on-accent group-hover:border-accent"
             >
               <PlusIcon size={16} />
             </span>

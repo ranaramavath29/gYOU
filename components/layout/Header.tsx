@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowUpRightIcon, CloseIcon, MailIcon, MenuIcon } from "@/components/icons";
 import { PhoneWhatsApp } from "@/components/sections/PhoneWhatsApp";
+import { SocialLinks } from "@/components/sections/SocialLinks";
 import { Container } from "@/components/ui";
 import { Wordmark } from "@/components/Wordmark";
 import { whatsappMessages } from "@/content/forms";
@@ -23,15 +24,15 @@ function HeaderCta({ onClick, full = false }: { onClick?: () => void; full?: boo
       href={navCta.href}
       onClick={onClick}
       className={cn(
-        "group inline-flex h-11 items-center gap-3 rounded-full bg-accent pr-1.5 pl-5 text-sm font-semibold whitespace-nowrap text-ink",
-        "shadow-[0_8px_24px_-12px_rgb(214_255_92/0.7)] transition-[box-shadow,transform,background-color] duration-200",
-        "hover:bg-[#ddff73] hover:shadow-[0_12px_32px_-10px_rgb(214_255_92/0.8)] active:scale-[0.97]",
+        "group inline-flex h-11 items-center gap-3 rounded-full bg-accent pr-1.5 pl-5 text-sm font-semibold whitespace-nowrap text-on-accent",
+        "shadow-[0_8px_24px_-12px_rgb(200_65_44/0.55)] transition-[box-shadow,transform,background-color] duration-200",
+        "hover:bg-accent-hover hover:shadow-[0_12px_32px_-10px_rgb(200_65_44/0.6)] active:scale-[0.97]",
         "[--focus-ring:var(--fg)]",
         full && "h-13 w-full justify-between text-base",
       )}
     >
       {navCta.label}
-      <span className="grid size-8 place-items-center rounded-full bg-ink text-accent transition-transform duration-300 group-hover:rotate-45">
+      <span className="grid size-8 place-items-center rounded-full bg-on-accent text-accent transition-transform duration-300 group-hover:rotate-45">
         <ArrowUpRightIcon size={15} />
       </span>
     </Link>
@@ -89,7 +90,7 @@ export function Header() {
       <header
         className={cn(
           "sticky top-0 z-40 border-b transition-[background-color,border-color,backdrop-filter] duration-300",
-          scrolled ? "border-white/[0.06] bg-bg/75 backdrop-blur-xl" : "border-transparent",
+          scrolled ? "border-line bg-bg/90 backdrop-blur-xl" : "border-line bg-bg",
         )}
       >
         <Container
@@ -119,7 +120,7 @@ export function Header() {
               aria-haspopup="dialog"
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
-              className="grid size-11 place-items-center rounded-full border border-white/10 bg-bg-raised/70 text-fg backdrop-blur-xl transition-[background-color,transform] hover:bg-bg-raised-2 active:scale-95 lg:hidden"
+              className="grid size-11 place-items-center rounded-full border border-line bg-bg-raised/80 text-fg backdrop-blur-xl transition-[background-color,transform] hover:bg-bg-raised-2 active:scale-95 lg:hidden"
             >
               <MenuIcon size={20} />
               <span className="sr-only">{uiLabels.openMenu}</span>
@@ -152,7 +153,7 @@ export function Header() {
               ref={closeButtonRef}
               type="button"
               onClick={closeMenu}
-              className="grid size-11 place-items-center rounded-full border border-white/10 bg-bg-raised transition-transform active:scale-95"
+              className="grid size-11 place-items-center rounded-full border border-line bg-bg-raised transition-transform active:scale-95"
             >
               <CloseIcon size={20} />
               <span className="sr-only">{uiLabels.closeMenu}</span>
@@ -182,7 +183,7 @@ export function Header() {
                           <span
                             className={cn(
                               "w-7 text-small tabular-nums",
-                              active ? "text-accent" : "text-fg-subtle",
+                              active ? "text-fg" : "text-fg-subtle",
                             )}
                           >
                             {String(i + 1).padStart(2, "0")}
@@ -199,7 +200,7 @@ export function Header() {
                             className={cn(
                               "grid size-10 shrink-0 place-items-center rounded-full border transition-colors",
                               active
-                                ? "border-accent bg-accent text-ink"
+                                ? "border-accent bg-accent text-on-accent"
                                 : "border-line-strong text-fg-subtle group-hover:border-fg-subtle group-hover:text-fg",
                             )}
                           >
@@ -256,6 +257,7 @@ export function Header() {
                       {site.email}
                     </a>
                   ) : null}
+                  <SocialLinks />
                 </div>
                 <HeaderCta onClick={closeMenu} full />
               </motion.div>

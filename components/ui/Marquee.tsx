@@ -39,7 +39,10 @@ export function Marquee({ items, label, tilted = false, className }: MarqueeProp
       <div
         role="region"
         aria-label={label}
-        className={cn("marquee bg-accent py-4 text-ink", tilted && "-mx-[5%] w-[110%] -rotate-2")}
+        className={cn(
+          "marquee bg-accent py-4 text-on-accent",
+          tilted && "-mx-[5%] w-[110%] -rotate-2",
+        )}
       >
         <div className="marquee-track flex w-max animate-marquee">
           <Row items={items} />
