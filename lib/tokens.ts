@@ -15,7 +15,7 @@ export const colorTokens = {
   "accent-hover": "#1A4FB0",
   "on-accent": "#FFFFFF",
   sage: "#5B6650",
-  sky: "#A9C4F5",
+  sky: "#C5D4EF",
   paper: "#F3ECE1",
   ink: "#1D1B18",
   "ink-muted": "#4D4A44",

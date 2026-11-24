@@ -20,7 +20,7 @@
   /* Text and icons on blue fills (white on #1f5fd1 5.8:1; blue text on cream 5.4:1). */
   --on-accent: #ffffff;
   --sage: #5b6650;
-  --sky: #a9c4f5;
+  --sky: #c5d4ef; /* soft ice blue: premium, low-saturation accent on ink */
   --paper: #f3ece1;
   --ink: #1d1b18;
   --ink-muted: #4d4a44;
@@ -184,6 +184,18 @@
   .accent-word {
     font-style: normal;
     color: var(--heading-accent);
+  }
+  /* On ink: a quiet silver-to-steel blue sheen (min 8.4:1 on ink). Flat ice blue
+     where background-clip text is unsupported. Cloned per line when it wraps. */
+  @supports ((background-clip: text) or (-webkit-background-clip: text)) {
+    .tone-ink .accent-word {
+      background-image: linear-gradient(100deg, #eef2fb 0%, #c5d4ef 45%, #9fb6e3 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
   }
   /* Never synthesise a slanted grotesque: italic numerals render upright. */
   .font-display {
