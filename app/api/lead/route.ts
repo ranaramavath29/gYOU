@@ -87,7 +87,27 @@ export async function POST(request: Request) {
     });
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("[api/lead] send failed:", err);
-    return NextResponse.json({ error: "send_failed" }, { status: 502 });
+    // Full details go to the server log (Vercel → Logs); the browser only gets a
+    // coarse, non-sensitive reason so setup problems can be told apart.
+    const e = err as { code?: string; responseCode?: number; command?: string; message?: string };
+    const reason =
+      e.code === "EAUTH" || e.responseCode === 535
+        ? "auth" // wrong SMTP_USER / SMTP_PASS, or SMTP/app passwords not allowed
+        : e.code === "EENVELOPE" || e.responseCode === 553 || e.responseCode === 550
+          ? "sender" // From/To rejected (e.g. SMTP_USER is an alias, not a mailbox)
+          : e.code === "ECONNECTION" ||
+              e.code === "ETIMEDOUT" ||
+              e.code === "ESOCKET" ||
+              e.code === "EDNS"
+            ? "connection" // wrong SMTP_HOST / SMTP_PORT, or port blocked
+            : "other";
+    console.error(
+      `[api/lead] send failed (${reason}) host=${host} port=${port} user=${user}:`,
+      e.code,
+      e.responseCode,
+      e.command,
+      e.message,
+    );
+    return NextResponse.json({ error: "send_failed", reason }, { status: 502 });
   }
 }
