@@ -65,56 +65,54 @@ export const media = {
 
 /*
  * Industry photos for /industries and the homepage industries grid.
- * v3 images (25 Nov 2026) were supplied by gYOU and chosen per sector; their
- * source and licence are NOT recorded here yet. Confirm each is licensed for
- * commercial web use before launch. Hospitality v3 and the healthcare and
- * fintech v5 images (1535px, re-graded to match the set) were supplied by gYOU on
- * 25 Nov 2026.
+ * All seven images were supplied by gYOU (25 Nov 2026), chosen per sector, and
+ * confirmed by gYOU as licensed for commercial web use on 25 Nov 2026.
+ * Healthcare and fintech are v5 (1535px, re-graded to match the set).
  */
 export const industryMedia = {
-  // Supplied by gYOU, Nov 2026. Licence to confirm.
+  // Supplied by gYOU, Nov 2026. Licence confirmed by gYOU.
   "real-estate-infrastructure": {
     kind: "image",
     src: "/media/industries/real-estate-v3.webp",
     alt: "Modern glass office and residential towers against a clear blue sky",
     position: "72% 50%",
   },
-  // Supplied by gYOU, 25 Nov 2026 (1535px). Licence to confirm.
+  // Supplied by gYOU, 25 Nov 2026 (1535px). Licence confirmed by gYOU.
   "healthcare-wellness": {
     kind: "image",
     src: "/media/industries/healthcare-v5.webp",
     alt: "A woman meditating in a yoga pose outdoors among green plants",
     position: "78% 50%",
   },
-  // Supplied by gYOU, Nov 2026. Licence to confirm.
+  // Supplied by gYOU, Nov 2026. Licence confirmed by gYOU.
   "education-training": {
     kind: "image",
     src: "/media/industries/education-v3.webp",
     alt: "Smiling students at their desks listening to a teacher in a bright classroom",
     position: "60% 50%",
   },
-  // Supplied by gYOU, 25 Nov 2026 (1535px). Licence to confirm.
+  // Supplied by gYOU, 25 Nov 2026 (1535px). Licence confirmed by gYOU.
   "fintech-financial-services": {
     kind: "image",
     src: "/media/industries/fintech-v5.webp",
     alt: "A hand selecting a glowing fintech tile among digital banking icons",
     position: "64% 50%",
   },
-  // Supplied by gYOU, Nov 2026. Licence to confirm.
+  // Supplied by gYOU, Nov 2026. Licence confirmed by gYOU.
   "ecommerce-retail": {
     kind: "image",
     src: "/media/industries/ecommerce-v3.webp",
     alt: "A shopping bag with a sale tag beside a small cart of beauty products",
     position: "56% 50%",
   },
-  // Supplied by gYOU, Nov 2026. Licence to confirm.
+  // Supplied by gYOU, Nov 2026. Licence confirmed by gYOU.
   "technology-saas": {
     kind: "image",
     src: "/media/industries/technology-v3.webp",
     alt: "A team talking at their desks in an open-plan tech office, code on a laptop screen",
     position: "80% 50%",
   },
-  // Supplied by gYOU, Nov 2026. Licence to confirm. Cropped (blurred foreground
+  // Supplied by gYOU, Nov 2026. Licence confirmed by gYOU. Cropped (blurred foreground
   // rail trimmed), lightly sharpened and warmed.
   "hospitality-lifestyle": {
     kind: "image",

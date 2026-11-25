@@ -116,7 +116,11 @@ export default function ContactPage() {
           <ul
             className={cn(
               "grid gap-4 sm:grid-cols-2",
-              methods.length + (combined ? 1 : 0) >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3",
+              // Columns follow the number of cards, so no empty slot is left (e.g. no office).
+              {
+                2: "lg:grid-cols-2",
+                3: "lg:grid-cols-3",
+              }[methods.length + (combined ? 1 : 0)] ?? "lg:grid-cols-4",
             )}
           >
             {combined ? (

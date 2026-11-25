@@ -1,7 +1,7 @@
 /**
  * Legal pages. Text lives in content/legal/*.mdx. Privacy Policy and Terms were
  * drafted 25 Nov 2026 at gYOU's request from its business scope and the site's
- * real data handling; they still need review by gYOU's legal adviser. Cookie
+ * real data handling, and approved by gYOU on 25 Nov 2026. Cookie
  * information is part of the Privacy Policy (#cookies); there is no separate
  * Cookie Policy (removed at gYOU's request).
  */
