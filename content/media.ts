@@ -67,7 +67,7 @@ export const media = {
  * source and licence are NOT recorded here yet. Confirm each is licensed for
  * commercial web use before launch (healthcare and fintech look like stock
  * previews at 612px and should be replaced with full-size licensed files).
- * Hospitality keeps the Unsplash photo (free Unsplash Licence).
+ * Hospitality v3 (25 Nov 2026) is also supplied by gYOU.
  */
 export const industryMedia = {
   // Supplied by gYOU, Nov 2026. Licence to confirm.
@@ -112,10 +112,12 @@ export const industryMedia = {
     alt: "A team talking at their desks in an open-plan tech office, code on a laptop screen",
     position: "80% 50%",
   },
-  // unsplash.com/photos/b5Ju3_mjcJI
+  // Supplied by gYOU, Nov 2026. Licence to confirm. Cropped (blurred foreground
+  // rail trimmed), lightly sharpened and warmed.
   "hospitality-lifestyle": {
     kind: "image",
-    src: "/media/industries/hospitality-v2.webp",
-    alt: "A heritage-style restaurant with arched windows and set tables",
+    src: "/media/industries/hospitality-v3.webp",
+    alt: "Smiling guests at a restaurant chef's counter while chefs plate dishes",
+    position: "15% 50%",
   },
 } as const satisfies Record<string, MediaSource>;
