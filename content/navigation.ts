@@ -42,7 +42,6 @@ export const footerNav = {
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms and Conditions", href: "/terms-and-conditions" },
-    { label: "Cookie Policy", href: "/cookie-policy" },
   ],
 } as const;
 

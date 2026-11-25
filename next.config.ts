@@ -10,9 +10,12 @@ const nextConfig: NextConfig = {
     // Next 16 only serves listed qualities. 90 keeps photos crisp (MediaFrame default).
     qualities: [75, 90],
   },
-  // 301 redirect map. Empty until real redirects are needed (Phase 8).
+  // 301 redirect map.
   async redirects() {
-    return [];
+    return [
+      // The separate Cookie Policy was folded into the Privacy Policy (25 Nov 2026).
+      { source: "/cookie-policy", destination: "/privacy-policy#cookies", permanent: true },
+    ];
   },
 };
 

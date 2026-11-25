@@ -8,7 +8,7 @@ Everything needed to take the site live on Vercel at rozento.in and keep its con
 
 | # | Item | Where | Why |
 |---|---|---|---|
-| 1 | Legal text for Privacy Policy, Terms and Conditions, Cookie Policy, approved by Rozento's legal adviser | `content/legal/*.mdx` (replace each file's placeholder), then set `lastUpdated` in `content/legal.ts` | Production builds fail until these placeholders are gone. The Privacy Policy should reflect India's Digital Personal Data Protection Act, 2023; the Cookie Policy must match the GTM tags you enable. |
+| 1 | Legal review of the Privacy Policy and Terms and Conditions (drafted 25 Nov 2026 at gYOU's request; cookies are covered in the Privacy Policy, no separate Cookie Policy) | `content/legal/*.mdx`, then update `lastUpdated` in `content/legal.ts` | The drafts follow India's Digital Personal Data Protection Act, 2023 and describe the site's real forms and consent-gated GTM; an adviser should confirm them, including the legal entity name and grievance contact. |
 | 2 | Lead endpoint | `NEXT_PUBLIC_LEAD_ENDPOINT` env var | Without it, forms show success but **send nothing**. |
 | 3 | GTM container (optional but recommended) | `NEXT_PUBLIC_GTM_ID` env var | Enables GA4, Meta Pixel and Google Ads via GTM, plus the cookie banner. |
 | 4 | Review working copy | see section 7 | Default copy and settings chosen while business answers were pending. |

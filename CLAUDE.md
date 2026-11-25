@@ -12,7 +12,7 @@ Read BUILD_PROMPT.md before starting any phase. These rules condense it; the spe
 - End of every phase: run `npm run typecheck`, `npm run lint`, `npm run build`, `npm run check:placeholders`;
   fix your own errors; report results, files changed and the URL to view; commit with a clear message.
 - Status (21 Nov 2026): all phases 0–11 built. gYOU asked to finish 7–11 without PAUSE stops; defaults
-  chosen then are listed in `docs/HANDOVER.md` §7. Launch blockers: legal text, lead endpoint (HANDOVER §1).
+  chosen then are listed in `docs/HANDOVER.md` §7. Launch blockers: adviser review of legal text, lead endpoint (HANDOVER §1).
   Ongoing work = content updates; still never invent facts. QA: `docs/QA-REPORT.md`.
 
 ## Never invent facts
@@ -24,7 +24,9 @@ Read BUILD_PROMPT.md before starting any phase. These rules condense it; the spe
 - Mockup text in square brackets ([Client], [Showreel], [Name], +91 XXXXX) is placeholder content. Never turn
   it into real-looking data.
 - `npm run check:placeholders` lists them; the `prebuild` guard fails production builds if any remain.
-- Legal copy is supplied by gYOU's adviser; never ship generated legal text as final.
+- Legal copy: Privacy Policy and Terms were drafted 25 Nov 2026 at gYOU's explicit request (from its business scope and the
+  site's real data handling) and are live pending adviser review. No separate Cookie Policy (cookies are covered in
+  the Privacy Policy, `#cookies`). Keep both documents in step with forms, tools and providers; never invent legal facts.
 
 ## Content separate from components
 

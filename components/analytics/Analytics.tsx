@@ -68,7 +68,7 @@ export function Analytics() {
             <p className="text-small text-fg-muted">
               <strong className="text-fg">{copy.heading}. </strong>
               {copy.body}{" "}
-              <Link href="/cookie-policy" className="underline underline-offset-4">
+              <Link href="/privacy-policy#cookies" className="underline underline-offset-4">
                 {copy.policyLink}
               </Link>
             </p>

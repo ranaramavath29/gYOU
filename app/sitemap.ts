@@ -50,6 +50,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       : []),
     entry("/privacy-policy", 0.2),
     entry("/terms-and-conditions", 0.2),
-    entry("/cookie-policy", 0.2),
   ];
 }
