@@ -108,7 +108,7 @@ export const intro = {
   factsLabel: "gYOU at a glance",
   // Verified facts only. Add years in business, projects, team size etc. when they can be proven.
   stats: [
-    { value: "6", label: "Integrated services under one team" },
+    { value: "4", label: "Integrated services under one team" },
     { value: site.primaryMarket, label: "Where we are based" },
   ] satisfies readonly Stat[],
   cta: { label: "Discover gYOU Digital", href: "/about-us" },
