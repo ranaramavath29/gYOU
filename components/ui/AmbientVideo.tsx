@@ -20,6 +20,8 @@ export function AmbientVideo({ src, label, poster, className }: AmbientVideoProp
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
   const [userPaused, setUserPaused] = useState(false);
+  // Set synchronously on click, so a retry can never override the visitor's pause.
+  const userPausedRef = useRef(false);
 
   useEffect(() => {
     const video = ref.current;
@@ -36,15 +38,33 @@ export function AmbientVideo({ src, label, poster, className }: AmbientVideoProp
       return;
     }
     // Only play while visible, to save data and battery.
+    let inView = false;
+    let retry: number | undefined;
+    const tryPlay = () => void video.play().catch(() => setPlaying(false));
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry?.isIntersecting) void video.play().catch(() => setPlaying(false));
+        inView = entry?.isIntersecting ?? false;
+        if (inView) tryPlay();
         else video.pause();
       },
       { threshold: 0.2 },
     );
+    // Browsers pause muted videos that are invisible when play() runs (e.g. while a
+    // parent Reveal is still at opacity 0). If that happens while in view, retry.
+    const onBrowserPause = () => {
+      if (!inView || document.hidden || userPausedRef.current) return;
+      window.clearTimeout(retry);
+      retry = window.setTimeout(() => {
+        if (inView && video.paused && !userPausedRef.current) tryPlay();
+      }, 800);
+    };
+    video.addEventListener("pause", onBrowserPause);
     observer.observe(video);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      video.removeEventListener("pause", onBrowserPause);
+      window.clearTimeout(retry);
+    };
   }, [userPaused]);
 
   return (
@@ -68,9 +88,11 @@ export function AmbientVideo({ src, label, poster, className }: AmbientVideoProp
           const video = ref.current;
           if (!video) return;
           if (video.paused) {
+            userPausedRef.current = false;
             setUserPaused(false);
             void video.play().catch(() => undefined);
           } else {
+            userPausedRef.current = true;
             setUserPaused(true);
             video.pause();
           }

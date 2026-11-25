@@ -65,7 +65,8 @@ export function ServicePage({
                 : "mt-10 md:mt-14"
             }
           >
-            <Reveal>
+            {/* Above the fold: no reveal animation, so the h1 and media paint immediately. */}
+            <div>
               <SectionHeading
                 as="h1"
                 id="service-hero"
@@ -102,9 +103,9 @@ export function ServicePage({
                   </Button>
                 </div>
               </div>
-            </Reveal>
+            </div>
             {content.hero.media ? (
-              <Reveal>
+              <div>
                 <figure className="rounded-[32px] border border-line bg-bg-raised p-2.5 shadow-[0_40px_80px_-44px_rgb(29_27_24/0.45)]">
                   <MediaFrame
                     media={content.hero.media}
@@ -120,7 +121,7 @@ export function ServicePage({
                     className="[--radius-media:24px]"
                   />
                 </figure>
-              </Reveal>
+              </div>
             ) : null}
           </div>
         </Container>
