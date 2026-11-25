@@ -50,7 +50,7 @@ Read BUILD_PROMPT.md before starting any phase. These rules condense it; the spe
   brief "Your Growth Deserves More Than Just Marketing."); nav (mockup 5 items vs spec 7); nav CTA (mockup
   "Let's talk" vs spec "Let's Discuss Your Project"); hero secondary CTA (brief "Explore Our Services" vs spec
   "Explore Our Work").
-- Accent: petrol blue `#0F5E7A` with white text (hover `#0B4C63`; `sky` `#B8DCE6` aqua mist for accent words on ink, with a mist-to-aqua gradient). Approved by gYOU 25 Nov 2026 (was tomato `#C8412C`, then cobalt briefly). Logo: `public/brand/gyou-logo.svg` (vector; PNG copy for the OG image) (gYOU artwork recoloured charcoal + tomato for the cream site, approved Nov 2026); favicon `app/icon.png` is the logo's "g" and arrow.
+- Accent: petrol blue `#0F5E7A` with white text (hover `#0B4C63`; `sky` `#B8DCE6` aqua mist for accent words on ink, with a mist-to-aqua gradient). Approved by gYOU 25 Nov 2026 (was tomato `#C8412C`, then cobalt briefly). Logo: `public/brand/gyou-logo.svg` (vector; PNG copy for the OG image) (gYOU artwork in charcoal + petrol `#0F5E7A`; arrow and DIGITAL recoloured from tomato 25 Nov 2026); favicon `app/icon.png` is the logo's "g" and arrow.
 - Accessibility: 4.5:1 contrast (3:1 for 24px+), 44px targets, visible focus, all motion off under
   `prefers-reduced-motion`.
 
