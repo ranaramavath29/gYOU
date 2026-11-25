@@ -47,6 +47,7 @@ export const media = {
     src: "/media/marketing-team-silhouettes.webp",
     alt: "The word marketing in cut-out letters over a team meeting in silhouette",
   },
+  /** Still frame of the social video (kept for places that need a static image). */
   socialMediaStill: {
     kind: "image",
     src: "/media/video/social-media-poster.webp",

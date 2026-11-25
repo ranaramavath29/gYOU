@@ -186,12 +186,12 @@ export const servicesSection = {
   intro:
     "Every business has different goals. We bring together digital marketing expertise and website development solutions to help businesses build visibility, attract customers and grow online.",
   cta: { label: "View All Services", href: "/services" },
-  /** Photo on each service card (supplied media; social uses its video still). */
+  /** Media on each service card (social plays its looping video, with a pause button). */
   media: {
     "website-design-development": media.websiteDevices,
     "performance-marketing": media.marketingTeam,
     "seo-content-marketing": media.mobileSearch,
-    "social-media-marketing": media.socialMediaStill,
+    "social-media-marketing": media.socialMedia,
   } satisfies Record<ServiceSlug, MediaSource>,
 } as const;
 
