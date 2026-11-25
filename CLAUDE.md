@@ -12,7 +12,7 @@ Read BUILD_PROMPT.md before starting any phase. These rules condense it; the spe
 - End of every phase: run `npm run typecheck`, `npm run lint`, `npm run build`, `npm run check:placeholders`;
   fix your own errors; report results, files changed and the URL to view; commit with a clear message.
 - Status (21 Nov 2026): all phases 0–11 built. gYOU asked to finish 7–11 without PAUSE stops; defaults
-  chosen then are listed in `docs/HANDOVER.md` §7. Launch blockers: adviser review of legal text, lead endpoint (HANDOVER §1).
+  chosen then are listed in `docs/HANDOVER.md` §7. Launch blocker left: lead endpoint (HANDOVER §1).
   Ongoing work = content updates; still never invent facts. QA: `docs/QA-REPORT.md`.
 
 ## Never invent facts
@@ -25,7 +25,7 @@ Read BUILD_PROMPT.md before starting any phase. These rules condense it; the spe
   it into real-looking data.
 - `npm run check:placeholders` lists them; the `prebuild` guard fails production builds if any remain.
 - Legal copy: Privacy Policy and Terms were drafted 25 Nov 2026 at gYOU's explicit request (from its business scope and the
-  site's real data handling) and are live pending adviser review. No separate Cookie Policy (cookies are covered in
+  site's real data handling); gYOU approved both on 25 Nov 2026. No separate Cookie Policy (cookies are covered in
   the Privacy Policy, `#cookies`). Keep both documents in step with forms, tools and providers; never invent legal facts.
 
 ## Content separate from components
@@ -51,7 +51,7 @@ Read BUILD_PROMPT.md before starting any phase. These rules condense it; the spe
 - Known differences to raise (not decide): hero headline (mockup "We make brands impossible to scroll past." vs
   brief "Your Growth Deserves More Than Just Marketing."); nav (mockup 5 items vs spec 7); nav CTA (mockup
   "Let's talk" vs spec "Let's Discuss Your Project"); hero secondary CTA (brief "Explore Our Services" vs spec
-  "Explore Our Work").
+  "Explore Our Work"). Current CTA wording variations approved as-is by gYOU, 25 Nov 2026.
 - Accent: petrol blue `#0F5E7A` with white text (hover `#0B4C63`; `sky` `#B8DCE6` aqua mist for accent words on ink, with a mist-to-aqua gradient). Approved by gYOU 25 Nov 2026 (was tomato `#C8412C`, then cobalt briefly). Logo: `public/brand/gyou-logo.svg` (vector; PNG copy for the OG image) (gYOU artwork in charcoal + petrol `#0F5E7A`; arrow and DIGITAL recoloured from tomato 25 Nov 2026); favicon `app/icon.png` is the logo's "g" and arrow.
 - Accessibility: 4.5:1 contrast (3:1 for 24px+), 44px targets, visible focus, all motion off under
   `prefers-reduced-motion`.

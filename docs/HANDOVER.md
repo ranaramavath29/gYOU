@@ -8,7 +8,7 @@ Everything needed to take the site live on Vercel at gyoudigital.com and keep it
 
 | # | Item | Where | Why |
 |---|---|---|---|
-| 1 | Legal review of the Privacy Policy and Terms and Conditions (drafted 25 Nov 2026 at gYOU's request; cookies are covered in the Privacy Policy, no separate Cookie Policy) | `content/legal/*.mdx`, then update `lastUpdated` in `content/legal.ts` | The drafts follow India's Digital Personal Data Protection Act, 2023 and describe the site's real forms and consent-gated GTM; an adviser should confirm them, including the legal entity name and grievance contact. |
+| 1 | ~~Legal review of the Privacy Policy and Terms and Conditions~~ | Done: approved by gYOU 25 Nov 2026 | Keep `content/legal/*.mdx` in step with forms, tools and providers; update `lastUpdated` in `content/legal.ts` on any change. |
 | 2 | Lead endpoint | `NEXT_PUBLIC_LEAD_ENDPOINT` env var | Without it, forms show success but **send nothing**. |
 | 3 | GTM container (optional but recommended) | `NEXT_PUBLIC_GTM_ID` env var | Enables GA4, Meta Pixel and Google Ads via GTM, plus the cookie banner. |
 | 4 | Review working copy | see section 7 | Default copy and settings chosen while business answers were pending. |
