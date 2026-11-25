@@ -47,6 +47,7 @@ export const media = {
     src: "/media/marketing-team-silhouettes.webp",
     alt: "The word marketing in cut-out letters over a team meeting in silhouette",
   },
+  /** Still frame of the social video (kept for places that need a static image). */
   socialMediaStill: {
     kind: "image",
     src: "/media/video/social-media-poster.webp",
@@ -54,7 +55,8 @@ export const media = {
   },
   socialMedia: {
     kind: "video",
-    src: "/media/video/social-media-icons.mp4",
+    // Re-encoded 25 Nov 2026: H.264 CRF 26, faststart, no audio (5.8 MB -> 1.9 MB).
+    src: "/media/video/social-media-icons-v2.mp4",
     poster: "/media/video/social-media-poster.webp",
     label: "Social media icons floating across the screen",
     ambient: true,
@@ -62,56 +64,62 @@ export const media = {
 } as const satisfies Record<string, MediaSource>;
 
 /*
- * Industry photos for /industries. Source: Unsplash, free Unsplash Licence
- * (commercial use, no attribution required). Downloaded Nov 2026 and given one
- * shared warm colour grade so the set feels like a single shoot.
- * Original pages are listed so the licence can be re-checked.
+ * Industry photos for /industries and the homepage industries grid.
+ * v3 images (25 Nov 2026) were supplied by gYOU and chosen per sector; their
+ * source and licence are NOT recorded here yet. Confirm each is licensed for
+ * commercial web use before launch. Hospitality v3 and the healthcare and
+ * fintech v5 images (1535px, re-graded to match the set) were supplied by gYOU on
+ * 25 Nov 2026.
  */
 export const industryMedia = {
-  // unsplash.com/photos/LUr7-nqB_r8
+  // Supplied by gYOU, Nov 2026. Licence to confirm.
   "real-estate-infrastructure": {
     kind: "image",
-    src: "/media/industries/real-estate-v2.webp",
-    alt: "A tall residential tower rising above green trees on the city edge",
-    position: "28% 50%",
-  },
-  // unsplash.com/photos/6qN9yEK5k9U
-  "healthcare-wellness": {
-    kind: "image",
-    src: "/media/industries/healthcare-v2.webp",
-    alt: "A doctor showing a patient a medical scan on a tablet",
-    position: "82% 50%",
-  },
-  // unsplash.com/photos/zFSo6bnZJTw
-  "education-training": {
-    kind: "image",
-    src: "/media/industries/education-v2.webp",
-    alt: "Students in a classroom listening to a teacher",
-  },
-  // unsplash.com/photos/p3HTBsUIQQk
-  "fintech-financial-services": {
-    kind: "image",
-    src: "/media/industries/fintech-v2.webp",
-    alt: "A customer paying by tapping a phone at a shop counter",
-    position: "60% 50%",
-  },
-  // unsplash.com/photos/k63Or81F8-M
-  "ecommerce-retail": {
-    kind: "image",
-    src: "/media/industries/ecommerce-v2.webp",
-    alt: "A seller checking an order package with a phone, beside a laptop and boxes",
-  },
-  // unsplash.com/photos/cW4lLTavU80
-  "technology-saas": {
-    kind: "image",
-    src: "/media/industries/technology-v2.webp",
-    alt: "A team meeting around a table in a bright, modern office",
+    src: "/media/industries/real-estate-v3.webp",
+    alt: "Modern glass office and residential towers against a clear blue sky",
     position: "72% 50%",
   },
-  // unsplash.com/photos/b5Ju3_mjcJI
+  // Supplied by gYOU, 25 Nov 2026 (1535px). Licence to confirm.
+  "healthcare-wellness": {
+    kind: "image",
+    src: "/media/industries/healthcare-v5.webp",
+    alt: "A woman meditating in a yoga pose outdoors among green plants",
+    position: "78% 50%",
+  },
+  // Supplied by gYOU, Nov 2026. Licence to confirm.
+  "education-training": {
+    kind: "image",
+    src: "/media/industries/education-v3.webp",
+    alt: "Smiling students at their desks listening to a teacher in a bright classroom",
+    position: "60% 50%",
+  },
+  // Supplied by gYOU, 25 Nov 2026 (1535px). Licence to confirm.
+  "fintech-financial-services": {
+    kind: "image",
+    src: "/media/industries/fintech-v5.webp",
+    alt: "A hand selecting a glowing fintech tile among digital banking icons",
+    position: "64% 50%",
+  },
+  // Supplied by gYOU, Nov 2026. Licence to confirm.
+  "ecommerce-retail": {
+    kind: "image",
+    src: "/media/industries/ecommerce-v3.webp",
+    alt: "A shopping bag with a sale tag beside a small cart of beauty products",
+    position: "56% 50%",
+  },
+  // Supplied by gYOU, Nov 2026. Licence to confirm.
+  "technology-saas": {
+    kind: "image",
+    src: "/media/industries/technology-v3.webp",
+    alt: "A team talking at their desks in an open-plan tech office, code on a laptop screen",
+    position: "80% 50%",
+  },
+  // Supplied by gYOU, Nov 2026. Licence to confirm. Cropped (blurred foreground
+  // rail trimmed), lightly sharpened and warmed.
   "hospitality-lifestyle": {
     kind: "image",
-    src: "/media/industries/hospitality-v2.webp",
-    alt: "A heritage-style restaurant with arched windows and set tables",
+    src: "/media/industries/hospitality-v3.webp",
+    alt: "Smiling guests at a restaurant chef's counter while chefs plate dishes",
+    position: "15% 50%",
   },
 } as const satisfies Record<string, MediaSource>;

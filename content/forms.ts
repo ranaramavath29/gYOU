@@ -36,6 +36,8 @@ export const formCopy = {
   honeypotLabel: "Leave this field empty",
   consent:
     "I agree that gYOU may contact me about this enquiry and process my details as described in the Privacy Policy.",
+  /** Link text after each consent statement. */
+  privacyLink: "Privacy Policy",
   consentRequired: "Please confirm so we can respond to your enquiry.",
 
   enquiry: {
@@ -72,6 +74,47 @@ export const formCopy = {
     servicePlaceholder: "Choose a service",
     submit: "Get a callback",
   },
+  /**
+   * Three-step free marketing audit card in the homepage hero. Working copy
+   * (Nov 2026), built on the free audit gYOU already offers. Review the
+   * "No obligation" line before launch (the privacy line matches the Privacy Policy).
+   */
+  heroAudit: {
+    badge: "Free · No obligation",
+    heading: "Get your free marketing audit",
+    intro:
+      "Tell us where you are today. We review your ads, website and search presence, then share the first improvements we’d recommend.",
+    progress: (step: number, total: number) => `Step ${step} of ${total}`,
+    steps: [
+      "What do you need help with?",
+      "Tell us about your business",
+      "Where should we send your audit?",
+    ],
+    needLegend: "Choose the closest match",
+    needError: "Choose one option.",
+    needs: [
+      { value: "paid-ads", label: "Google & Meta Ads" },
+      { value: "seo", label: "SEO & content" },
+      { value: "social", label: "Social media" },
+      { value: "website", label: "Website" },
+      { value: "not-sure", label: "Not sure yet" },
+    ],
+    budget: "Monthly marketing budget",
+    budgetPlaceholder: "Select a range",
+    company: "Business name",
+    website: "Website",
+    websitePlaceholder: "yourbusiness.com",
+    industry: "Industry",
+    industryPlaceholder: "Select your industry",
+    fullName: "Full name",
+    phone: "Phone (WhatsApp)",
+    email: "Work email",
+    consent: "I agree that gYOU may contact me about this audit, as described in the",
+    back: "Back",
+    next: "Continue",
+    submit: "Get my free audit",
+    trust: ["We never sell your details", "No obligation"],
+  },
   audit: {
     heading: { lead: "Request a Free", accent: "Website Audit" },
     intro:
@@ -91,6 +134,8 @@ export const thankYouCopy = {
       "We’ve received your enquiry. Our team will review your project details and get in touch.",
     consultation: "We’ve received your request for a free consultation and will be in touch.",
     audit: "We’ve received your audit request. We’ll review your website and get back to you.",
+    "marketing-audit":
+      "We’ve received your audit request. We’ll review your marketing and get back to you.",
     callback: "We’ve received your callback request and will be in touch.",
   } as Record<string, string>,
   next: "While you wait",

@@ -20,7 +20,7 @@ import { localBusinessLd } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: copy.metaTitle,
+  title: copy.seoTitle,
   description: copy.metaDescription,
   path: "/contact",
 });

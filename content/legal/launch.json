@@ -1,4 +1,4 @@
 {
-  "//": "TEMPORARY. true lets production builds through while the ONLY placeholders left are the legal documents in this folder; those pages show a 'being finalised' notice (content/legal.ts -> pending). Set to false (or delete this file) once the adviser-approved Privacy Policy, Terms and Cookie Policy are in place.",
-  "allowPendingLegal": true
+  "//": "Legal pages are published (content/legal.ts -> pending: false). Keep allowPendingLegal false; set true only if a legal page goes back to a placeholder before an urgent launch.",
+  "allowPendingLegal": false
 }

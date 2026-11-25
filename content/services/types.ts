@@ -11,6 +11,8 @@ export type Faq = { question: string; answer: string };
  */
 export type ServicePageContent = {
   slug: ServiceSlug;
+  /** Search result description, 160 characters or fewer. */
+  metaDescription: string;
   hero: {
     heading: Heading;
     supporting: string;

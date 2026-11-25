@@ -30,11 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = serviceBySlug(content.slug);
   return buildMetadata({
     title: `${serviceSeoTitles[content.slug]} in ${site.primaryMarket}`,
-    description:
-      `${content.hero.supporting.split(". ")[0]}. ${service.name} from ${site.name}, ${site.primaryMarket}.`.slice(
-        0,
-        300,
-      ),
+    description: content.metaDescription,
     path: serviceHref(content.slug),
     ogEyebrow: `${service.name} · ${site.primaryMarket}`,
   });

@@ -1,84 +1,98 @@
-import { ArrowUpRightIcon } from "@/components/icons";
-import { Button, Container, MediaFrame, Pill, Reveal, SectionHeading } from "@/components/ui";
+import { HeroAuditForm } from "@/components/forms/HeroAuditForm";
+import { ArrowUpRightIcon, CheckIcon } from "@/components/icons";
+import { Button, Container, SectionHeading } from "@/components/ui";
+import { formCopy } from "@/content/forms";
 import { hero } from "@/content/home";
 
 /**
- * 1. Hero: headline, copy and CTAs on the left; on the right one framed
- * showcase card (gYOU's studio video) with its statement underneath, so the
- * media is never covered by labels.
+ * 1. Hero: an ink panel with the headline, checklist and CTAs on the left and
+ * a light card holding the three-step free marketing audit form on the right
+ * (stacked below on mobile). Copy: content/home.ts (hero) and
+ * content/forms.ts (heroAudit).
  */
 export function Hero() {
-  const { showcase } = hero;
+  const audit = formCopy.heroAudit;
   return (
-    <section
-      aria-labelledby="hero-heading"
-      className="relative overflow-hidden pt-10 pb-16 md:pt-16 md:pb-24"
-    >
-      {/* Soft warm panel behind the showcase, for depth without noise. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute top-0 right-0 hidden h-[78%] w-[42%] rounded-bl-[160px] bg-paper lg:block"
-      />
-      <Container className="relative grid items-center gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-16 xl:gap-24">
-        <Reveal className="flex flex-col">
-          <SectionHeading
-            as="h1"
-            id="hero-heading"
-            size="split"
-            eyebrow={
-              <Pill dot variant="chip">
-                {hero.eyebrow}
-              </Pill>
-            }
-            {...hero.heading}
-            className="gap-7"
-            headingClassName="max-w-[15ch]"
-          />
-          <p className="mt-7 max-w-[46ch] text-body text-fg-muted">{hero.supporting}</p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Button href={hero.primaryCta.href} variant="accent" size="lg">
-              {hero.primaryCta.label}
-            </Button>
-            <Button
-              href={hero.secondaryCta.href}
-              variant="outline"
-              size="lg"
-              icon={<ArrowUpRightIcon />}
-              iconPosition="end"
-            >
-              {hero.secondaryCta.label}
-            </Button>
-          </div>
-          <p className="mt-10 flex items-center gap-3 text-small font-semibold text-fg">
-            <span aria-hidden className="h-px w-10 bg-line-strong" />
-            {hero.supportingLine}
-          </p>
-        </Reveal>
+    <section aria-labelledby="hero-heading" className="px-2 pt-2 pb-4 md:px-4 md:pb-6">
+      <div className="tone-ink relative overflow-hidden rounded-[var(--radius-sheet)] bg-ink text-fg">
+        {/* Soft accent glow for depth; decorative only. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-40 -left-40 size-[520px] rounded-full bg-accent/25 blur-[120px]"
+        />
 
-        <Reveal className="relative mx-auto w-full max-w-[480px] lg:mr-0">
-          <figure className="rounded-[36px] border border-line bg-bg-raised p-2.5 shadow-[0_40px_80px_-40px_rgb(29_27_24/0.45)]">
-            <MediaFrame
-              media={showcase.media}
-              placeholder={showcase.statement}
-              aspect="4/5"
-              priority
-              flat
-              className="[--radius-media:28px]"
-              overlay={
-                <span className="pointer-events-none absolute top-3 left-3 rounded-full bg-bg/90 px-3.5 py-1.5 text-[0.75rem] font-semibold text-ink backdrop-blur">
-                  {showcase.tag}
+        <Container className="relative grid items-center gap-12 py-12 md:py-16 lg:grid-cols-[1.1fr_1fr] lg:gap-14 lg:py-20 xl:gap-20">
+          {/* Above the fold: rendered immediately (no reveal), so it can be the LCP. */}
+          <div className="flex flex-col">
+            <SectionHeading
+              as="h1"
+              id="hero-heading"
+              size="split"
+              eyebrow={
+                <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/8 px-3.5 py-1.5 text-[0.75rem] font-bold tracking-[0.08em] text-sky uppercase">
+                  <span aria-hidden className="size-1.5 rounded-full bg-accent" />
+                  {hero.eyebrow}
                 </span>
               }
+              {...hero.heading}
+              className="gap-6"
+              headingClassName="max-w-[15ch]"
             />
-            <figcaption className="flex items-start gap-3 px-3 pt-4 pb-2.5">
-              <span aria-hidden className="mt-2 size-2 shrink-0 rounded-full bg-accent" />
-              <span className="font-display text-[clamp(1.0625rem,0.9rem+0.6vw,1.375rem)] leading-snug font-semibold tracking-[-0.02em] text-balance">
-                {showcase.statement}
+            <p className="mt-6 max-w-[50ch] text-body text-fg-muted">{hero.supporting}</p>
+
+            <ul className="mt-7 flex flex-col gap-3.5">
+              {hero.points.map((point) => (
+                <li key={point} className="flex items-start gap-3 font-semibold">
+                  <span
+                    aria-hidden
+                    className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-white/10 text-sky"
+                  >
+                    <CheckIcon size={13} />
+                  </span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Button href={hero.primaryCta.href} variant="accent" size="lg">
+                {hero.primaryCta.label}
+              </Button>
+              <Button
+                href={hero.secondaryCta.href}
+                variant="outline"
+                size="lg"
+                icon={<ArrowUpRightIcon />}
+                iconPosition="end"
+                className="hover:border-fg! hover:bg-white/10!"
+              >
+                {hero.secondaryCta.label}
+              </Button>
+            </div>
+
+            <p className="mt-9 flex items-center gap-3 text-small font-semibold text-fg-muted">
+              <span aria-hidden className="h-px w-10 bg-fg-subtle/60" />
+              {hero.supportingLine}
+            </p>
+          </div>
+
+          <div className="w-full lg:justify-self-end">
+            <div
+              id="free-audit"
+              className="tone-light mx-auto w-full max-w-[560px] rounded-[32px] bg-bg-raised p-6 text-fg shadow-[0_40px_90px_-30px_rgb(0_0_0/0.6)] sm:p-9"
+            >
+              <span className="inline-flex rounded-full bg-sage px-3.5 py-1.5 text-[0.8125rem] font-bold text-white">
+                {audit.badge}
               </span>
-            </figcaption>
-          </figure>
-        </Reveal>
-      </Container>
+              <h2 className="mt-4 font-display text-[clamp(1.5rem,1.3rem+0.8vw,1.875rem)] leading-tight font-semibold tracking-[-0.025em]">
+                {audit.heading}
+              </h2>
+              <p className="mt-2 mb-6 text-small text-fg-muted">{audit.intro}</p>
+              <HeroAuditForm />
+            </div>
+          </div>
+        </Container>
+      </div>
     </section>
   );
 }

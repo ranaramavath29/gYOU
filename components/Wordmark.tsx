@@ -6,7 +6,7 @@ import { isPlaceholder, SHOW_PLACEHOLDER_OUTLINE } from "@/lib/ph";
 
 /**
  * The supplied gYOU logo (public/brand/gyou-logo.svg: traced from gYOU's
- * artwork, charcoal with the tomato arrow and DIGITAL) is used when configured; the SVG
+ * artwork, charcoal with the petrol-blue arrow and DIGITAL) is used when configured; the SVG
  * mark and text remain for the "wordmark" setting and placeholder previews.
  */
 export function Wordmark({ className }: { className?: string }) {

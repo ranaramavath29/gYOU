@@ -55,30 +55,33 @@ export function Spotlight({ id }: { id: string }) {
           </div>
         </article>
 
-        {/* Website: accent card */}
-        <article className="flex min-w-0 flex-col justify-between gap-10 rounded-[var(--radius-media)] bg-accent p-7 text-on-accent [--focus-ring:var(--on-accent)] md:p-10">
+        {/* Website: same raised card style as marketing */}
+        <article className="flex min-w-0 flex-col justify-between gap-10 rounded-[var(--radius-media)] border border-line bg-bg-raised p-7 md:p-10">
           <div className="flex flex-col gap-5">
-            <span className="text-small font-semibold tracking-[0.12em] uppercase">
+            <span className="text-small font-semibold tracking-[0.12em] text-fg-muted uppercase">
               {website.label}
             </span>
             <h3 className="font-display text-title font-semibold">{website.title}</h3>
-            <p className="max-w-[44ch]">{website.description}</p>
-            <ul className="mt-2 grid gap-3 sm:grid-cols-2">
+            <p className="max-w-[44ch] text-fg-muted">{website.description}</p>
+            <ul className="mt-2 grid gap-3 border-t border-line pt-5 sm:grid-cols-2">
               {website.points.map((point) => (
                 <li key={point} className="flex items-center gap-3 text-small font-semibold">
-                  <AsteriskIcon size={16} className="shrink-0" />
+                  <AsteriskIcon size={16} className="shrink-0 text-accent" />
                   {point}
                 </li>
               ))}
             </ul>
           </div>
-          <Link
-            href={website.cta.href}
-            className="inline-flex min-h-12 w-fit items-center gap-2.5 rounded-full bg-ink px-6 text-sm font-semibold text-paper transition-colors hover:bg-fg-muted"
-          >
-            {website.cta.label}
-            <ArrowUpRightIcon />
-          </Link>
+          <div>
+            <Button
+              href={website.cta.href}
+              variant="outline"
+              icon={<ArrowUpRightIcon />}
+              iconPosition="end"
+            >
+              {website.cta.label}
+            </Button>
+          </div>
         </article>
       </Reveal>
     </Section>

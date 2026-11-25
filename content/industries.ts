@@ -93,7 +93,7 @@ export const industryList = [
       "Strengthen online visibility, showcase experiences and attract potential customers.",
     focus: [
       "Visual social media content",
-      "Social content showcasing experiences",
+      "Local search and review visibility",
       "Websites with clear booking journeys",
     ],
     services: ["social-media-marketing", "seo-content-marketing", "website-design-development"],
@@ -121,6 +121,8 @@ export const industriesPage = {
       "The approach works across sectors. Tell us about your business and we’ll talk it through.",
   },
   metaTitle: "Industries",
+  /** <title> (the layout adds " | gYOU Digital"). */
+  seoTitle: "Industries We Serve",
   metaDescription:
     "Website design and digital marketing for real estate, healthcare, education, fintech, e-commerce, technology and hospitality businesses.",
 } as const;

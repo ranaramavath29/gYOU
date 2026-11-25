@@ -30,7 +30,6 @@ const routes = [
   "/thank-you",
   "/privacy-policy",
   "/terms-and-conditions",
-  "/cookie-policy",
 ];
 
 for (const route of routes) {

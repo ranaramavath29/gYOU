@@ -17,7 +17,6 @@ export type LeadResult = { ok: true; mock: boolean } | { ok: false; error: strin
 const ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT || "/api/lead";
 
 export async function submitLead(payload: LeadPayload): Promise<LeadResult> {
-
   try {
     const res = await fetch(ENDPOINT, {
       method: "POST",

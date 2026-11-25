@@ -27,7 +27,7 @@ function LinkList({ links }: { links: readonly NavLink[] }) {
         <li key={link.href}>
           <Link
             href={link.href}
-            className="inline-flex min-h-9 items-center text-small text-fg-muted transition-colors hover:text-fg"
+            className="inline-flex min-h-11 items-center text-small text-fg-muted transition-colors hover:text-fg"
           >
             {link.label}
           </Link>
@@ -40,10 +40,10 @@ function LinkList({ links }: { links: readonly NavLink[] }) {
 /** One contact line: a link once the value is real, placeholder text until then. */
 function ContactItem({ label, value, href }: { label: string; value: string; href?: string }) {
   return (
-    <li className="flex flex-col gap-0.5">
+    <li className="flex flex-col">
       <span className="text-small text-fg-subtle">{label}</span>
       {href ? (
-        <a href={href} className="text-fg hover:text-fg-muted">
+        <a href={href} className="inline-flex min-h-11 items-center text-fg hover:text-fg-muted">
           {value}
         </a>
       ) : (
@@ -98,13 +98,8 @@ export function Footer() {
         <div className="flex flex-col gap-10">
           <div>
             <ColumnTitle>{footerNav.contactTitle}</ColumnTitle>
-            <ul className="flex flex-col gap-4">
+            <ul className="flex flex-col gap-2">
               <ContactItem label={uiLabels.email} value={site.email} href={mailHref(site.email)} />
-              <ContactItem
-                label="Website"
-                value={`www.${site.domain}`}
-                href={`https://${site.domain}`}
-              />
               {isSameNumber(site.phone, site.whatsapp) ? (
                 // Same number for calls and WhatsApp: show it once with both actions.
                 <li className="flex flex-col gap-2">
@@ -158,14 +153,14 @@ export function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="inline-flex min-h-9 items-center text-small text-fg-subtle hover:text-fg"
+                  className="inline-flex min-h-11 items-center text-small text-fg-subtle hover:text-fg"
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
             <li>
-              <CookieSettingsButton className="inline-flex min-h-9 items-center text-small text-fg-subtle hover:text-fg" />
+              <CookieSettingsButton className="inline-flex min-h-11 items-center text-small text-fg-subtle hover:text-fg" />
             </li>
           </ul>
         </nav>

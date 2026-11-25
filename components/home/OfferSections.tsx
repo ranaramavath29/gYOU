@@ -45,7 +45,12 @@ export function Challenges() {
   );
 }
 
-/** 7. Services: photo cards. The image sits inside the card's padding with its own radius. */
+/**
+ * 7. Services: photo cards. The image sits inside the card's padding with its own radius.
+ * The service name is the link, stretched over the whole card (::after), so the card
+ * stays fully clickable while a video's pause button can sit above it (a button
+ * may not be nested inside a link).
+ */
 export function ServicesList() {
   return (
     <Section aria-labelledby="services-heading">
@@ -62,13 +67,10 @@ export function ServicesList() {
             const image = servicesSection.media[service.slug];
             return (
               <li key={service.slug}>
-                <Link
-                  href={serviceHref(service.slug)}
-                  className="group flex h-full flex-col rounded-[28px] border border-line bg-bg-raised p-2.5 shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_30px_-18px_rgb(0_0_0/0.16)] transition-[border-color,translate,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-line-strong hover:shadow-[0_2px_4px_rgb(0_0_0/0.04),0_30px_60px_-28px_rgb(0_0_0/0.22)]"
-                >
+                <article className="group relative flex h-full flex-col rounded-[28px] border border-line bg-bg-raised p-2.5 shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_30px_-18px_rgb(0_0_0/0.16)] transition-[border-color,translate,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-line-strong hover:shadow-[0_2px_4px_rgb(0_0_0/0.04),0_30px_60px_-28px_rgb(0_0_0/0.22)] has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-3 has-[a:focus-visible]:outline-[var(--focus-ring)]">
                   <MediaFrame
                     media={image}
-                    placeholder={image.alt}
+                    placeholder={image.kind === "image" ? image.alt : image.label}
                     aspect="16/10"
                     flat
                     zoomOnHover
@@ -81,9 +83,12 @@ export function ServicesList() {
                         <span className="text-small font-semibold text-accent tabular-nums">
                           {String(i + 1).padStart(2, "0")}
                         </span>
-                        <span className="font-display text-title font-semibold">
+                        <Link
+                          href={serviceHref(service.slug)}
+                          className="font-display text-title font-semibold after:absolute after:inset-0 after:rounded-[28px] after:content-[''] focus-visible:outline-none"
+                        >
                           {service.name}
-                        </span>
+                        </Link>
                       </span>
                       <ArrowCircle />
                     </span>
@@ -99,7 +104,7 @@ export function ServicesList() {
                       ))}
                     </span>
                   </span>
-                </Link>
+                </article>
               </li>
             );
           })}

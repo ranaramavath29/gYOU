@@ -74,7 +74,7 @@ export function CaseStudyPage({ meta, Content, next }: Props) {
                 <li key={slug}>
                   <Link
                     href={serviceHref(slug)}
-                    className="inline-flex min-h-9 items-center rounded-full border border-line px-4 text-small text-fg-muted hover:border-fg-subtle hover:text-fg"
+                    className="inline-flex min-h-11 items-center rounded-full border border-line px-4 text-small text-fg-muted hover:border-fg-subtle hover:text-fg"
                   >
                     {serviceBySlug(slug).name}
                   </Link>

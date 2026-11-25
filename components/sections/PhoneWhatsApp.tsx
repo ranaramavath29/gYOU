@@ -7,7 +7,7 @@ import { isSameNumber, telHref, whatsappHref } from "@/lib/contact";
 type Variant = "pills" | "buttons";
 
 type Props = {
-  /** "pills": compact chips (footer, CTA). "buttons": large 44px+ buttons (contact page, menu). */
+  /** "pills": compact chips, 44px tall (footer, CTA). "buttons": larger 48px buttons (contact page, menu). */
   variant?: Variant;
   /** Show the number above the actions. */
   showNumber?: boolean;
@@ -21,8 +21,8 @@ type Props = {
 
 const styles: Record<Variant, { call: string; wa: string }> = {
   pills: {
-    call: "min-h-9 gap-1.5 border border-line-strong px-3.5 text-small font-semibold text-fg hover:border-fg hover:bg-ink/5",
-    wa: "min-h-9 gap-1.5 bg-accent px-3.5 text-small font-semibold text-on-accent hover:bg-accent-hover",
+    call: "min-h-11 gap-1.5 border border-line-strong px-3.5 text-small font-semibold text-fg hover:border-fg hover:bg-ink/5",
+    wa: "min-h-11 gap-1.5 bg-accent px-3.5 text-small font-semibold text-on-accent hover:bg-accent-hover",
   },
   buttons: {
     call: "min-h-12 gap-2 border border-line-strong px-5 text-sm font-semibold text-fg hover:border-fg hover:bg-ink/5",
@@ -61,7 +61,10 @@ export function PhoneWhatsApp({
       data-track-location={location}
     >
       {showNumber ? (
-        <a href={tel} className="w-fit font-semibold text-fg tabular-nums hover:text-fg-muted">
+        <a
+          href={tel}
+          className="inline-flex min-h-11 w-fit items-center font-semibold text-fg tabular-nums hover:text-fg-muted"
+        >
           {site.phone}
         </a>
       ) : null}

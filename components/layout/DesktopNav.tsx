@@ -44,7 +44,7 @@ function ActiveDot({ active }: { active: boolean }) {
   return active ? (
     <span
       aria-hidden
-      className="relative size-1.5 rounded-full bg-accent shadow-[0_0_8px_rgb(200_65_44/0.55)]"
+      className="relative size-1.5 rounded-full bg-accent shadow-[0_0_8px_rgb(15_94_122/0.55)]"
     />
   ) : null;
 }

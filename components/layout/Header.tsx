@@ -25,8 +25,8 @@ function HeaderCta({ onClick, full = false }: { onClick?: () => void; full?: boo
       onClick={onClick}
       className={cn(
         "group inline-flex h-11 items-center gap-3 rounded-full bg-accent pr-1.5 pl-5 text-sm font-semibold whitespace-nowrap text-on-accent",
-        "shadow-[0_8px_24px_-12px_rgb(200_65_44/0.55)] transition-[box-shadow,transform,background-color] duration-200",
-        "hover:bg-accent-hover hover:shadow-[0_12px_32px_-10px_rgb(200_65_44/0.6)] active:scale-[0.97]",
+        "shadow-[0_8px_24px_-12px_rgb(15_94_122/0.55)] transition-[box-shadow,transform,background-color] duration-200",
+        "hover:bg-accent-hover hover:shadow-[0_12px_32px_-10px_rgb(15_94_122/0.6)] active:scale-[0.97]",
         "[--focus-ring:var(--fg)]",
         full && "h-13 w-full justify-between text-base",
       )}

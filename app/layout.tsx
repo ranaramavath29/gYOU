@@ -14,17 +14,15 @@ import { SITE_URL } from "@/lib/siteUrl";
 import "./globals.css";
 
 // "Studio Daylight" type: characterful grotesque headings, Inter for reading.
+// Variable fonts: one file per subset covers every weight used.
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   variable: "--font-bricolage",
   display: "swap",
 });
 
 const sans = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -32,7 +30,7 @@ const sans = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: site.name, template: `%s | ${site.name}` },
-  description: site.tagline,
+  description: typeof site.footerDescription === "string" ? site.footerDescription : site.tagline,
   applicationName: site.name,
   // Only the production site is indexable; local, preview and staging are noindex.
   robots: IS_PRODUCTION_SITE ? { index: true, follow: true } : { index: false, follow: false },

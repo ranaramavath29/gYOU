@@ -2,7 +2,7 @@
 
 /*
  * "Studio Daylight" design tokens, option J (docs/BUILD_PROMPT.md → Design system).
- * Warm cream pages, near-black warm ink, tomato-red accent, sage and peach.
+ * Warm cream pages, near-black warm ink, petrol-blue accent (tomato until 24 Nov 2026, briefly cobalt; petrol approved 25 Nov 2026), sage and sky.
  * Raw tokens live on :root so they can be swapped in one place.
  * lib/tokens.ts mirrors these values for the /styleguide contrast table.
  */
@@ -15,12 +15,12 @@
   --fg-subtle: #67635b;
   --line: #ebe4d8;
   --line-strong: #8a8174;
-  --accent: #c8412c;
-  --accent-hover: #b3391f;
-  /* Text and icons on tomato fills (white on tomato 4.9:1). */
+  --accent: #0f5e7a;
+  --accent-hover: #0b4c63;
+  /* Text and icons on blue fills (white on #0f5e7a 7.2:1; petrol text on cream 6.8:1). */
   --on-accent: #ffffff;
   --sage: #5b6650;
-  --peach: #ffd7b8;
+  --sky: #b8dce6; /* soft aqua mist: low-saturation accent on ink */
   --paper: #f3ece1;
   --ink: #1d1b18;
   --ink-muted: #4d4a44;
@@ -40,15 +40,26 @@
   color-scheme: light;
 }
 
-/* On ink, accent words turn peach (tomato is too dark on ink for text). */
+/* On ink, accent words turn sky blue (the petrol accent is too dark on ink for text). */
 .tone-ink {
   --fg: var(--bg);
   --fg-muted: #bdb6a8;
   --fg-subtle: #a9a294;
-  --heading-accent: var(--peach);
-  --focus-ring: var(--peach);
+  --heading-accent: var(--sky);
+  --focus-ring: var(--sky);
   --danger: #ff8f80;
   color-scheme: dark;
+}
+
+/* Light card placed on an ink panel (e.g. the hero audit form): restore light text tokens. */
+.tone-light {
+  --fg: #1d1b18;
+  --fg-muted: #5c5a55;
+  --fg-subtle: #67635b;
+  --heading-accent: var(--ink);
+  --focus-ring: var(--ink);
+  --danger: #b42318;
+  color-scheme: light;
 }
 
 /* Theme values that reference runtime variables (inlined into utilities). */
@@ -65,7 +76,7 @@
   --color-accent-hover: var(--accent-hover);
   --color-on-accent: var(--on-accent);
   --color-sage: var(--sage);
-  --color-peach: var(--peach);
+  --color-sky: var(--sky);
   --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
@@ -137,7 +148,7 @@
     outline-offset: 3px;
   }
   ::selection {
-    background: var(--peach);
+    background: var(--sky);
     color: var(--ink);
   }
 
@@ -169,10 +180,22 @@
 
 @layer components {
   /* Accent words: plain, upright, same weight as the heading (no highlighter or
-     underline). On ink cards --heading-accent turns them peach. */
+     underline). On ink cards --heading-accent turns them sky blue. */
   .accent-word {
     font-style: normal;
     color: var(--heading-accent);
+  }
+  /* On ink: a quiet mist-to-aqua sheen (min 8.9:1 on ink). Flat aqua mist
+     where background-clip text is unsupported. Cloned per line when it wraps. */
+  @supports ((background-clip: text) or (-webkit-background-clip: text)) {
+    .tone-ink .accent-word {
+      background-image: linear-gradient(100deg, #eef7f9 0%, #b8dce6 45%, #8cc3d3 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
   }
   /* Never synthesise a slanted grotesque: italic numerals render upright. */
   .font-display {

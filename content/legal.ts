@@ -1,9 +1,11 @@
 /**
- * Legal pages (Phase 6). The text itself lives in content/legal/*.mdx and must
- * be supplied by gYOU's legal adviser: no legal copy is generated here.
- * Until then each file holds a placeholder, which blocks production builds.
+ * Legal pages. Text lives in content/legal/*.mdx. Privacy Policy and Terms were
+ * drafted 25 Nov 2026 at gYOU's request from its business scope and the site's
+ * real data handling; they still need review by gYOU's legal adviser. Cookie
+ * information is part of the Privacy Policy (#cookies); there is no separate
+ * Cookie Policy (removed at gYOU's request).
  */
-export type LegalPageKey = "privacy-policy" | "terms-and-conditions" | "cookie-policy";
+export type LegalPageKey = "privacy-policy" | "terms-and-conditions";
 
 export const legalPages: Record<
   LegalPageKey,
@@ -21,21 +23,17 @@ export const legalPages: Record<
 > = {
   "privacy-policy": {
     title: "Privacy Policy",
-    description: "How gYOU collects, uses and protects personal information.",
-    lastUpdated: null,
-    pending: true,
+    description:
+      "How gYOU Digital collects, uses and protects personal information, including cookies.",
+    lastUpdated: "2026-11-25",
+    pending: false,
   },
   "terms-and-conditions": {
     title: "Terms and Conditions",
-    description: "The terms that apply to the use of the gYOU website.",
-    lastUpdated: null,
-    pending: true,
-  },
-  "cookie-policy": {
-    title: "Cookie Policy",
-    description: "How the gYOU website uses cookies and similar technologies.",
-    lastUpdated: null,
-    pending: true,
+    description:
+      "The terms for using the gYOU Digital website, including how engagements are agreed, free audits, results and intellectual property.",
+    lastUpdated: "2026-11-25",
+    pending: false,
   },
 };
 

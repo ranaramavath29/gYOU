@@ -23,6 +23,8 @@ export const contactPage = {
   followHeading: "Follow gYOU",
   followIntro: "Ideas, work and updates from the team.",
   metaTitle: "Contact Us",
+  /** <title> (the layout adds " | gYOU Digital"). */
+  seoTitle: "Contact Our Hyderabad Team",
   metaDescription: `Contact gYOU, a ${site.primaryMarket} website design and digital marketing agency, by WhatsApp, phone or email.`,
 } as const;
 
