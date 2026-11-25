@@ -31,12 +31,15 @@ export type SiteContent = {
   address: readonly string[] | Placeholder | null;
   /** Only profiles that exist. */
   socials: readonly SocialLink[] | Placeholder;
-  /** Structured address for LocalBusiness JSON-LD (same office as `address`). */
+  /**
+   * Structured address for LocalBusiness JSON-LD (same office as `address`).
+   * Street and postal code are optional so a city-level address can be used.
+   */
   postalAddress: {
-    streetAddress: string;
+    streetAddress?: string;
     addressLocality: string;
     addressRegion: string;
-    postalCode: string;
+    postalCode?: string;
     addressCountry: string;
   } | null;
 };
@@ -54,11 +57,10 @@ export const site: SiteContent = {
   email: "support@gyoudigital.com",
   phone: "+91 96666 96153",
   whatsapp: "+91 96666 96153",
-  address: [
-    "Building No. 12, Main Street",
-    "Near Durgam Cheruvu Metro, Madhapur",
-    "Hyderabad 500081",
-  ],
+  // Street address hidden 26 Nov 2026 at gYOU's request until it is confirmed to match the
+  // Google Business Profile (previously: Building No. 12, Main Street, Near Durgam Cheruvu
+  // Metro, Madhapur, Hyderabad 500081). Restore the lines here and in postalAddress below.
+  address: null,
   // Public profile URLs (the LinkedIn admin dashboard link is not public, so the
   // company page URL is used). Order: most important for B2B first.
   socials: [
@@ -80,12 +82,10 @@ export const site: SiteContent = {
     },
     { platform: "x", label: "X", href: "https://x.com/gYOUdigital", handle: "@gYOUdigital" },
   ],
-  // From the PAUSE 2 address. Madhapur, Hyderabad is in Telangana.
+  // City-level only while the street address is being confirmed (see `address`).
   postalAddress: {
-    streetAddress: "Building No. 12, Main Street, Near Durgam Cheruvu Metro, Madhapur",
     addressLocality: "Hyderabad",
     addressRegion: "Telangana",
-    postalCode: "500081",
     addressCountry: "IN",
   },
 };
