@@ -24,6 +24,13 @@ const nextConfig: NextConfig = {
     return [
       // The separate Cookie Policy was folded into the Privacy Policy (25 Nov 2026).
       { source: "/cookie-policy", destination: "/privacy-policy#cookies", permanent: true },
+      // Services retired 24 Nov 2026 that Google still has indexed.
+      { source: "/services/branding-creative-design", destination: "/services", permanent: true },
+      {
+        source: "/services/video-content-production",
+        destination: "/services/social-media-marketing",
+        permanent: true,
+      },
     ];
   },
 };
