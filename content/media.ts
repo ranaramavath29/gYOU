@@ -67,7 +67,7 @@ export const media = {
  * v3 images (25 Nov 2026) were supplied by gYOU and chosen per sector; their
  * source and licence are NOT recorded here yet. Confirm each is licensed for
  * commercial web use before launch. Hospitality v3 and the healthcare and
- * fintech v4 images (1535px, replacing 612px previews) were supplied by gYOU on
+ * fintech v5 images (1535px, re-graded to match the set) were supplied by gYOU on
  * 25 Nov 2026.
  */
 export const industryMedia = {
@@ -81,7 +81,7 @@ export const industryMedia = {
   // Supplied by gYOU, 25 Nov 2026 (1535px). Licence to confirm.
   "healthcare-wellness": {
     kind: "image",
-    src: "/media/industries/healthcare-v4.webp",
+    src: "/media/industries/healthcare-v5.webp",
     alt: "A woman meditating in a yoga pose outdoors among green plants",
     position: "78% 50%",
   },
@@ -95,7 +95,7 @@ export const industryMedia = {
   // Supplied by gYOU, 25 Nov 2026 (1535px). Licence to confirm.
   "fintech-financial-services": {
     kind: "image",
-    src: "/media/industries/fintech-v4.webp",
+    src: "/media/industries/fintech-v5.webp",
     alt: "A hand selecting a glowing fintech tile among digital banking icons",
     position: "64% 50%",
   },
