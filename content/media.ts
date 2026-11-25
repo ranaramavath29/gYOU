@@ -62,51 +62,55 @@ export const media = {
 } as const satisfies Record<string, MediaSource>;
 
 /*
- * Industry photos for /industries. Source: Unsplash, free Unsplash Licence
- * (commercial use, no attribution required). Downloaded Nov 2026 and given one
- * shared warm colour grade so the set feels like a single shoot.
- * Original pages are listed so the licence can be re-checked.
+ * Industry photos for /industries and the homepage industries grid.
+ * v3 images (25 Nov 2026) were supplied by gYOU and chosen per sector; their
+ * source and licence are NOT recorded here yet. Confirm each is licensed for
+ * commercial web use before launch (healthcare and fintech look like stock
+ * previews at 612px and should be replaced with full-size licensed files).
+ * Hospitality keeps the Unsplash photo (free Unsplash Licence).
  */
 export const industryMedia = {
-  // unsplash.com/photos/LUr7-nqB_r8
+  // Supplied by gYOU, Nov 2026. Licence to confirm.
   "real-estate-infrastructure": {
     kind: "image",
-    src: "/media/industries/real-estate-v2.webp",
-    alt: "A tall residential tower rising above green trees on the city edge",
-    position: "28% 50%",
+    src: "/media/industries/real-estate-v3.webp",
+    alt: "Modern glass office and residential towers against a clear blue sky",
+    position: "72% 50%",
   },
-  // unsplash.com/photos/6qN9yEK5k9U
+  // Supplied by gYOU, Nov 2026. Licence to confirm. Low resolution (612px).
   "healthcare-wellness": {
     kind: "image",
-    src: "/media/industries/healthcare-v2.webp",
-    alt: "A doctor showing a patient a medical scan on a tablet",
-    position: "82% 50%",
+    src: "/media/industries/healthcare-v3.webp",
+    alt: "A woman meditating in a yoga pose outdoors among green plants",
+    position: "68% 50%",
   },
-  // unsplash.com/photos/zFSo6bnZJTw
+  // Supplied by gYOU, Nov 2026. Licence to confirm.
   "education-training": {
     kind: "image",
-    src: "/media/industries/education-v2.webp",
-    alt: "Students in a classroom listening to a teacher",
-  },
-  // unsplash.com/photos/p3HTBsUIQQk
-  "fintech-financial-services": {
-    kind: "image",
-    src: "/media/industries/fintech-v2.webp",
-    alt: "A customer paying by tapping a phone at a shop counter",
+    src: "/media/industries/education-v3.webp",
+    alt: "Smiling students at their desks listening to a teacher in a bright classroom",
     position: "60% 50%",
   },
-  // unsplash.com/photos/k63Or81F8-M
+  // Supplied by gYOU, Nov 2026. Licence to confirm. Low resolution (612px).
+  "fintech-financial-services": {
+    kind: "image",
+    src: "/media/industries/fintech-v3.webp",
+    alt: "A hand selecting a glowing fintech tile among digital banking icons",
+    position: "62% 50%",
+  },
+  // Supplied by gYOU, Nov 2026. Licence to confirm.
   "ecommerce-retail": {
     kind: "image",
-    src: "/media/industries/ecommerce-v2.webp",
-    alt: "A seller checking an order package with a phone, beside a laptop and boxes",
+    src: "/media/industries/ecommerce-v3.webp",
+    alt: "A shopping bag with a sale tag beside a small cart of beauty products",
+    position: "56% 50%",
   },
-  // unsplash.com/photos/cW4lLTavU80
+  // Supplied by gYOU, Nov 2026. Licence to confirm.
   "technology-saas": {
     kind: "image",
-    src: "/media/industries/technology-v2.webp",
-    alt: "A team meeting around a table in a bright, modern office",
-    position: "72% 50%",
+    src: "/media/industries/technology-v3.webp",
+    alt: "A team talking at their desks in an open-plan tech office, code on a laptop screen",
+    position: "80% 50%",
   },
   // unsplash.com/photos/b5Ju3_mjcJI
   "hospitality-lifestyle": {
