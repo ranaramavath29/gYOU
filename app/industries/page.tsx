@@ -82,7 +82,8 @@ export default function IndustriesPage() {
                           placeholder={image.alt}
                           aspect="4/3"
                           flat
-                          sizes="(min-width: 1024px) 460px, 100vw"
+                          // 4:3 frame; wider photos fill it by height (up to ~680px for 2:1).
+                          sizes="(min-width: 1024px) 680px, 150vw"
                           className="[--radius-media:22px]"
                         />
                       </figure>

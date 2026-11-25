@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
+    // Next 16 only serves listed qualities. 90 keeps photos crisp (MediaFrame default).
+    qualities: [75, 90],
   },
   // 301 redirect map. Empty until real redirects are needed (Phase 8).
   async redirects() {

@@ -106,6 +106,7 @@ export function MediaFrame({
           alt={media.alt}
           fill
           sizes={sizes}
+          quality={90}
           priority={priority}
           style={media.position ? { objectPosition: media.position } : undefined}
           className={cn("object-cover", zoom)}

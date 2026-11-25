@@ -33,7 +33,9 @@ export function Industries() {
                     aspect="4/5"
                     flat
                     zoomOnHover
-                    sizes="(min-width: 1024px) 300px, 50vw"
+                    // Landscape photos fill a portrait card by height, so they render
+                    // ~2.5x the card width (up to ~760px for 2:1). Ask for that much.
+                    sizes="(min-width: 1024px) 760px, 100vw"
                     className="[--radius-media:24px]"
                     overlay={
                       <span className="pointer-events-none absolute inset-0 flex flex-col justify-between bg-[linear-gradient(to_top,rgb(29_27_24/0.78)_0%,rgb(29_27_24/0.35)_32%,transparent_58%)] p-4 text-bg md:p-5">
