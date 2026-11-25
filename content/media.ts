@@ -55,7 +55,8 @@ export const media = {
   },
   socialMedia: {
     kind: "video",
-    src: "/media/video/social-media-icons.mp4",
+    // Re-encoded 25 Nov 2026: H.264 CRF 26, faststart, no audio (5.8 MB -> 1.9 MB).
+    src: "/media/video/social-media-icons-v2.mp4",
     poster: "/media/video/social-media-poster.webp",
     label: "Social media icons floating across the screen",
     ambient: true,
