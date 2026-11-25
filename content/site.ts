@@ -57,10 +57,12 @@ export const site: SiteContent = {
   email: "support@gyoudigital.com",
   phone: "+91 96666 96153",
   whatsapp: "+91 96666 96153",
-  // Street address hidden 26 Nov 2026 at gYOU's request until it is confirmed to match the
-  // Google Business Profile (previously: Building No. 12, Main Street, Near Durgam Cheruvu
-  // Metro, Madhapur, Hyderabad 500081). Restore the lines here and in postalAddress below.
-  address: null,
+  // Confirmed by gYOU 26 Nov 2026. Keep identical to the Google Business Profile.
+  address: [
+    "Building No. 12, Main Street",
+    "Near Durgam Cheruvu Metro, Madhapur",
+    "Hyderabad 500081",
+  ],
   // Public profile URLs (the LinkedIn admin dashboard link is not public, so the
   // company page URL is used). Order: most important for B2B first.
   socials: [
@@ -82,10 +84,12 @@ export const site: SiteContent = {
     },
     { platform: "x", label: "X", href: "https://x.com/gYOUdigital", handle: "@gYOUdigital" },
   ],
-  // City-level only while the street address is being confirmed (see `address`).
+  // Same office as `address`. Madhapur, Hyderabad is in Telangana.
   postalAddress: {
+    streetAddress: "Building No. 12, Main Street, Near Durgam Cheruvu Metro, Madhapur",
     addressLocality: "Hyderabad",
     addressRegion: "Telangana",
+    postalCode: "500081",
     addressCountry: "IN",
   },
 };
