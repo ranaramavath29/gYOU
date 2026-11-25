@@ -1,6 +1,6 @@
 # gYOU website — working rules
 
-Production site for gYOU (rozento.in), a digital marketing and growth agency.
+Production site for gYOU Digital (gyoudigital.com), a digital marketing and growth agency.
 Binding spec: `docs/BUILD_PROMPT.md`. Strategy: `docs/brief.pdf`. Visual reference: `docs/homepage-mockup.png`.
 Read BUILD_PROMPT.md before starting any phase. These rules condense it; the spec wins if they differ.
 

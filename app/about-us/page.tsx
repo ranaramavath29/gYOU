@@ -12,7 +12,7 @@ import { uiLabels } from "@/content/navigation";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: about.metaTitle,
+  title: about.seoTitle,
   description: about.metaDescription,
   path: "/about-us",
 });

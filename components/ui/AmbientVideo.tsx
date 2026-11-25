@@ -25,7 +25,13 @@ export function AmbientVideo({ src, label, poster, className }: AmbientVideoProp
     const video = ref.current;
     if (!video) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reduced.matches || userPaused) {
+    // Respect data saver / very slow connections: keep the poster, don't stream the video.
+    const connection = (
+      navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }
+    ).connection;
+    const saveData =
+      connection?.saveData === true || /(^|-)2g$/.test(connection?.effectiveType ?? "");
+    if (reduced.matches || saveData || userPaused) {
       video.pause();
       return;
     }

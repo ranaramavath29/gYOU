@@ -22,7 +22,7 @@ export function Breadcrumb({ label, items, current, currentHref }: BreadcrumbPro
       <ol className="flex flex-wrap items-center gap-x-2 text-small text-fg-subtle">
         {items.map((item) => (
           <li key={item.href} className="flex items-center gap-2">
-            <Link href={item.href} className="inline-flex min-h-9 items-center hover:text-fg">
+            <Link href={item.href} className="inline-flex min-h-11 items-center hover:text-fg">
               {item.label}
             </Link>
             <span aria-hidden>/</span>

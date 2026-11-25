@@ -1,4 +1,4 @@
-# Rozento website — QA report (Phase 10)
+# gYOU Digital website — QA report (Phase 10)
 
 Date: 21 November 2026 · Build: Next.js 16.4.6 production build, served locally on port 3100.
 
@@ -38,7 +38,7 @@ Date: 21 November 2026 · Build: Next.js 16.4.6 production build, served locally
 
 1. **Enquiry form click-through bug:** after a failed "Continue", the error message only cleared on blur, so the layout shifted as the visitor clicked and the click missed the button. Fields with an error now re-validate as they change.
 2. `robots.txt` blocked `/og`, which would stop social platforms fetching share images. Removed.
-3. Homepage share image repeated "| Rozento" next to the wordmark. Trimmed.
+3. Homepage share image repeated "| gYOU" next to the wordmark. Trimmed.
 4. The placeholder guard now also treats `NEXT_PUBLIC_SITE_ENV=production` as production.
 
 ## Not done / needs a decision

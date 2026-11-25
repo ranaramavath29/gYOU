@@ -23,13 +23,15 @@ export const legalPages: Record<
 > = {
   "privacy-policy": {
     title: "Privacy Policy",
-    description: "How gYOU Digital collects, uses and protects personal information, including cookies.",
+    description:
+      "How gYOU Digital collects, uses and protects personal information, including cookies.",
     lastUpdated: "2026-11-25",
     pending: false,
   },
   "terms-and-conditions": {
     title: "Terms and Conditions",
-    description: "The terms that apply to the use of the gYOU Digital website.",
+    description:
+      "The terms for using the gYOU Digital website, including how engagements are agreed, free audits, results and intellectual property.",
     lastUpdated: "2026-11-25",
     pending: false,
   },

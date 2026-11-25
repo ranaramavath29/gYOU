@@ -20,7 +20,7 @@ export type Cta = { label: string; href: string };
 
 export const ctas = {
   // Brief §8: primary and secondary CTAs site-wide.
-  primary: { label: "Let's Grow Your Business", href: "/contact#enquiry" },
+  primary: { label: "Let’s Grow Your Business", href: "/contact#enquiry" },
   secondary: { label: "Explore Our Work", href: "/our-work" },
   services: { label: "Explore Our Services", href: "/services" },
 } as const satisfies Record<string, Cta>;
@@ -30,7 +30,7 @@ export const hero = {
   heading: { lead: "Make Your Brand Visible.", accent: "Turn Attention Into Growth." },
   supporting:
     "We help businesses grow through strategic digital marketing, performance advertising, SEO and website solutions that connect brands with the right audience and turn opportunities into customers.",
-  supportingLine: "Strategy First. Data Driven. Growth That Matters.",
+  supportingLine: "Strategy First. Data-Driven. Growth That Matters.",
   /**
    * Checklist under the supporting copy. Working copy, Nov 2026: each line restates
    * what the service pages already say (no stats, prices or guarantees).
@@ -73,7 +73,7 @@ export const spotlight = {
       "Landing page design",
       "UI/UX design",
       "Responsive development",
-      "Website optimization",
+      "Website optimisation",
     ],
     cta: { label: "Explore Website Solutions", href: serviceHref("website-design-development") },
   },
@@ -101,7 +101,7 @@ export const intro = {
   },
   body: [
     "At gYOU Digital, we believe successful marketing starts with understanding your business.",
-    "We combine digital marketing strategy, performance-driven campaigns, search engine optimization and website development to help businesses build visibility, connect with their audience and generate meaningful opportunities.",
+    "We combine digital marketing strategy, performance-driven campaigns, search engine optimisation and website development to help businesses build visibility, connect with their audience and generate meaningful opportunities.",
     "From improving your online presence to running targeted advertising campaigns, we bring the right strategies together to support your business goals.",
   ],
   /** Screen-reader label for the facts row under the hero. */
@@ -129,12 +129,12 @@ export const challenges = {
   heading: { lead: "Your Business Has Goals.", accent: "We Have", trail: "the Strategy." },
   intro:
     "Growing a business online takes more than simply being present. It requires the right strategy, consistent execution and continuous improvement.",
-  cta: { label: "Let's Solve Your Growth Challenges", href: "/contact#enquiry" },
+  cta: { label: "Let’s Solve Your Growth Challenges", href: "/contact#enquiry" },
   items: [
     {
       challenge: "Low brand visibility",
       description:
-        "Your potential customers are searching online, but your brand isn't reaching them.",
+        "Your potential customers are searching online, but your brand isn’t reaching them.",
       approach:
         "Improve online visibility through SEO, content marketing and strategic social media activities.",
       service: "seo-content-marketing",
@@ -150,21 +150,21 @@ export const challenges = {
     {
       challenge: "Poor-quality leads",
       description:
-        "Your marketing campaigns generate enquiries, but they don't always reach the right audience.",
+        "Your marketing campaigns generate enquiries, but too many come from people who aren’t the right fit.",
       approach: "Improve audience targeting, campaign strategy and lead generation activities.",
       service: "performance-marketing",
     },
     {
       challenge: "Low website traffic",
-      description: "Your website exists, but the right audience isn't discovering it.",
+      description: "Your website exists, but the right audience isn’t discovering it.",
       approach:
         "Strengthen search visibility and drive relevant traffic through SEO and paid advertising.",
       service: "seo-content-marketing",
     },
     {
       challenge: "Inefficient advertising spend",
-      description: "Your advertising budget isn't delivering the expected marketing performance.",
-      approach: "Improve campaign structure, audience targeting, tracking and optimization.",
+      description: "Your advertising budget isn’t delivering the expected marketing performance.",
+      approach: "Improve campaign structure, audience targeting, tracking and optimisation.",
       service: "performance-marketing",
     },
     {
@@ -206,7 +206,7 @@ export const process = {
     {
       title: "Strategise",
       description:
-        "We develop a customized strategy based on your goals, market opportunities and marketing requirements.",
+        "We develop a customised strategy based on your goals, market opportunities and marketing requirements.",
     },
     {
       title: "Execute",
@@ -216,7 +216,7 @@ export const process = {
     {
       title: "Optimise",
       description:
-        "We monitor performance, analyze results and identify opportunities to continuously improve your digital activities.",
+        "We monitor performance, analyse results and identify opportunities to continuously improve your digital activities.",
     },
   ],
 } as const;
@@ -246,10 +246,10 @@ export const industries = {
     trail: "One Strategic Approach.",
   },
   intro:
-    "Every industry has its own audience, challenges and opportunities. We develop digital strategies that align with the specific needs of your business.",
+    "Property launches, patient enquiries and online orders each need a different mix of search, social, advertising and web. We shape the plan around your sector.",
   // Brief §6 Section 08 (content/industries.ts).
   items: industryList.map((i) => i.name),
-  cta: { label: "Explore industries", href: "/industries" },
+  cta: { label: "Explore Industries", href: "/industries" },
   ctaHint: "How we approach each sector",
 } as const;
 
@@ -318,12 +318,12 @@ export const finalCta = {
   eyebrow: "READY TO GROW?",
   heading: { lead: "Your Next Stage of Growth Starts", accent: "With the Right Strategy." },
   supporting:
-    "Whether you want to strengthen your digital presence, generate more enquiries or build a better website, gYOU Digital is ready to help you move forward. Let's understand your goals, explore the opportunities and create a digital strategy that works for your business.",
-  supportingLine: "Have a project in mind? Let's turn your ideas into action.",
-  primaryCta: { label: "Let's Discuss Your Project", href: "/contact#enquiry" },
+    "Whether you want to strengthen your digital presence, generate more enquiries or build a better website, gYOU Digital is ready to help you move forward. Let’s understand your goals, explore the opportunities and create a digital strategy that works for your business.",
+  supportingLine: "Have a project in mind? Let’s turn your ideas into action.",
+  primaryCta: { label: "Let’s Discuss Your Project", href: "/contact#enquiry" },
   secondaryCta: { label: "Get in Touch", href: "/contact" },
   emailLabel: "Your business email",
-  submitLabel: "Let's Discuss Your Project",
+  submitLabel: "Let’s Discuss Your Project",
   sendingLabel: "Sending…",
   errorMessage: "Something went wrong. Please try again or reach us on WhatsApp.",
   invalidEmail: "Enter a valid business email address.",

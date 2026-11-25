@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { ArrowUpRightIcon, PlayIcon } from "@/components/icons";
 import {
@@ -20,6 +21,7 @@ import {
 } from "@/components/ui";
 import { Wordmark } from "@/components/Wordmark";
 import { services } from "@/content/services";
+import { IS_PRODUCTION_SITE } from "@/lib/env";
 import { ph } from "@/lib/ph";
 import { colorTokens, contrastRatio, type ColorToken } from "@/lib/tokens";
 import { FormDemo } from "./FormDemo";
@@ -90,6 +92,8 @@ function Block({ title, note, children }: { title: string; note?: string; childr
 }
 
 export default function StyleguidePage() {
+  // Internal tool: never served on the live site.
+  if (IS_PRODUCTION_SITE) notFound();
   return (
     <div>
       <Container className="pt-12 pb-6">

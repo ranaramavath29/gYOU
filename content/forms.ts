@@ -36,6 +36,8 @@ export const formCopy = {
   honeypotLabel: "Leave this field empty",
   consent:
     "I agree that gYOU may contact me about this enquiry and process my details as described in the Privacy Policy.",
+  /** Link text after each consent statement. */
+  privacyLink: "Privacy Policy",
   consentRequired: "Please confirm so we can respond to your enquiry.",
 
   enquiry: {
@@ -75,7 +77,7 @@ export const formCopy = {
   /**
    * Three-step free marketing audit card in the homepage hero. Working copy
    * (Nov 2026), built on the free audit gYOU already offers. Review the
-   * "No obligation" and "Your details are safe" lines before launch.
+   * "No obligation" line before launch (the privacy line matches the Privacy Policy).
    */
   heroAudit: {
     badge: "Free · No obligation",
@@ -111,7 +113,7 @@ export const formCopy = {
     back: "Back",
     next: "Continue",
     submit: "Get my free audit",
-    trust: ["Your details are safe", "No obligation"],
+    trust: ["We never sell your details", "No obligation"],
   },
   audit: {
     heading: { lead: "Request a Free", accent: "Website Audit" },

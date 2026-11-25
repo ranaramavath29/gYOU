@@ -11,7 +11,7 @@ import { serviceBySlug, serviceHref } from "@/content/services";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: `${copy.metaTitle} We Serve`,
+  title: copy.seoTitle,
   description: copy.metaDescription,
   path: "/industries",
 });
@@ -114,7 +114,7 @@ export default function IndustriesPage() {
                             <li key={slug}>
                               <Link
                                 href={serviceHref(slug)}
-                                className="inline-flex min-h-9 items-center underline decoration-line-strong underline-offset-4 hover:decoration-accent"
+                                className="inline-flex min-h-11 items-center underline decoration-line-strong underline-offset-4 hover:decoration-accent"
                               >
                                 {serviceBySlug(slug).name}
                               </Link>

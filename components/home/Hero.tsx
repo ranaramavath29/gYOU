@@ -1,6 +1,6 @@
 import { HeroAuditForm } from "@/components/forms/HeroAuditForm";
 import { ArrowUpRightIcon, CheckIcon } from "@/components/icons";
-import { Button, Container, Reveal, SectionHeading } from "@/components/ui";
+import { Button, Container, SectionHeading } from "@/components/ui";
 import { formCopy } from "@/content/forms";
 import { hero } from "@/content/home";
 
@@ -22,7 +22,8 @@ export function Hero() {
         />
 
         <Container className="relative grid items-center gap-12 py-12 md:py-16 lg:grid-cols-[1.1fr_1fr] lg:gap-14 lg:py-20 xl:gap-20">
-          <Reveal className="flex flex-col">
+          {/* Above the fold: rendered immediately (no reveal), so it can be the LCP. */}
+          <div className="flex flex-col">
             <SectionHeading
               as="h1"
               id="hero-heading"
@@ -73,9 +74,9 @@ export function Hero() {
               <span aria-hidden className="h-px w-10 bg-fg-subtle/60" />
               {hero.supportingLine}
             </p>
-          </Reveal>
+          </div>
 
-          <Reveal delay={0.1} className="w-full lg:justify-self-end">
+          <div className="w-full lg:justify-self-end">
             <div
               id="free-audit"
               className="tone-light mx-auto w-full max-w-[560px] rounded-[32px] bg-bg-raised p-6 text-fg shadow-[0_40px_90px_-30px_rgb(0_0_0/0.6)] sm:p-9"
@@ -89,7 +90,7 @@ export function Hero() {
               <p className="mt-2 mb-6 text-small text-fg-muted">{audit.intro}</p>
               <HeroAuditForm />
             </div>
-          </Reveal>
+          </div>
         </Container>
       </div>
     </section>

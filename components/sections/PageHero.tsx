@@ -1,12 +1,5 @@
 import type { ReactNode } from "react";
-import {
-  Container,
-  MediaFrame,
-  Pill,
-  Reveal,
-  SectionHeading,
-  type MediaSource,
-} from "@/components/ui";
+import { Container, MediaFrame, Pill, SectionHeading, type MediaSource } from "@/components/ui";
 import type { Heading } from "@/content/home";
 import type { NavLink } from "@/content/navigation";
 import { Breadcrumb } from "./Breadcrumb";
@@ -42,7 +35,8 @@ export function PageHero({
           current={breadcrumb.current}
           currentHref={breadcrumb.currentHref}
         />
-        <Reveal className="mt-10 md:mt-14">
+        {/* Above the fold: no reveal animation, so the h1 paints immediately (LCP). */}
+        <div className="mt-10 md:mt-14">
           <SectionHeading
             as="h1"
             id={id}
@@ -60,9 +54,9 @@ export function PageHero({
             description={supporting}
           />
           {actions ? <div className="mt-10 flex flex-col gap-3 sm:flex-row">{actions}</div> : null}
-        </Reveal>
+        </div>
         {media ? (
-          <Reveal className="mt-12 md:mt-16">
+          <div className="mt-12 md:mt-16">
             <figure className="rounded-[36px] border border-line bg-bg-raised p-2.5 shadow-[0_40px_80px_-48px_rgb(29_27_24/0.45)]">
               <MediaFrame
                 media={media}
@@ -74,7 +68,7 @@ export function PageHero({
                 className="[--radius-media:28px]"
               />
             </figure>
-          </Reveal>
+          </div>
         ) : null}
       </Container>
     </section>

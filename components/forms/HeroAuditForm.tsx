@@ -268,7 +268,7 @@ export function HeroAuditForm() {
             <>
               {c.consent}{" "}
               <Link href="/privacy-policy" className="underline underline-offset-4">
-                Privacy Policy
+                {formCopy.privacyLink}
               </Link>
               .
             </>

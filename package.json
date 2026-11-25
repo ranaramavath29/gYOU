@@ -2,7 +2,7 @@
   "name": "gyou-web",
   "version": "0.1.0",
   "private": true,
-  "description": "gYOU website (rozento.in)",
+  "description": "gYOU Digital website (gyoudigital.com)",
   "engines": {
     "node": ">=20.9.0"
   },

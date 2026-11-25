@@ -8,6 +8,8 @@ import type { ServicePageContent } from "./types";
  */
 export const performanceMarketing: ServicePageContent = {
   slug: "performance-marketing",
+  metaDescription:
+    "Meta Ads and Google Ads campaigns planned around qualified enquiries and sales, with clear reporting on spend. Performance marketing by gYOU Digital, Hyderabad.",
   hero: {
     media: media.marketingTeam,
     heading: { lead: "Advertising That", accent: "Answers", trail: "to Your Goals." },
@@ -55,13 +57,13 @@ export const performanceMarketing: ServicePageContent = {
   ],
   // Brief §7 "Example: Performance Marketing page".
   deliverables: [
-    "Meta Ads Management",
-    "Google Ads Management",
-    "Lead Generation",
-    "Audience Research",
+    "Meta Ads management",
+    "Google Ads management",
+    "Lead generation",
+    "Audience research",
     "Retargeting",
-    "Conversion Rate Optimisation",
-    "Analytics and Conversion Tracking",
+    "Conversion rate optimisation",
+    "Analytics and conversion tracking",
   ],
   // Working copy: answers describe the service scope only. Confirm before launch.
   faqs: [

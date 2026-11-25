@@ -1,6 +1,6 @@
-# Rozento website — launch handover (Phase 11)
+# gYOU Digital website — launch handover (Phase 11)
 
-Everything needed to take the site live on Vercel at rozento.in and keep its content up to date.
+Everything needed to take the site live on Vercel at gyoudigital.com and keep its content up to date.
 
 ---
 
@@ -27,12 +27,12 @@ Set in Vercel → Project → Settings → Environment Variables. See `.env.exam
 
 | Variable | Production | Preview | Notes |
 |---|---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | `https://rozento.in` | preview URL or `https://rozento.in` | Canonical URLs, OG, JSON-LD, sitemap |
+| `NEXT_PUBLIC_SITE_URL` | `https://gyoudigital.com` | preview URL or `https://gyoudigital.com` | Canonical URLs, OG, JSON-LD, sitemap |
 | `NEXT_PUBLIC_LEAD_ENDPOINT` | your form endpoint | same or a test endpoint | Receives a JSON POST: `{ form, fields, page }` |
 | `NEXT_PUBLIC_GTM_ID` | `GTM-XXXXXXX` | empty (recommended) | Empty = no tags and no cookie banner |
 | `NEXT_PUBLIC_SITE_ENV` | leave empty on Vercel | leave empty | Only needed on non-Vercel hosts to mark production. On Vercel, `VERCEL_ENV=production` is set automatically. |
 
-**Form endpoint options.** Formspree, Basin, HubSpot Forms (via its submit API), a Google Apps Script web app that appends to a Sheet, or your own API. The endpoint must accept a cross-origin JSON POST from rozento.in and return 2xx on success. Email notifications are configured in that service. Form names sent: `enquiry` (3-step contact form), `consultation` (email field in closing sections; `fields.source` says which page), `audit` (website + email).
+**Form endpoint options.** Formspree, Basin, HubSpot Forms (via its submit API), a Google Apps Script web app that appends to a Sheet, or your own API. The endpoint must accept a cross-origin JSON POST from gyoudigital.com and return 2xx on success. Email notifications are configured in that service. Form names sent: `enquiry` (3-step contact form), `consultation` (email field in closing sections; `fields.source` says which page), `audit` (website + email).
 
 ---
 
@@ -47,9 +47,9 @@ Set in Vercel → Project → Settings → Environment Variables. See `.env.exam
 2. Vercel → Add New Project → import the repository. Framework: Next.js (auto-detected). Build command `npm run build`, install `npm install`. Node 20.9+ (Vercel default is fine).
 3. Add the environment variables above.
 4. Deploy. Preview deployments are automatically `noindex`.
-5. Domains → add `rozento.in` and `www.rozento.in`. Set `rozento.in` as primary and redirect `www` → `rozento.in` (Vercel offers this in the domain settings).
+5. Domains → add `gyoudigital.com` and `www.gyoudigital.com`. Set `gyoudigital.com` as primary and redirect `www` → `gyoudigital.com` (Vercel offers this in the domain settings).
 6. At your DNS provider, add the records Vercel shows (typically an `A` record for the apex and a `CNAME` for `www`). HTTPS certificates are issued automatically.
-7. After DNS resolves, confirm: `https://rozento.in/robots.txt` shows `Allow: /` and a sitemap line; view-source on the homepage shows `<meta name="robots" content="index, follow">`.
+7. After DNS resolves, confirm: `https://gyoudigital.com/robots.txt` shows `Allow: /` and a sitemap line; view-source on the homepage shows `<meta name="robots" content="index, follow">`.
 
 ---
 
@@ -76,7 +76,7 @@ In GTM:
 4. **Meta Pixel** via a template (e.g. "Facebook Pixel" community template): PageView on All Pages, `Lead` on `form_submit_success`.
 5. Use GTM **Preview** mode to verify each tag fires only after Accept.
 
-**Search Console:** add a Domain property for `rozento.in` and verify with the DNS TXT record (recommended; covers http/https and www). Then submit `https://rozento.in/sitemap.xml`. Also create/claim the Google Business Profile for the Madhapur office and add its URL to the site (see section 7).
+**Search Console:** add a Domain property for `gyoudigital.com` and verify with the DNS TXT record (recommended; covers http/https and www). Then submit `https://gyoudigital.com/sitemap.xml`. Also create/claim the Google Business Profile for the Madhapur office and add its URL to the site (see section 7).
 
 ---
 
@@ -115,13 +115,13 @@ Preview drafts locally with `npm run dev` (drafts show in development only).
 - Week 2: review Search Console coverage (no unexpected noindex/404s).
 - Weeks 2–4: publish the first case study and first Insights posts; switch on their nav links.
 - Week 4: review GA4: top pages, CTA clicks, form starts vs. successes; adjust copy or forms where people drop off.
-- Ongoing: monitor broken links (`node scripts/check-links.mjs https://rozento.in`) monthly.
+- Ongoing: monitor broken links (`node scripts/check-links.mjs https://gyoudigital.com`) monthly.
 
 ---
 
 ## 7. Defaults set without business answers (review these)
 
-These were chosen when Rozento asked to proceed without waiting for each PAUSE. None of them invents a business fact, but several are commitments or choices only Rozento can confirm.
+These were chosen when gYOU asked to proceed without waiting for each PAUSE. None of them invents a business fact, but several are commitments or choices only gYOU can confirm.
 
 - **Copy:** hero headline (brief), section intros, service challenges/approaches, all 26 service FAQ answers, About values, industry descriptions, footer line, form and thank-you messages. Marked "working copy" / "draft" in the files.
 - **Commitments in copy:** "you approve the ad budget before any campaign goes live", "we agree response guidelines" (social), "we share a proposal after a free consultation", "transparent communication". Confirm each matches how the team works.
@@ -133,12 +133,12 @@ These were chosen when Rozento asked to proceed without waiting for each PAUSE. 
 - **SEO titles** use "… in Hyderabad" from the brief's keyword ideas; validate search volumes.
 - **Hidden until content exists:** client logos, stats beyond "6 services / Hyderabad", case studies, testimonials, team, Insights.
 - **Not yet supplied:** Google Business Profile URL (add to `content/site.ts` socials so it appears in `sameAs`), discovery-call booking link (`bookingUrl` in `content/contact.ts`), Instagram/LinkedIn if they exist.
-- **Email:** consider a domain address (e.g. hello@rozento.in) instead of Gmail for credibility.
+- **Email:** consider a domain address (e.g. hello@gyoudigital.com) instead of Gmail for credibility.
 
 ---
 
 ## 8. Hosting confirmation still needed (PAUSE 11)
 
 - Vercel account access (who owns the project and billing)
-- DNS provider for rozento.in and who can edit records
+- DNS provider for gyoudigital.com and who can edit records
 - Go-live date

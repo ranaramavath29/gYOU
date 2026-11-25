@@ -22,6 +22,7 @@ export function organizationLd() {
     "@id": ORG_ID,
     name: site.name,
     url: SITE_URL,
+    logo: absoluteUrl("/brand/gyou-logo.png"),
     slogan: site.tagline,
     ...(isPlaceholder(site.email) ? {} : { email: site.email }),
     ...(isPlaceholder(site.phone) ? {} : { telephone: site.phone.replace(/\s/g, "") }),

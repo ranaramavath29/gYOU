@@ -25,7 +25,7 @@ export const about = {
     heading: { lead: "Who", accent: "We Are" },
     // Brief §3 positioning and core communication.
     paragraphs: [
-      "gYOU is an integrated digital marketing agency combining strategy, creativity and performance marketing to help businesses establish stronger digital identities and achieve sustainable growth.",
+      "gYOU is an integrated digital marketing agency. Strategy, creative and campaign work sit with one team, so your brand, your advertising and your website pull in the same direction.",
       "We focus on business outcomes rather than individual tactics: building brand visibility, reaching the right audience, generating qualified enquiries, improving marketing performance and supporting long-term growth.",
       "From the website your customers land on to the campaigns that bring them there, we plan and deliver the work as one connected programme.",
     ],
@@ -75,5 +75,7 @@ export const about = {
     supporting: "Tell us where your business is today and where you want it to go.",
   },
   metaTitle: "About Us",
+  /** <title> (the layout adds " | gYOU Digital"). */
+  seoTitle: "About Our Digital Marketing Agency",
   metaDescription: `About gYOU, a ${site.primaryMarket} website design and digital marketing agency combining strategy, creativity and performance marketing.`,
 } as const;

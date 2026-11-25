@@ -241,7 +241,7 @@ export function EnquiryForm() {
             <>
               {c.consent}{" "}
               <Link href="/privacy-policy" className="underline underline-offset-4">
-                Privacy Policy
+                {c.privacyLink}
               </Link>
             </>
           }

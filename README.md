@@ -1,6 +1,6 @@
 # gYOU website
 
-Production website for gYOU (rozento.in). Next.js App Router, TypeScript (strict), Tailwind CSS v4, Motion, MDX, react-hook-form + zod, Playwright.
+Production website for gYOU Digital (gyoudigital.com). Next.js App Router, TypeScript (strict), Tailwind CSS v4, Motion, MDX, react-hook-form + zod, Playwright.
 
 ## Requirements
 

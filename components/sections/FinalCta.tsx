@@ -73,7 +73,7 @@ export function FinalCta({
                       <a
                         href={link.href}
                         {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                        className="inline-flex min-h-9 items-center underline decoration-line-strong underline-offset-4 hover:text-fg hover:decoration-fg"
+                        className="inline-flex min-h-11 items-center underline decoration-line-strong underline-offset-4 hover:text-fg hover:decoration-fg"
                       >
                         {link.label}
                       </a>
