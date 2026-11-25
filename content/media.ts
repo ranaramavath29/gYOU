@@ -66,9 +66,9 @@ export const media = {
  * Industry photos for /industries and the homepage industries grid.
  * v3 images (25 Nov 2026) were supplied by gYOU and chosen per sector; their
  * source and licence are NOT recorded here yet. Confirm each is licensed for
- * commercial web use before launch (healthcare and fintech look like stock
- * previews at 612px and should be replaced with full-size licensed files).
- * Hospitality v3 (25 Nov 2026) is also supplied by gYOU.
+ * commercial web use before launch. Hospitality v3 and the healthcare and
+ * fintech v4 images (1535px, replacing 612px previews) were supplied by gYOU on
+ * 25 Nov 2026.
  */
 export const industryMedia = {
   // Supplied by gYOU, Nov 2026. Licence to confirm.
@@ -78,12 +78,12 @@ export const industryMedia = {
     alt: "Modern glass office and residential towers against a clear blue sky",
     position: "72% 50%",
   },
-  // Supplied by gYOU, Nov 2026. Licence to confirm. Low resolution (612px).
+  // Supplied by gYOU, 25 Nov 2026 (1535px). Licence to confirm.
   "healthcare-wellness": {
     kind: "image",
-    src: "/media/industries/healthcare-v3.webp",
+    src: "/media/industries/healthcare-v4.webp",
     alt: "A woman meditating in a yoga pose outdoors among green plants",
-    position: "68% 50%",
+    position: "78% 50%",
   },
   // Supplied by gYOU, Nov 2026. Licence to confirm.
   "education-training": {
@@ -92,12 +92,12 @@ export const industryMedia = {
     alt: "Smiling students at their desks listening to a teacher in a bright classroom",
     position: "60% 50%",
   },
-  // Supplied by gYOU, Nov 2026. Licence to confirm. Low resolution (612px).
+  // Supplied by gYOU, 25 Nov 2026 (1535px). Licence to confirm.
   "fintech-financial-services": {
     kind: "image",
-    src: "/media/industries/fintech-v3.webp",
+    src: "/media/industries/fintech-v4.webp",
     alt: "A hand selecting a glowing fintech tile among digital banking icons",
-    position: "62% 50%",
+    position: "64% 50%",
   },
   // Supplied by gYOU, Nov 2026. Licence to confirm.
   "ecommerce-retail": {
