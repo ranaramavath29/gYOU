@@ -14,7 +14,7 @@ const variants = {
   raised: "bg-bg-raised-2 text-fg",
   accent: "bg-accent text-on-accent",
   /** Soft blue chip with an accent dot: page eyebrows (option J). */
-  chip: "bg-[#e3ecfb] font-semibold text-[#1c3f80]",
+  chip: "bg-[#e2f0f4] font-semibold text-[#0b4c63]",
 } as const;
 
 /** Non-interactive label pill: eyebrows, tags, categories. */

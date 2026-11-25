@@ -2,7 +2,7 @@
 
 /*
  * "Studio Daylight" design tokens, option J (docs/BUILD_PROMPT.md → Design system).
- * Warm cream pages, near-black warm ink, cobalt-blue accent (changed from tomato, 24 Nov 2026), sage and sky.
+ * Warm cream pages, near-black warm ink, petrol-blue accent (tomato until 24 Nov 2026, briefly cobalt; petrol approved 25 Nov 2026), sage and sky.
  * Raw tokens live on :root so they can be swapped in one place.
  * lib/tokens.ts mirrors these values for the /styleguide contrast table.
  */
@@ -15,12 +15,12 @@
   --fg-subtle: #67635b;
   --line: #ebe4d8;
   --line-strong: #8a8174;
-  --accent: #1f5fd1;
-  --accent-hover: #1a4fb0;
-  /* Text and icons on blue fills (white on #1f5fd1 5.8:1; blue text on cream 5.4:1). */
+  --accent: #0f5e7a;
+  --accent-hover: #0b4c63;
+  /* Text and icons on blue fills (white on #0f5e7a 7.2:1; petrol text on cream 6.8:1). */
   --on-accent: #ffffff;
   --sage: #5b6650;
-  --sky: #c5d4ef; /* soft ice blue: premium, low-saturation accent on ink */
+  --sky: #b8dce6; /* soft aqua mist: low-saturation accent on ink */
   --paper: #f3ece1;
   --ink: #1d1b18;
   --ink-muted: #4d4a44;
@@ -40,7 +40,7 @@
   color-scheme: light;
 }
 
-/* On ink, accent words turn sky blue (the cobalt accent is too dark on ink for text). */
+/* On ink, accent words turn sky blue (the petrol accent is too dark on ink for text). */
 .tone-ink {
   --fg: var(--bg);
   --fg-muted: #bdb6a8;
@@ -185,11 +185,11 @@
     font-style: normal;
     color: var(--heading-accent);
   }
-  /* On ink: a quiet silver-to-steel blue sheen (min 8.4:1 on ink). Flat ice blue
+  /* On ink: a quiet mist-to-aqua sheen (min 8.9:1 on ink). Flat aqua mist
      where background-clip text is unsupported. Cloned per line when it wraps. */
   @supports ((background-clip: text) or (-webkit-background-clip: text)) {
     .tone-ink .accent-word {
-      background-image: linear-gradient(100deg, #eef2fb 0%, #c5d4ef 45%, #9fb6e3 100%);
+      background-image: linear-gradient(100deg, #eef7f9 0%, #b8dce6 45%, #8cc3d3 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;

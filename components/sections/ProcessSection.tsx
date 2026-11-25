@@ -44,7 +44,7 @@ export function ProcessSection({ id, heading, steps }: ProcessSectionProps) {
                   className={cn(
                     "relative z-10 grid size-14 place-items-center rounded-full font-display text-lg font-semibold tabular-nums transition-[background-color,color,box-shadow,scale] duration-300 group-hover:scale-105",
                     last
-                      ? "bg-accent text-on-accent shadow-[0_0_0_8px_rgb(31_95_209/0.12)]"
+                      ? "bg-accent text-on-accent shadow-[0_0_0_8px_rgb(15_94_122/0.12)]"
                       : "bg-bg-raised text-ink shadow-[0_0_0_8px_var(--paper)] ring-1 ring-ink/10 group-hover:bg-ink group-hover:text-bg",
                   )}
                 >

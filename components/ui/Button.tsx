@@ -32,7 +32,7 @@ const variants: Record<ButtonVariant, string> = {
     "bg-fg text-bg shadow-[inset_0_-2px_0_rgb(0_0_0/0.08)] hover:bg-fg-muted hover:shadow-[0_12px_32px_-12px_rgb(0_0_0/0.2)]",
   outline: "border border-line-strong bg-transparent text-fg hover:border-fg hover:bg-bg-raised",
   accent:
-    "bg-accent text-on-accent shadow-[inset_0_-2px_0_rgb(0_0_0/0.12)] hover:bg-accent-hover hover:shadow-[0_14px_36px_-12px_rgb(31_95_209/0.5)]",
+    "bg-accent text-on-accent shadow-[inset_0_-2px_0_rgb(0_0_0/0.12)] hover:bg-accent-hover hover:shadow-[0_14px_36px_-12px_rgb(15_94_122/0.5)]",
 };
 
 const sizes: Record<ButtonSize, string> = {

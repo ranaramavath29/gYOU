@@ -128,7 +128,7 @@ export function HeroAuditForm() {
           className="h-1.5 overflow-hidden rounded-full bg-paper"
         >
           <div
-            className="h-full rounded-full bg-gradient-to-r from-accent to-[#7fa5ec] transition-[width] duration-500 motion-reduce:transition-none"
+            className="h-full rounded-full bg-gradient-to-r from-accent to-[#6fb1c6] transition-[width] duration-500 motion-reduce:transition-none"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -178,7 +178,7 @@ export function HeroAuditForm() {
                           "flex min-h-13 items-center gap-3 rounded-2xl border px-4 text-[0.9375rem] font-semibold text-fg transition-colors duration-150",
                           "peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[var(--focus-ring)]",
                           checked
-                            ? "border-accent bg-[#eef3fd]"
+                            ? "border-accent bg-[#eaf4f7]"
                             : fieldState.error
                               ? "border-danger"
                               : "border-line hover:border-line-strong",

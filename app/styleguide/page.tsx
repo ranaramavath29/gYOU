@@ -44,7 +44,7 @@ const swatches: Array<{ token: ColorToken; use: string }> = [
   { token: "fg-subtle", use: "Labels, captions" },
   { token: "line", use: "Borders, dividers" },
   { token: "line-strong", use: "Outline buttons" },
-  { token: "accent", use: "Cobalt blue: CTA fills, dots, active states" },
+  { token: "accent", use: "Petrol blue: CTA fills, dots, active states" },
   { token: "on-accent", use: "Text and icons on blue" },
   { token: "sage", use: "Secondary accent: tiles, work cards" },
   { token: "sky", use: "Accent words on ink cards" },
