@@ -14,9 +14,9 @@ import { isPlaceholder } from "@/lib/ph";
 
 function ColumnTitle({ children }: { children: ReactNode }) {
   return (
-    <h2 className="mb-4 text-small font-semibold tracking-[0.12em] text-fg-subtle uppercase">
+    <p className="mb-4 text-small font-semibold tracking-[0.12em] text-fg-subtle uppercase">
       {children}
-    </h2>
+    </p>
   );
 }
 

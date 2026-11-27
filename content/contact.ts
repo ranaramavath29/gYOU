@@ -22,8 +22,7 @@ export const contactPage = {
   /** Discovery-call booking link (Calendly, Cal.com…). null hides the block (PAUSE 6). */
   bookingUrl: null as string | null,
   bookingLabel: "Book a discovery call",
-  followHeading: "Follow gYOU",
-  followIntro: "Ideas, work and updates from the team.",
+  heroCta: "Send Your Project Details",
   metaTitle: "Contact Us",
   /** <title> (the layout adds " | gYOU Digital"). */
   seoTitle: "Contact a Hyderabad Digital Marketing Agency",
