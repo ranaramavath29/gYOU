@@ -16,7 +16,7 @@ import { caseStudyHref, getCaseStudies } from "@/lib/caseStudies";
 import { getPosts, toPostCard } from "@/lib/insights";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/content/site";
-import { localBusinessLd } from "@/lib/jsonld";
+import { localBusinessLd, websiteLd } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
 
 const tints: readonly MediaTint[] = ["olive", "rust", "navy"];
@@ -49,6 +49,7 @@ export default async function HomePage() {
 
   return (
     <>
+      <JsonLd data={websiteLd()} />
       {localBusiness ? <JsonLd data={localBusiness} /> : null}
       <Hero />
       <ClientCredibility />

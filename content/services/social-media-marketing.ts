@@ -5,7 +5,7 @@ import type { ServicePageContent } from "./types";
 export const socialMediaMarketing: ServicePageContent = {
   slug: "social-media-marketing",
   metaDescription:
-    "Social media strategy, content calendars and community management for a consistent brand presence. Social media marketing by gYOU Digital, Hyderabad.",
+    "Social media marketing in Hyderabad: strategy, content calendars and community management for a consistent brand presence. By gYOU Digital.",
   hero: {
     media: media.socialMedia,
     heading: { lead: "Social Media That", accent: "Builds", trail: "Your Brand." },
@@ -19,6 +19,7 @@ export const socialMediaMarketing: ServicePageContent = {
       "Alongside publishing, we manage conversations with your community and report on what is working, so your social presence supports the wider business rather than running on its own.",
     ],
   },
+  challengesHeading: { lead: "Social Media Problems That Sound", accent: "Familiar?" },
   challenges: [
     {
       title: "Irregular posting",

@@ -145,7 +145,7 @@ export function ServicePage({
 
       {/* Business challenges */}
       <Section aria-labelledby="service-challenges">
-        <SectionHeader id="service-challenges" heading={shared.challengesHeading} />
+        <SectionHeader id="service-challenges" heading={content.challengesHeading} />
         <Reveal>
           <ul className="grid gap-4 md:grid-cols-3">
             {content.challenges.map((item, i) => (

@@ -8,7 +8,6 @@ export const serviceShared = {
   secondaryCta: { label: "All services", href: "/services" },
   breadcrumb: { label: "Breadcrumb", home: "Home", services: "Services" },
   introLabel: "Overview",
-  challengesHeading: { lead: "Sound", accent: "Familiar?" },
   solutionsHeading: { lead: "How We", accent: "Help" },
   deliverablesHeading: { lead: "What’s", accent: "Included" },
   processHeading: { lead: "How We", accent: "Work" },
@@ -57,5 +56,5 @@ export const servicesOverview = {
   },
   metaTitle: "Digital Marketing Services",
   metaDescription:
-    "Social media, SEO, performance marketing and website services from gYOU, a Hyderabad digital marketing agency.",
+    "Digital marketing services in Hyderabad: Google and Meta Ads, SEO, social media marketing and website design from gYOU Digital. Get a free audit.",
 } as const;

@@ -6,6 +6,8 @@ export const contactPage = {
   supporting:
     "Tell us about your business and goals. Reach us on WhatsApp, by phone or by email, or send us your project details using the form below.",
   methodsHeading: { lead: "Ways to", accent: "Reach Us" },
+  methodsIntro:
+    "Whether you need a new website, more qualified enquiries from Google and Meta Ads, stronger SEO or a consistent social media presence, start with a conversation. Share where your business is today and what you want to achieve, and we’ll suggest practical next steps.",
   methods: {
     combined: {
       title: "Call or WhatsApp",
@@ -24,8 +26,8 @@ export const contactPage = {
   followIntro: "Ideas, work and updates from the team.",
   metaTitle: "Contact Us",
   /** <title> (the layout adds " | gYOU Digital"). */
-  seoTitle: "Contact Our Hyderabad Team",
-  metaDescription: `Contact gYOU, a ${site.primaryMarket} website design and digital marketing agency, by WhatsApp, phone or email.`,
+  seoTitle: "Contact a Hyderabad Digital Marketing Agency",
+  metaDescription: `Contact gYOU Digital, a digital marketing and website design agency in ${site.primaryMarket}. Reach us by WhatsApp, phone or email, or send your project details.`,
 } as const;
 
 /** Google Maps search link for the office address (a link, not an embed, so no third-party cookies). */

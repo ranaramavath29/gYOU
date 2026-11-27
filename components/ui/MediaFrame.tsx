@@ -62,6 +62,18 @@ const aspects: Record<MediaAspect, string> = {
   "21/9": "aspect-[21/9]",
 };
 
+/** Width/height attributes per aspect (the frame sets the real size; this stops layout shift warnings). */
+const dimensions: Record<MediaAspect, [number, number]> = {
+  "1/1": [1200, 1200],
+  "4/5": [1200, 1500],
+  "3/4": [1200, 1600],
+  "4/3": [1200, 900],
+  "3/2": [1200, 800],
+  "16/10": [1200, 750],
+  "16/9": [1200, 675],
+  "21/9": [1260, 540],
+};
+
 const tints: Record<MediaTint, string> = {
   olive: "bg-[linear-gradient(135deg,#d3dcc9_0%,#c9d4bf_100%)]",
   graphite: "bg-[linear-gradient(135deg,#e9d6c2_0%,#d7b99c_100%)]",
@@ -104,12 +116,13 @@ export function MediaFrame({
         <Image
           src={media.src}
           alt={media.alt}
-          fill
+          width={dimensions[aspect][0]}
+          height={dimensions[aspect][1]}
           sizes={sizes}
-          quality={90}
+          quality={75}
           priority={priority}
           style={media.position ? { objectPosition: media.position } : undefined}
-          className={cn("object-cover", zoom)}
+          className={cn("absolute inset-0 size-full object-cover", zoom)}
         />
       ) : media?.kind === "video" && media.ambient ? (
         <AmbientVideo src={media.src} label={media.label} poster={media.poster} />

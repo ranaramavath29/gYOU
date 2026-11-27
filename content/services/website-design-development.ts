@@ -5,7 +5,7 @@ import type { ServicePageContent } from "./types";
 export const websiteDesignDevelopment: ServicePageContent = {
   slug: "website-design-development",
   metaDescription:
-    "Business websites and landing pages designed around your customers, responsive on every device and easy to update. Web design by gYOU Digital, Hyderabad.",
+    "Website design and development in Hyderabad: responsive business websites and landing pages built around your customers and easy to update.",
   hero: {
     media: media.websiteDevices,
     heading: { lead: "Websites Built to", accent: "Convert." },
@@ -19,6 +19,7 @@ export const websiteDesignDevelopment: ServicePageContent = {
       "From a focused landing page to a complete redesign, we handle UX, design, development, content integration and ongoing maintenance.",
     ],
   },
+  challengesHeading: { lead: "Website Problems That Sound", accent: "Familiar?" },
   challenges: [
     {
       title: "Visitors leave without acting",
