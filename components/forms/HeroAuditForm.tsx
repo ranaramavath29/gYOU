@@ -31,7 +31,7 @@ export function HeroAuditForm() {
   const [step, setStep] = useState(0);
   const [sendError, setSendError] = useState(false);
   const started = useRef(false);
-  const headingRef = useRef<HTMLHeadingElement>(null);
+  const headingRef = useRef<HTMLParagraphElement>(null);
   const firstRender = useRef(true);
   const needId = useId();
 
@@ -135,13 +135,13 @@ export function HeroAuditForm() {
         <p className="text-small font-semibold text-fg-subtle">{c.progress(step + 1, TOTAL)}</p>
       </div>
 
-      <h3
+      <p
         ref={headingRef}
         tabIndex={-1}
         className="-mb-1 font-display text-[1.25rem] leading-tight font-semibold tracking-[-0.02em] focus:outline-none"
       >
         {c.steps[step]}
-      </h3>
+      </p>
 
       {/* Step 1: need + budget */}
       <div hidden={step !== 0} className="flex flex-col gap-5">

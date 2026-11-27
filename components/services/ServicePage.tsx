@@ -131,6 +131,7 @@ export function ServicePage({
       <Section aria-labelledby="service-intro" className="border-t border-line">
         <Reveal className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <SectionHeading
+            as="h2"
             id="service-intro"
             {...content.intro.heading}
             headingClassName="max-w-[12ch]"
@@ -152,9 +153,9 @@ export function ServicePage({
               <Card as="li" key={item.title} className="flex flex-col gap-8">
                 <span className="text-small text-fg-subtle tabular-nums">{pad(i)}</span>
                 <span className="flex flex-col gap-3">
-                  <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">
+                  <h4 className="font-display text-2xl font-semibold tracking-[-0.02em]">
                     {item.title}
-                  </h3>
+                  </h4>
                   <span className="text-small text-fg-muted">{item.description}</span>
                 </span>
               </Card>
@@ -180,9 +181,9 @@ export function ServicePage({
                     {pad(i)}
                   </span>
                   <span className="flex flex-col gap-2">
-                    <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">
+                    <h4 className="font-display text-2xl font-semibold tracking-[-0.02em]">
                       {item.title}
-                    </h3>
+                    </h4>
                     <span className="text-fg-muted">{item.description}</span>
                   </span>
                 </li>

@@ -16,9 +16,9 @@ export function EngagementSection({ id }: { id: string }) {
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span className="flex flex-col gap-3">
-                <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">
+                <h4 className="font-display text-2xl font-semibold tracking-[-0.02em]">
                   {model.title}
-                </h3>
+                </h4>
                 <span className="text-small text-fg-muted">{model.description}</span>
               </span>
             </Card>

@@ -66,9 +66,9 @@ export function ProcessSection({ id, heading, steps }: ProcessSectionProps) {
                   >
                     {uiLabels.processStep} {i + 1}
                   </span>
-                  <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">
+                  <h4 className="font-display text-2xl font-semibold tracking-[-0.02em]">
                     {step.title}
-                  </h3>
+                  </h4>
                   <p className={cn("text-small", last ? "text-[#d9d2c5]" : "text-ink-muted")}>
                     {step.description}
                   </p>

@@ -38,6 +38,9 @@ export default function IndustriesPage() {
 
       {/* Jump links */}
       <Container>
+        <h2 className="mb-4 text-small font-semibold tracking-[0.12em] text-fg-subtle uppercase">
+          {copy.listHeading}
+        </h2>
         <nav aria-label={copy.metaTitle} className="border-y border-line py-5">
           <ul className="flex flex-wrap gap-2">
             {industryList.map((industry) => (
@@ -73,7 +76,7 @@ export default function IndustriesPage() {
                       >
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <h2 className="font-display text-title font-semibold">{industry.name}</h2>
+                      <h3 className="font-display text-title font-semibold">{industry.name}</h3>
                     </div>
                     {image ? (
                       <figure className="rounded-[28px] border border-line bg-bg-raised p-2 shadow-[0_24px_50px_-34px_rgb(29_27_24/0.4)]">
@@ -93,9 +96,9 @@ export default function IndustriesPage() {
                     <p className="text-body text-fg-muted">{industry.description}</p>
                     <div className="grid gap-8 md:grid-cols-2">
                       <div>
-                        <h3 className="mb-3 text-small font-semibold tracking-[0.12em] text-fg-subtle uppercase">
+                        <h4 className="mb-3 text-small font-semibold tracking-[0.12em] text-fg-subtle uppercase">
                           {copy.focusLabel}
-                        </h3>
+                        </h4>
                         <ul className="flex flex-col gap-2.5">
                           {industry.focus.map((f) => (
                             <li key={f} className="flex items-center gap-3">
@@ -106,9 +109,9 @@ export default function IndustriesPage() {
                         </ul>
                       </div>
                       <div>
-                        <h3 className="mb-3 text-small font-semibold tracking-[0.12em] text-fg-subtle uppercase">
+                        <h4 className="mb-3 text-small font-semibold tracking-[0.12em] text-fg-subtle uppercase">
                           {copy.servicesLabel}
-                        </h3>
+                        </h4>
                         <ul className="flex flex-col">
                           {industry.services.map((slug) => (
                             <li key={slug}>

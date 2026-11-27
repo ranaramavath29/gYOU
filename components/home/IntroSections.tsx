@@ -21,12 +21,12 @@ export function CallbackBar() {
       <Container>
         <Reveal className="rounded-[var(--radius-media)] border border-line bg-bg-raised p-5 shadow-[0_24px_50px_-34px_rgb(0_0_0/0.35)] md:p-7">
           <div className="mb-5 flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between md:gap-6">
-            <h2
+            <h3
               id="callback-heading"
               className="font-display text-2xl font-semibold tracking-[-0.02em]"
             >
               {formCopy.callback.heading}
-            </h2>
+            </h3>
             <p className="text-small text-fg-muted">{formCopy.callback.intro}</p>
           </div>
           <CallbackForm />
@@ -64,7 +64,12 @@ export function AgencyIntro() {
           />
         </figure>
         <div className="flex flex-col gap-8">
-          <SectionHeading id="intro-heading" {...intro.heading} headingClassName="max-w-[16ch]" />
+          <SectionHeading
+            as="h2"
+            id="intro-heading"
+            {...intro.heading}
+            headingClassName="max-w-[16ch]"
+          />
           <div className="flex flex-col gap-4 text-body text-fg-muted">
             {intro.body.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
@@ -107,12 +112,12 @@ export function ClientCredibility() {
     <section aria-labelledby="credibility-heading" className="pt-16 md:pt-24">
       <Container>
         <Reveal className="flex flex-col items-center gap-8">
-          <h2
+          <h3
             id="credibility-heading"
             className="text-center font-display text-title font-semibold"
           >
             {credibility.label}
-          </h2>
+          </h3>
           {credibility.logos.length > 0 ? (
             <ul className="grid w-full grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
               {credibility.logos.map((logo) => (

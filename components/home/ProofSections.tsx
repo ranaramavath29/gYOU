@@ -108,9 +108,9 @@ export function WhyChoose() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="flex flex-col gap-1.5 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1.5">
-                  <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">
+                  <h4 className="font-display text-2xl font-semibold tracking-[-0.02em]">
                     {point.title}
-                  </h3>
+                  </h4>
                   <span className="text-small text-fg-muted">{point.description}</span>
                 </span>
               </li>
@@ -128,9 +128,9 @@ export function Testimonial() {
   if (!item) return null;
   return (
     <Section tone="paper" aria-labelledby="testimonial-heading">
-      <h2 id="testimonial-heading" className="sr-only">
+      <h3 id="testimonial-heading" className="sr-only">
         {testimonial.heading}
-      </h2>
+      </h3>
       <Reveal>
         <figure className="flex flex-col gap-10">
           <blockquote className="max-w-[24ch] font-display text-h2 font-normal italic">

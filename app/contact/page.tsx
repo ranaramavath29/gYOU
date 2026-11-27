@@ -102,6 +102,7 @@ export default function ContactPage() {
 
       <Section aria-labelledby="contact-methods" className="border-t border-line">
         <SectionHeader
+          as="h2"
           id="contact-methods"
           heading={copy.methodsHeading}
           intro={copy.methodsIntro}

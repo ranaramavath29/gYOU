@@ -79,7 +79,7 @@ export default async function InsightsPage() {
         </Section>
       )}
 
-      <FinalCta form="insights" page="/insights" />
+      <FinalCta form="insights" page="/insights" as="h2" />
     </>
   );
 }

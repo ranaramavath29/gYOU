@@ -9,14 +9,19 @@ import { SectionHeader } from "./SectionHeader";
 export function Spotlight({
   id,
   page,
+  level = 3,
 }: {
   id: string;
   page?: keyof typeof spotlight.pageHeadings;
+  /** 2 where the spotlight is the page's main section (/services). */
+  level?: 2 | 3;
 }) {
   const { website, marketing } = spotlight;
+  const Card = level === 2 ? "h3" : "h4";
   return (
     <Section aria-labelledby={id}>
       <SectionHeader
+        as={level === 2 ? "h2" : "h3"}
         id={id}
         heading={page ? spotlight.pageHeadings[page] : spotlight.heading}
         intro={spotlight.intro}
@@ -29,7 +34,7 @@ export function Spotlight({
             <span className="text-small font-semibold tracking-[0.12em] text-fg-muted uppercase">
               {marketing.label}
             </span>
-            <h3 className="font-display text-title font-semibold">{marketing.title}</h3>
+            <Card className="font-display text-title font-semibold">{marketing.title}</Card>
             <p className="max-w-[44ch] text-fg-muted">{marketing.description}</p>
             <ul className="mt-2 border-t border-line">
               {marketing.services.map((slug) => {
@@ -71,7 +76,7 @@ export function Spotlight({
             <span className="text-small font-semibold tracking-[0.12em] text-fg-muted uppercase">
               {website.label}
             </span>
-            <h3 className="font-display text-title font-semibold">{website.title}</h3>
+            <Card className="font-display text-title font-semibold">{website.title}</Card>
             <p className="max-w-[44ch] text-fg-muted">{website.description}</p>
             <ul className="mt-2 grid gap-3 border-t border-line pt-5 sm:grid-cols-2">
               {website.points.map((point) => (

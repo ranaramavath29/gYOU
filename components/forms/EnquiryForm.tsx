@@ -142,13 +142,13 @@ export function EnquiryForm() {
         </div>
       </div>
 
-      <h3
+      <h4
         ref={headingRef}
         tabIndex={-1}
         className="font-display text-title font-semibold focus:outline-none"
       >
         {c.enquiry.steps[step]}
-      </h3>
+      </h4>
 
       {/* Step 1: services */}
       <div hidden={step !== 0}>

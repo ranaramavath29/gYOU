@@ -62,7 +62,7 @@ export default function ServicesPage() {
       </section>
 
       <div className="border-t border-line">
-        <Spotlight id="services-spotlight" page="services" />
+        <Spotlight id="services-spotlight" page="services" level={2} />
       </div>
 
       <Section aria-labelledby="services-list">
@@ -82,7 +82,7 @@ export default function ServicesPage() {
                     <ArrowCircle />
                   </span>
                   <span className="flex flex-col gap-3">
-                    <h3 className="font-display text-title font-semibold">{service.name}</h3>
+                    <h4 className="font-display text-title font-semibold">{service.name}</h4>
                     <span className="text-small text-fg-muted">{service.summary}</span>
                     <span className="mt-2 text-small text-fg-subtle">
                       {service.highlights.join(" · ")}

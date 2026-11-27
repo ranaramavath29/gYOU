@@ -13,6 +13,8 @@ export const legalPages: Record<
     title: string;
     /** <title> (the layout adds " | gYOU Digital"). */
     seoTitle: string;
+    /** The page's one H2, above the document; its sections are H3. */
+    summaryHeading: string;
     description: string;
     /** ISO date of the adviser-approved version, or null. */ lastUpdated: string | null;
     /**
@@ -26,6 +28,7 @@ export const legalPages: Record<
   "privacy-policy": {
     title: "Privacy Policy",
     seoTitle: "Privacy Policy and Cookie Information",
+    summaryHeading: "How gYOU Digital handles your personal information",
     description:
       "How gYOU Digital collects, uses and protects personal information, including cookies.",
     lastUpdated: "2026-11-25",
@@ -34,6 +37,7 @@ export const legalPages: Record<
   "terms-and-conditions": {
     title: "Terms and Conditions",
     seoTitle: "Website Terms and Conditions",
+    summaryHeading: "The terms for using the gYOU Digital website",
     description:
       "The terms for using the gYOU Digital website, including how engagements are agreed, free audits, results and intellectual property.",
     lastUpdated: "2026-11-25",
