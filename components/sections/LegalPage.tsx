@@ -1,3 +1,4 @@
+import type { MDXComponents } from "mdx/types";
 import type { ComponentType } from "react";
 import { Container } from "@/components/ui";
 import { legalLabels, legalPages, type LegalPageKey } from "@/content/legal";
@@ -7,8 +8,27 @@ import { mailHref } from "@/lib/contact";
 import { formatDate } from "@/lib/insights";
 import { Breadcrumb } from "./Breadcrumb";
 
+// Document sections sit under the page's one H2, so MDX ## renders as H3 and ### as H4.
+const legalHeadings: MDXComponents = {
+  h2: (props) => (
+    <h3
+      className="mt-14 mb-5 font-display text-[clamp(1.75rem,1.3rem+1.6vw,2.5rem)] leading-tight font-semibold tracking-[-0.03em] first:mt-0"
+      {...props}
+    />
+  ),
+  h3: (props) => (
+    <h4 className="mt-10 mb-4 font-display text-2xl font-semibold tracking-[-0.02em]" {...props} />
+  ),
+};
+
 /** Renders an adviser-supplied legal MDX document with a consistent layout. */
-export function LegalPage({ page, Content }: { page: LegalPageKey; Content: ComponentType }) {
+export function LegalPage({
+  page,
+  Content,
+}: {
+  page: LegalPageKey;
+  Content: ComponentType<{ components?: MDXComponents }>;
+}) {
   const meta = legalPages[page];
   return (
     <article aria-labelledby="legal-title" className="pt-6 pb-24 md:pt-10">
@@ -48,7 +68,12 @@ export function LegalPage({ page, Content }: { page: LegalPageKey; Content: Comp
                 </a>
               </div>
             ) : (
-              <Content />
+              <>
+                <h2 className="mb-10 font-display text-2xl font-semibold tracking-[-0.02em]">
+                  {meta.summaryHeading}
+                </h2>
+                <Content components={legalHeadings} />
+              </>
             )}
           </div>
         </div>

@@ -121,6 +121,8 @@ export const industriesPage = {
       "The approach works across sectors. Tell us about your business and we’ll talk it through.",
   },
   metaTitle: "Industries",
+  /** The page's H2, above the jump links to each sector. */
+  listHeading: "Sectors we work with",
   /** <title> (the layout adds " | gYOU Digital"). */
   seoTitle: "Digital Marketing by Industry in Hyderabad",
   metaDescription:

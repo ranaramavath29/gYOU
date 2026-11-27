@@ -84,9 +84,9 @@ export function Hero() {
               <span className="inline-flex rounded-full bg-sage px-3.5 py-1.5 text-[0.8125rem] font-bold text-white">
                 {audit.badge}
               </span>
-              <h2 className="mt-4 font-display text-[clamp(1.5rem,1.3rem+0.8vw,1.875rem)] leading-tight font-semibold tracking-[-0.025em]">
+              <p className="mt-4 font-display text-[clamp(1.5rem,1.3rem+0.8vw,1.875rem)] leading-tight font-semibold tracking-[-0.025em]">
                 {audit.heading}
-              </h2>
+              </p>
               <p className="mt-2 mb-6 text-small text-fg-muted">{audit.intro}</p>
               <HeroAuditForm />
             </div>

@@ -24,9 +24,9 @@ export function Challenges() {
             return (
               <Card as="li" key={item.challenge} className="flex flex-col justify-between gap-10">
                 <div className="flex flex-col gap-3">
-                  <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">
+                  <h4 className="font-display text-2xl font-semibold tracking-[-0.02em]">
                     {item.challenge}
-                  </h3>
+                  </h4>
                   <p className="text-small text-fg-muted">{item.description}</p>
                   <p className="text-small">
                     <span className="font-semibold">Our approach: </span>
@@ -164,11 +164,11 @@ function WorkCardView({ item, tone }: { item: WorkCard; tone: string }) {
         />
         <div className="flex flex-col gap-2 px-3">
           <PlaceholderText value={item.tags} className="text-small opacity-80" />
-          <h3 className="flex flex-wrap gap-x-2 font-display text-xl font-semibold">
+          <h4 className="flex flex-wrap gap-x-2 font-display text-xl font-semibold">
             <PlaceholderText value={item.client} />
             <span aria-hidden>—</span>
             <PlaceholderText value={item.title} />
-          </h3>
+          </h4>
         </div>
       </Link>
     </article>

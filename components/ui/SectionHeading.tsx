@@ -4,6 +4,7 @@ import { cn } from "@/lib/cn";
 export type HeadingSize = "hero" | "split" | "section" | "title";
 
 type SectionHeadingProps = {
+  /** Section headings are H3 by default; each page sets exactly one heading to H2. */
   as?: "h1" | "h2" | "h3";
   size?: HeadingSize;
   /** Text before the accent word(s). */
@@ -35,7 +36,7 @@ const sizeClasses: Record<HeadingSize, string> = {
  * <SectionHeading lead="What we" accent="do best" />
  */
 export function SectionHeading({
-  as: Tag = "h2",
+  as: Tag = "h3",
   size = "section",
   lead,
   accent,

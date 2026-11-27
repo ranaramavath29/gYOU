@@ -12,6 +12,8 @@ type FinalCtaProps = {
   /** Lead form name and page path, sent with the submission. */
   form: string;
   page: string;
+  /** "h2" where this is the page's only section (empty listing pages). */
+  as?: "h2" | "h3";
 };
 
 /** Closing CTA with email capture, WhatsApp, email and phone. */
@@ -20,6 +22,7 @@ export function FinalCta({
   supporting = finalCta.supporting,
   form,
   page,
+  as,
 }: FinalCtaProps) {
   type ContactLink = { label: string; href: string | undefined; external?: boolean };
   const combined = isSameNumber(site.phone, site.whatsapp);
@@ -47,6 +50,7 @@ export function FinalCta({
           />
           <div className="relative grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-14">
             <SectionHeading
+              as={as}
               id="cta-heading"
               eyebrow={
                 <span className="text-small font-semibold tracking-[0.12em] text-fg-subtle uppercase">

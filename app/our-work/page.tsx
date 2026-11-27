@@ -109,7 +109,7 @@ export default async function OurWorkPage() {
         </Section>
       ) : null}
 
-      <FinalCta form="our-work" page="/our-work" />
+      <FinalCta form="our-work" page="/our-work" as="h2" />
     </>
   );
 }

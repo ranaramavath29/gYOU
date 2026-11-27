@@ -48,7 +48,7 @@ export default function AboutPage() {
       {/* Who we are */}
       <Section aria-labelledby="about-who" className="border-t border-line">
         <Reveal className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
-          <SectionHeading id="about-who" {...whoWeAre.heading} />
+          <SectionHeading as="h2" id="about-who" {...whoWeAre.heading} />
           <div className="flex flex-col gap-10">
             <div className="flex flex-col gap-5 text-body text-fg-muted">
               {whoWeAre.paragraphs.map((p) => (
@@ -83,9 +83,9 @@ export default function AboutPage() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="flex flex-col gap-2">
-                  <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">
+                  <h4 className="font-display text-2xl font-semibold tracking-[-0.02em]">
                     {v.title}
-                  </h3>
+                  </h4>
                   <span className="text-small text-fg-muted">{v.description}</span>
                 </span>
               </Card>
