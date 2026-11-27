@@ -56,9 +56,9 @@ export type ServiceSlug = (typeof services)[number]["slug"];
  * initial keyword ideas (§9); validate search volumes before launch.
  */
 export const serviceSeoTitles: Record<ServiceSlug, string> = {
-  "website-design-development": "Website Design & Development Company",
+  "website-design-development": "Website Design Company",
   "performance-marketing": "Performance Marketing Agency",
-  "seo-content-marketing": "SEO & Content Marketing Services",
+  "seo-content-marketing": "SEO & Content Marketing",
   "social-media-marketing": "Social Media Marketing Agency",
 };
 

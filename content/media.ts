@@ -29,7 +29,7 @@ export const media = {
   hourglass: {
     kind: "image",
     src: "/media/hourglass-growth.webp",
-    alt: "An hourglass whose sand forms a rising bar chart, next to the words: Right marketing turns time into growth",
+    alt: "An hourglass whose sand forms a rising bar chart",
   },
   lightbulb: {
     kind: "image",
@@ -67,27 +67,28 @@ export const media = {
  * Industry photos for /industries and the homepage industries grid.
  * All seven images were supplied by gYOU (25 Nov 2026), chosen per sector, and
  * confirmed by gYOU as licensed for commercial web use on 25 Nov 2026.
- * Healthcare and fintech are v5 (1535px, re-graded to match the set).
+ * Healthcare and fintech were re-graded to match the set; files over 100 KB were
+ * recompressed (27 Nov 2026, SEO audit) and given a new version suffix.
  */
 export const industryMedia = {
   // Supplied by gYOU, Nov 2026. Licence confirmed by gYOU.
   "real-estate-infrastructure": {
     kind: "image",
-    src: "/media/industries/real-estate-v3.webp",
+    src: "/media/industries/real-estate-v4.webp",
     alt: "Modern glass office and residential towers against a clear blue sky",
     position: "72% 50%",
   },
   // Supplied by gYOU, 25 Nov 2026 (1535px). Licence confirmed by gYOU.
   "healthcare-wellness": {
     kind: "image",
-    src: "/media/industries/healthcare-v5.webp",
+    src: "/media/industries/healthcare-v6.webp",
     alt: "A woman meditating in a yoga pose outdoors among green plants",
     position: "78% 50%",
   },
   // Supplied by gYOU, Nov 2026. Licence confirmed by gYOU.
   "education-training": {
     kind: "image",
-    src: "/media/industries/education-v3.webp",
+    src: "/media/industries/education-v4.webp",
     alt: "Smiling students at their desks listening to a teacher in a bright classroom",
     position: "60% 50%",
   },
@@ -108,7 +109,7 @@ export const industryMedia = {
   // Supplied by gYOU, Nov 2026. Licence confirmed by gYOU.
   "technology-saas": {
     kind: "image",
-    src: "/media/industries/technology-v3.webp",
+    src: "/media/industries/technology-v4.webp",
     alt: "A team talking at their desks in an open-plan tech office, code on a laptop screen",
     position: "80% 50%",
   },
@@ -116,7 +117,7 @@ export const industryMedia = {
   // rail trimmed), lightly sharpened and warmed.
   "hospitality-lifestyle": {
     kind: "image",
-    src: "/media/industries/hospitality-v3.webp",
+    src: "/media/industries/hospitality-v4.webp",
     alt: "Smiling guests at a restaurant chef's counter while chefs plate dishes",
     position: "15% 50%",
   },

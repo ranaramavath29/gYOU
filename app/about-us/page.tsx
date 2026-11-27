@@ -68,7 +68,7 @@ export default function AboutPage() {
       </Section>
 
       {/* What we do: websites + marketing */}
-      <Spotlight id="about-what" />
+      <Spotlight id="about-what" page="about" />
 
       <ProcessSection id="about-approach" heading={about.approachHeading} steps={process.steps} />
 

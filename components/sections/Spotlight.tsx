@@ -6,11 +6,21 @@ import { serviceBySlug, serviceHref } from "@/content/services";
 import { SectionHeader } from "./SectionHeader";
 
 /** Marketing + website spotlight: gYOU's two lead offers side by side (marketing first). */
-export function Spotlight({ id }: { id: string }) {
+export function Spotlight({
+  id,
+  page,
+}: {
+  id: string;
+  page?: keyof typeof spotlight.pageHeadings;
+}) {
   const { website, marketing } = spotlight;
   return (
     <Section aria-labelledby={id}>
-      <SectionHeader id={id} heading={spotlight.heading} intro={spotlight.intro} />
+      <SectionHeader
+        id={id}
+        heading={page ? spotlight.pageHeadings[page] : spotlight.heading}
+        intro={spotlight.intro}
+      />
       {/* grid-cols-1 (minmax(0,1fr)) lets the cards shrink on very small phones. */}
       <Reveal className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {/* Marketing: raised card listing the marketing services */}

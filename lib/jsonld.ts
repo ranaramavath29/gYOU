@@ -24,9 +24,23 @@ export function organizationLd() {
     url: SITE_URL,
     logo: absoluteUrl("/brand/gyou-logo.png"),
     slogan: site.tagline,
+    description: site.footerDescription,
     ...(isPlaceholder(site.email) ? {} : { email: site.email }),
     ...(isPlaceholder(site.phone) ? {} : { telephone: site.phone.replace(/\s/g, "") }),
     ...(sameAs().length ? { sameAs: sameAs() } : {}),
+  };
+}
+
+/** WebSite entity for the homepage (no SearchAction: the site has no search). */
+export function websiteLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: site.name,
+    url: SITE_URL,
+    inLanguage: "en-IN",
+    publisher: { "@id": ORG_ID },
   };
 }
 

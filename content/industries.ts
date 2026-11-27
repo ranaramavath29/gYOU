@@ -122,7 +122,7 @@ export const industriesPage = {
   },
   metaTitle: "Industries",
   /** <title> (the layout adds " | gYOU Digital"). */
-  seoTitle: "Industries We Serve",
+  seoTitle: "Digital Marketing by Industry in Hyderabad",
   metaDescription:
-    "Website design and digital marketing for real estate, healthcare, education, fintech, e-commerce, technology and hospitality businesses.",
+    "Digital marketing and website design in Hyderabad for real estate, healthcare, education, fintech, e-commerce, technology and hospitality businesses.",
 } as const;

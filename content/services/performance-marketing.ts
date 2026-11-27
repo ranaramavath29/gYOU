@@ -9,7 +9,7 @@ import type { ServicePageContent } from "./types";
 export const performanceMarketing: ServicePageContent = {
   slug: "performance-marketing",
   metaDescription:
-    "Meta Ads and Google Ads campaigns planned around qualified enquiries and sales, with clear reporting on spend. Performance marketing by gYOU Digital, Hyderabad.",
+    "Google Ads and Meta Ads management in Hyderabad, planned around qualified enquiries and sales, with clear reporting on spend. By gYOU Digital.",
   hero: {
     media: media.marketingTeam,
     heading: { lead: "Advertising That", accent: "Answers", trail: "to Your Goals." },
@@ -23,6 +23,7 @@ export const performanceMarketing: ServicePageContent = {
       "Whether you need a steady flow of leads, more online sales or better returns from campaigns you already run, we set up the strategy, targeting, tracking and reporting to support it.",
     ],
   },
+  challengesHeading: { lead: "Ad Spend Problems That Sound", accent: "Familiar?" },
   challenges: [
     {
       title: "Spend without clear returns",

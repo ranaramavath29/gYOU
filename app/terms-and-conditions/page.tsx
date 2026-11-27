@@ -5,7 +5,7 @@ import Content from "@/content/legal/terms-and-conditions.mdx";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: legalPages["terms-and-conditions"].title,
+  title: legalPages["terms-and-conditions"].seoTitle,
   description: legalPages["terms-and-conditions"].description,
   path: "/terms-and-conditions",
 });

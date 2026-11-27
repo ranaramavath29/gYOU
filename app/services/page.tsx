@@ -62,7 +62,7 @@ export default function ServicesPage() {
       </section>
 
       <div className="border-t border-line">
-        <Spotlight id="services-spotlight" />
+        <Spotlight id="services-spotlight" page="services" />
       </div>
 
       <Section aria-labelledby="services-list">

@@ -19,6 +19,8 @@ export type ServicePageContent = {
     /** Photo or video beside the hero copy. */ media?: MediaSource;
   };
   intro: { heading: Heading; paragraphs: readonly string[] };
+  /** Heading above the challenges (unique per service). */
+  challengesHeading: Heading;
   /** Business challenges this service addresses. */
   challenges: readonly Point[];
   /** How gYOU approaches them. */

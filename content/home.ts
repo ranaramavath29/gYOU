@@ -59,6 +59,11 @@ export const marqueeLabel = "Our services";
  */
 export const spotlight = {
   heading: { lead: "Digital Strategies That", accent: "Move Your Business Forward." },
+  /** Per-page headings so /services and /about-us do not repeat the homepage H2. */
+  pageHeadings: {
+    services: { lead: "Website and Marketing Services That", accent: "Drive Growth." },
+    about: { lead: "What We Do for", accent: "Growing Businesses." },
+  },
   intro:
     "We help businesses strengthen their online presence, reach the right audience and generate growth opportunities through strategic digital marketing and website solutions.",
   website: {

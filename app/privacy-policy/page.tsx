@@ -5,7 +5,7 @@ import Content from "@/content/legal/privacy-policy.mdx";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: legalPages["privacy-policy"].title,
+  title: legalPages["privacy-policy"].seoTitle,
   description: legalPages["privacy-policy"].description,
   path: "/privacy-policy",
 });

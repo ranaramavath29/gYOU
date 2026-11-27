@@ -9,7 +9,7 @@ import type { ServicePageContent } from "./types";
 export const seoContentMarketing: ServicePageContent = {
   slug: "seo-content-marketing",
   metaDescription:
-    "Technical SEO, local search and useful content that help customers find your business. SEO and content marketing from gYOU Digital in Hyderabad.",
+    "SEO services in Hyderabad: technical SEO, local search and useful content that help customers find your business. From gYOU Digital.",
   hero: {
     media: media.mobileSearch,
     heading: { lead: "Be Found by the", accent: "Right", trail: "Customers." },
@@ -23,6 +23,7 @@ export const seoContentMarketing: ServicePageContent = {
       `For businesses serving ${site.primaryMarket} and other local markets, we also strengthen local search signals so you appear when nearby customers are looking.`,
     ],
   },
+  challengesHeading: { lead: "Search Problems That Sound", accent: "Familiar?" },
   challenges: [
     {
       title: "Low organic traffic",

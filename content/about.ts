@@ -76,6 +76,6 @@ export const about = {
   },
   metaTitle: "About Us",
   /** <title> (the layout adds " | gYOU Digital"). */
-  seoTitle: "About Our Digital Marketing Agency",
-  metaDescription: `About gYOU, a ${site.primaryMarket} website design and digital marketing agency combining strategy, creativity and performance marketing.`,
+  seoTitle: "About Our Hyderabad Digital Marketing Agency",
+  metaDescription: `About gYOU Digital, a ${site.primaryMarket} digital marketing and website design agency combining strategy, creativity and performance marketing.`,
 } as const;

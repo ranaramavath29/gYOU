@@ -24,7 +24,7 @@ export function Wordmark({ className }: { className?: string }) {
       {imageSrc ? (
         <Image
           src={imageSrc}
-          alt=""
+          alt={site.name}
           width={5521}
           height={1356}
           // Vector logo: served as-is (no re-encoding), sharp at any size.
