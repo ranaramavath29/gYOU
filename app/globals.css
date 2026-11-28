@@ -125,6 +125,72 @@
   }
 }
 
+/*
+ * Two padded sections on the same background read as one block, so their
+ * stacked padding looked like an empty band. The second one starts with half
+ * the usual top padding. Unlayered so it beats the Section py- utility.
+ */
+[data-section="default"] + [data-section="default"],
+[data-section="paper"] + [data-section="paper"] {
+  padding-top: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+}
+
+/* Scroll reveal (components/ui/Reveal.tsx): fade + 16px rise, compositor-only. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Mobile menu entrance (Header): items rise in, staggered via --i. */
+.menu-in {
+  animation: menu-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 40ms);
+}
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* Home hero stage: deep ink with a cool petrol cast, lit from the top left. */
+.hero-stage {
+  background:
+    radial-gradient(60% 70% at 8% 0%, rgb(15 94 122 / 0.42), transparent 62%),
+    radial-gradient(45% 55% at 92% 88%, rgb(27 134 171 / 0.22), transparent 65%),
+    linear-gradient(172deg, #141a1d 0%, #101417 55%, #0d1013 100%);
+}
+/* Fine film grain over the stage; decorative. */
+.hero-grain {
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%27.9%27 numOctaves=%273%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E");
+}
+/* Light sweep across the hero wordmark (HeroWordmark): its own SVG layer, so
+   only the thin band repaints, never the blurred letterpress. */
+.hero-sheen-layer {
+  will-change: transform;
+}
+.hero-sheen {
+  animation: hero-sheen 11s ease-in-out infinite;
+}
+@keyframes hero-sheen {
+  0% {
+    transform: translateX(0);
+  }
+  55%,
+  100% {
+    transform: translateX(4500px);
+  }
+}
+
 @layer base {
   html {
     background: var(--bg);

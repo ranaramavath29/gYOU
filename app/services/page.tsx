@@ -24,7 +24,7 @@ export default function ServicesPage() {
     <>
       <section
         aria-labelledby="services-hero"
-        className="relative overflow-hidden pt-6 pb-20 md:pt-10 md:pb-28"
+        className="relative overflow-hidden pt-6 pb-14 md:pt-10 md:pb-20"
       >
         <div
           aria-hidden

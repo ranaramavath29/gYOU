@@ -109,7 +109,7 @@ function CredentialMark({ name, logo }: Credential) {
 export function ClientCredibility() {
   if (credibility.logos.length === 0 && credibility.badges.length === 0) return null;
   return (
-    <section aria-labelledby="credibility-heading" className="pt-16 md:pt-24">
+    <section aria-labelledby="credibility-heading" className="pt-12 md:pt-16">
       <Container>
         <Reveal className="flex flex-col items-center gap-8">
           <h3

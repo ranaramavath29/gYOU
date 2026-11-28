@@ -18,7 +18,7 @@ const tones: Record<SectionTone, string> = {
   paper: "tone-paper bg-paper text-ink rounded-t-[var(--radius-sheet)]",
 };
 
-/** Page section: 120–140px vertical padding on desktop, 72–88px on mobile. */
+/** Page section: about 64–72px vertical padding on desktop, 48px on mobile (tightened 28 Nov 2026). */
 export function Section({
   tone = "default",
   spacing = "default",
@@ -30,9 +30,10 @@ export function Section({
   return (
     <section
       {...rest}
+      data-section={spacing === "default" ? tone : undefined}
       className={cn(
         tones[tone],
-        spacing === "default" && "py-[clamp(4.5rem,2.9rem+5vw,8.5rem)]",
+        spacing === "default" && "py-[clamp(3rem,2.4rem+2vw,4.5rem)]",
         className,
       )}
     >

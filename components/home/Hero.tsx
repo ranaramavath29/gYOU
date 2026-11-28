@@ -3,9 +3,10 @@ import { ArrowUpRightIcon, CheckIcon } from "@/components/icons";
 import { Button, Container, SectionHeading } from "@/components/ui";
 import { formCopy } from "@/content/forms";
 import { hero } from "@/content/home";
+import { HeroWordmark } from "./HeroWordmark";
 
 /**
- * 1. Hero: an ink panel with the headline, checklist and CTAs on the left and
+ * 1. Hero: an ink panel (embossed gYOU logo along the bottom) with the headline, checklist and CTAs on the left and
  * a light card holding the three-step free marketing audit form on the right
  * (stacked below on mobile). Copy: content/home.ts (hero) and
  * content/forms.ts (heroAudit).
@@ -14,14 +15,12 @@ export function Hero() {
   const audit = formCopy.heroAudit;
   return (
     <section aria-labelledby="hero-heading" className="px-2 pt-2 pb-4 md:px-4 md:pb-6">
-      <div className="tone-ink relative overflow-hidden rounded-[var(--radius-sheet)] bg-ink text-fg">
-        {/* Soft accent glow for depth; decorative only. */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-40 -left-40 size-[520px] rounded-full bg-accent/25 blur-[120px]"
-        />
+      <div className="tone-ink hero-stage relative isolate overflow-hidden rounded-[var(--radius-sheet)] bg-ink text-fg">
+        {/* Decorative backdrop: wordmark pressed into the panel, then film grain. */}
+        <HeroWordmark className="absolute bottom-0 left-1/2 -z-10 w-full max-w-none -translate-x-1/2 translate-y-[12%] lg:w-[104%] lg:translate-y-[15%]" />
+        <div aria-hidden className="hero-grain pointer-events-none absolute inset-0 -z-10" />
 
-        <Container className="relative grid items-center gap-12 py-12 md:py-16 lg:grid-cols-[1.1fr_1fr] lg:gap-14 lg:py-20 xl:gap-20">
+        <Container className="relative grid items-center gap-12 pt-12 pb-[clamp(7rem,22vw,10rem)] md:pt-16 lg:grid-cols-[1.1fr_1fr] lg:gap-14 lg:pt-20 lg:pb-[clamp(8rem,11vw,10rem)] xl:gap-20">
           {/* Above the fold: rendered immediately (no reveal), so it can be the LCP. */}
           <div className="flex flex-col">
             <SectionHeading

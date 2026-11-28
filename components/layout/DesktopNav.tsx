@@ -1,6 +1,5 @@
 "use client";
 
-import { LayoutGroup, motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useRef, useState, type FocusEvent, type KeyboardEvent } from "react";
 import { ArrowUpRightIcon, ChevronDownIcon } from "@/components/icons";
@@ -16,27 +15,43 @@ export function isActive(pathname: string, href: string) {
 const itemBase =
   "relative inline-flex h-10 items-center gap-2 rounded-full px-3.5 text-[0.9375rem] font-medium tracking-[-0.01em] whitespace-nowrap transition-[color,transform] duration-200 active:scale-[0.96] xl:px-4";
 
-const SPRING = { type: "spring", stiffness: 520, damping: 42, mass: 0.8 } as const;
-
-/** Shared visuals: hover = soft gliding glow; current page = raised pill + lime dot. */
-function ItemDecor({ active, hovered }: { active: boolean; hovered: boolean }) {
+/** Current page: raised pill (the hover glow is one shared element, see HoverPill). */
+function ActivePill() {
   return (
-    <>
-      {active ? (
-        <span
-          aria-hidden
-          className="absolute inset-0 rounded-full bg-bg-raised-2 shadow-[0_6px_16px_-8px_rgb(0_0_0/0.12)] ring-1 ring-ink/10 ring-inset"
-        />
-      ) : null}
-      {hovered && !active ? (
-        <motion.span
-          layoutId="nav-hover"
-          aria-hidden
-          transition={SPRING}
-          className="absolute inset-0 rounded-full bg-ink/[0.04]"
-        />
-      ) : null}
-    </>
+    <span
+      aria-hidden
+      className="absolute inset-0 rounded-full bg-bg-raised-2 shadow-[0_6px_16px_-8px_rgb(0_0_0/0.12)] ring-1 ring-ink/10 ring-inset"
+    />
+  );
+}
+
+type PillBox = { x: number; y: number; w: number; h: number };
+type PillState = { box: PillBox | null; last: PillBox | null; glide: boolean };
+
+/**
+ * Soft glow that glides between hovered items. One element, moved with a CSS
+ * transform (compositor-only); it fades in where it first appears instead of
+ * sliding in from its last spot, and fades out where it was.
+ */
+function HoverPill({ pill }: { pill: PillState }) {
+  const b = pill.box ?? pill.last;
+  if (!b) return null;
+  return (
+    <span
+      aria-hidden
+      className={cn(
+        "pointer-events-none absolute top-0 left-0 rounded-full bg-ink/[0.04] ease-[cubic-bezier(0.22,1,0.36,1)]",
+        pill.glide
+          ? "transition-[transform,width,height,opacity] duration-300"
+          : "transition-opacity duration-200",
+      )}
+      style={{
+        width: b.w,
+        height: b.h,
+        transform: `translate(${b.x}px, ${b.y}px)`,
+        opacity: pill.box ? 1 : 0,
+      }}
+    />
   );
 }
 
@@ -59,9 +74,20 @@ function ActiveDot({ active }: { active: boolean }) {
  * - Current page: raised pill with a glowing lime dot (aria-current="page").
  */
 export function DesktopNav({ pathname }: { pathname: string }) {
-  const [hovered, setHovered] = useState<string | null>(null);
   const [open, setOpen] = useState<string | null>(null);
+  const [pill, setPill] = useState<PillState>({ box: null, last: null, glide: false });
   const closeTimer = useRef<number | undefined>(undefined);
+
+  // Glow follows the item under the pointer (or opened by keyboard), never the
+  // current page. Measured in event handlers, relative to the <ul>.
+  const movePill = (el: HTMLElement | null, active = false) =>
+    setPill((prev) => {
+      const box =
+        el && !active
+          ? { x: el.offsetLeft, y: el.offsetTop, w: el.offsetWidth, h: el.offsetHeight }
+          : null;
+      return { box, last: box ?? prev.last, glide: prev.box !== null && box !== null };
+    });
 
   const show = (href: string) => {
     window.clearTimeout(closeTimer.current);
@@ -82,32 +108,37 @@ export function DesktopNav({ pathname }: { pathname: string }) {
 
   return (
     <nav aria-label={uiLabels.primaryNav} className="hidden lg:block">
-      <LayoutGroup id="desktop-nav">
-        <ul
-          onMouseLeave={() => {
-            setHovered(null);
-            hideSoon();
-          }}
-          className="flex items-center gap-0.5"
-        >
-          {primaryNav.map((item) => (
-            <NavItem
-              key={item.href}
-              item={item}
-              menu={item.href === "/services" ? servicesMenu : undefined}
-              active={isActive(pathname, item.href)}
-              hovered={hovered === item.href}
-              open={open === item.href}
-              onEnter={() => {
-                setHovered(item.href);
+      <ul
+        onMouseLeave={() => {
+          movePill(null);
+          hideSoon();
+        }}
+        className="relative flex items-center gap-0.5"
+      >
+        <HoverPill pill={pill} />
+        {primaryNav.map((item) => (
+          <NavItem
+            key={item.href}
+            item={item}
+            menu={item.href === "/services" ? servicesMenu : undefined}
+            active={isActive(pathname, item.href)}
+            open={open === item.href}
+            onEnter={(el) => {
+              movePill(el, isActive(pathname, item.href));
+              show(item.href);
+            }}
+            onToggle={(el) => {
+              if (open === item.href) {
+                close();
+              } else {
+                movePill(el, isActive(pathname, item.href));
                 show(item.href);
-              }}
-              onToggle={() => (open === item.href ? close() : show(item.href))}
-              onClose={close}
-            />
-          ))}
-        </ul>
-      </LayoutGroup>
+              }
+            }}
+            onClose={close}
+          />
+        ))}
+      </ul>
     </nav>
   );
 }
@@ -116,7 +147,6 @@ function NavItem({
   item,
   menu,
   active,
-  hovered,
   open,
   onEnter,
   onToggle,
@@ -125,13 +155,13 @@ function NavItem({
   item: NavLink;
   menu: NavMenu | undefined;
   active: boolean;
-  hovered: boolean;
   open: boolean;
-  onEnter: () => void;
-  onToggle: () => void;
+  onEnter: (el: HTMLElement | null) => void;
+  onToggle: (el: HTMLElement | null) => void;
   onClose: () => void;
 }) {
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const rowRef = useRef<HTMLDivElement>(null);
   const panelId = `nav-panel-${item.href.replace(/\W+/g, "") || "home"}`;
 
   const onKeyDown = (e: KeyboardEvent) => {
@@ -145,11 +175,11 @@ function NavItem({
   };
 
   return (
-    // Not `relative`: the panel is positioned against the whole pill (<ul>),
-    // so every panel opens centred under the nav, not under its own item.
-    <li onMouseEnter={onEnter} onKeyDown={onKeyDown} onBlur={onBlur}>
-      <div className="relative flex items-center">
-        <ItemDecor active={active} hovered={hovered || open} />
+    // Not `relative`: the panel is positioned against the whole pill (<ul>,
+    // which is relative), so every panel opens centred under the nav.
+    <li onMouseEnter={() => onEnter(rowRef.current)} onKeyDown={onKeyDown} onBlur={onBlur}>
+      <div ref={rowRef} className="relative flex items-center">
+        {active ? <ActivePill /> : null}
         <Link
           href={item.href}
           aria-current={active ? "page" : undefined}
@@ -170,7 +200,7 @@ function NavItem({
             aria-expanded={open}
             aria-controls={panelId}
             aria-label={`Show ${item.label} sections`}
-            onClick={onToggle}
+            onClick={() => onToggle(rowRef.current)}
             className={cn(
               "relative mr-1.5 grid size-7 place-items-center rounded-full transition-colors",
               open ? "text-fg" : "text-fg-subtle hover:text-fg",

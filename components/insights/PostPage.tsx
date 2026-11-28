@@ -14,13 +14,11 @@ type Props = { meta: PostMeta; Content: ComponentType; related: readonly PostCar
 
 function shareLinks(title: string, url: string) {
   const u = encodeURIComponent(url);
-  const t = encodeURIComponent(title);
   return [
     {
       label: copy.share.linkedin,
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
     },
-    { label: copy.share.x, href: `https://twitter.com/intent/tweet?url=${u}&text=${t}` },
     { label: copy.share.facebook, href: `https://www.facebook.com/sharer/sharer.php?u=${u}` },
     {
       label: copy.share.whatsapp,
@@ -44,7 +42,7 @@ export function PostPage({ meta, Content, related }: Props) {
       ) : null}
 
       <article aria-labelledby="post-title">
-        <header className="pt-6 pb-12 md:pt-10 md:pb-16">
+        <header className="pt-6 pb-10 md:pt-10 md:pb-12">
           <Container>
             <Breadcrumb
               label={uiLabels.breadcrumb}
@@ -75,7 +73,7 @@ export function PostPage({ meta, Content, related }: Props) {
                   src={meta.cover.src}
                   alt={meta.cover.alt}
                   fill
-                  priority
+                  preload
                   sizes="(min-width: 1024px) 64rem, 100vw"
                   className="object-cover"
                 />
@@ -84,10 +82,10 @@ export function PostPage({ meta, Content, related }: Props) {
           </Container>
         </header>
 
-        <Container className="border-t border-line py-14 md:py-20">
+        <Container className="border-t border-line py-12 md:py-16">
           <div className="mx-auto max-w-[44rem]">
             <Content />
-            <div className="mt-14 flex flex-col gap-4 border-t border-line pt-8">
+            <div className="mt-12 flex flex-col gap-4 border-t border-line pt-8">
               <h2 className="text-small font-semibold tracking-[0.12em] text-fg-subtle uppercase">
                 {copy.shareHeading}
               </h2>

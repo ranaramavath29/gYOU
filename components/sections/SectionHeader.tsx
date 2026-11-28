@@ -24,7 +24,7 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   if (align === "center") {
     return (
-      <Reveal className="mx-auto mb-12 flex max-w-3xl flex-col items-center gap-5 text-center md:mb-16">
+      <Reveal className="mx-auto mb-10 flex max-w-3xl flex-col items-center gap-5 text-center md:mb-12">
         <SectionHeading
           as={as}
           id={id}
@@ -47,7 +47,7 @@ export function SectionHeader({
   }
 
   return (
-    <Reveal className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
+    <Reveal className="mb-10 flex flex-col gap-6 md:mb-12 md:flex-row md:items-end md:justify-between">
       <SectionHeading as={as} id={id} {...heading} headingClassName="max-w-[18ch]" />
       {intro || cta ? (
         <div className="flex flex-col items-start gap-4 md:max-w-[34ch] md:items-end md:text-right">

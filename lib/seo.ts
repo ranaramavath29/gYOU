@@ -28,7 +28,7 @@ export function ogImageUrl(title: string, eyebrow?: string): string {
 
 /**
  * Per-route metadata (Phase 8): unique title and description, canonical URL,
- * Open Graph and Twitter cards. Indexing itself is decided in the root layout
+ * Open Graph card. Indexing itself is decided in the root layout
  * (only the production site is indexable).
  */
 export function buildMetadata(input: SeoInput): Metadata {
@@ -48,13 +48,6 @@ export function buildMetadata(input: SeoInput): Metadata {
       images: [{ url: image, width: 1200, height: 630, alt: input.title }],
       ...(input.publishedTime ? { publishedTime: input.publishedTime } : {}),
       ...(input.modifiedTime ? { modifiedTime: input.modifiedTime } : {}),
-    },
-    twitter: {
-      card: "summary_large_image",
-      site: "@gYOUdigital",
-      title: input.title,
-      description: input.description,
-      images: [image],
     },
     ...(input.noindex ? { robots: { index: false, follow: false } } : {}),
   };

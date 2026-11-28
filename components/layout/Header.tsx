@@ -1,9 +1,8 @@
 "use client";
 
-import { motion, MotionConfig } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { ArrowUpRightIcon, CloseIcon, MailIcon, MenuIcon } from "@/components/icons";
 import { PhoneWhatsApp } from "@/components/sections/PhoneWhatsApp";
 import { SocialLinks } from "@/components/sections/SocialLinks";
@@ -86,17 +85,17 @@ export function Header() {
   const email = mailHref(site.email);
 
   return (
-    <MotionConfig reducedMotion="user">
+    <>
       <header
         className={cn(
-          "sticky top-0 z-40 border-b transition-[background-color,border-color,backdrop-filter] duration-300",
-          scrolled ? "border-line bg-bg/90 backdrop-blur-xl" : "border-line bg-bg",
+          "sticky top-0 z-40 border-b border-line transition-colors duration-300",
+          // Constant height: shrinking a sticky header reflows the whole page mid-scroll.
+          scrolled ? "bg-bg/90 backdrop-blur-md" : "bg-bg",
         )}
       >
         <Container
           className={cn(
-            "flex items-center justify-between gap-4 transition-[height] duration-300 lg:grid lg:grid-cols-[1fr_auto_1fr]",
-            scrolled ? "h-16" : "h-20",
+            "flex h-[4.5rem] items-center justify-between gap-4 lg:grid lg:h-20 lg:grid-cols-[1fr_auto_1fr]",
           )}
         >
           <Link
@@ -140,14 +139,14 @@ export function Header() {
             aria-hidden
             className="pointer-events-none absolute -top-32 right-[-20%] h-[420px] w-[520px] rounded-full bg-accent/10 blur-[120px]"
           />
-          <Container className="relative flex h-20 shrink-0 items-center justify-between">
+          <Container className="relative flex h-[4.5rem] shrink-0 items-center justify-between border-b border-line">
             <Link
               href="/"
               aria-label={uiLabels.homeLink}
               onClick={closeMenu}
               className="inline-flex min-h-11 items-center"
             >
-              <Wordmark className="text-[1.75rem]" />
+              <Wordmark className="text-[1.6rem]" />
             </Link>
             <button
               ref={closeButtonRef}
@@ -160,91 +159,91 @@ export function Header() {
             </button>
           </Container>
 
-          <Container className="relative flex flex-1 flex-col gap-10 overflow-y-auto pt-4 pb-8">
-            {menuOpen ? (
-              <nav aria-label={uiLabels.primaryNav}>
-                <ul className="flex flex-col">
-                  {primaryNav.map((item, i) => {
-                    const active = isActive(pathname, item.href);
-                    return (
-                      <motion.li
-                        key={item.href}
-                        initial={{ opacity: 0, y: 14 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.04 * i, ease: [0.22, 1, 0.36, 1] }}
-                        className="border-b border-line"
-                      >
-                        <Link
-                          href={item.href}
-                          onClick={closeMenu}
-                          aria-current={active ? "page" : undefined}
-                          className="group flex min-h-16 items-center gap-4 py-2 transition-transform active:scale-[0.99]"
+          {/* Scrollable links and contact; the CTA stays pinned below. */}
+          <div className="relative flex-1 [scrollbar-width:none] overflow-y-auto overscroll-contain [&::-webkit-scrollbar]:hidden">
+            <Container className="flex min-h-full flex-col gap-8 pt-2 pb-6">
+              {menuOpen ? (
+                <nav aria-label={uiLabels.primaryNav}>
+                  <ul className="flex flex-col">
+                    {primaryNav.map((item, i) => {
+                      const active = isActive(pathname, item.href);
+                      return (
+                        <li
+                          key={item.href}
+                          style={{ "--i": i } as CSSProperties}
+                          className="menu-in border-b border-line"
                         >
-                          <span
-                            className={cn(
-                              "w-7 text-small tabular-nums",
-                              active ? "text-fg" : "text-fg-subtle",
-                            )}
+                          <Link
+                            href={item.href}
+                            onClick={closeMenu}
+                            aria-current={active ? "page" : undefined}
+                            className="group flex min-h-14 items-center gap-3 py-1.5 transition-transform active:scale-[0.99]"
                           >
-                            {String(i + 1).padStart(2, "0")}
-                          </span>
-                          <span
-                            className={cn(
-                              "flex-1 font-display text-[clamp(1.75rem,7vw,2.75rem)] font-semibold tracking-[-0.03em] transition-colors",
-                              active ? "accent-word" : "group-hover:text-fg-muted",
-                            )}
-                          >
-                            {item.label}
-                          </span>
-                          <span
-                            className={cn(
-                              "grid size-10 shrink-0 place-items-center rounded-full border transition-colors",
-                              active
-                                ? "border-accent bg-accent text-on-accent"
-                                : "border-line-strong text-fg-subtle group-hover:border-fg-subtle group-hover:text-fg",
-                            )}
-                          >
-                            <ArrowUpRightIcon size={15} />
-                          </span>
-                        </Link>
-                        {item.href === "/services" ? (
-                          <ul className="flex flex-wrap gap-2 pb-5 pl-11">
-                            {services.map((s) => (
-                              <li key={s.slug}>
-                                <Link
-                                  href={serviceHref(s.slug)}
-                                  onClick={closeMenu}
-                                  aria-current={
-                                    pathname === serviceHref(s.slug) ? "page" : undefined
-                                  }
-                                  className="inline-flex min-h-10 items-center rounded-full border border-line bg-bg-raised-2 px-4 text-small font-semibold text-fg-muted transition-colors hover:border-fg-subtle hover:text-fg aria-[current=page]:border-accent aria-[current=page]:text-fg"
-                                >
-                                  {s.shortName}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        ) : null}
-                      </motion.li>
-                    );
-                  })}
-                </ul>
-              </nav>
-            ) : null}
+                            <span
+                              className={cn(
+                                "w-6 text-xs tabular-nums",
+                                active ? "text-accent" : "text-fg-subtle",
+                              )}
+                            >
+                              {String(i + 1).padStart(2, "0")}
+                            </span>
+                            <span
+                              className={cn(
+                                "flex-1 font-display text-[1.5rem] leading-tight font-semibold tracking-[-0.02em] transition-colors sm:text-[1.875rem]",
+                                active ? "text-accent" : "group-hover:text-fg-muted",
+                              )}
+                            >
+                              {item.label}
+                            </span>
+                            <span
+                              className={cn(
+                                "grid size-9 shrink-0 place-items-center rounded-full border transition-colors",
+                                active
+                                  ? "border-accent bg-accent text-on-accent"
+                                  : "border-line text-fg-subtle group-hover:border-fg-subtle group-hover:text-fg",
+                              )}
+                            >
+                              <ArrowUpRightIcon size={14} />
+                            </span>
+                          </Link>
+                          {item.href === "/services" ? (
+                            <ul className="grid grid-cols-2 gap-2 pb-4 pl-9">
+                              {services.map((s) => (
+                                <li key={s.slug}>
+                                  <Link
+                                    href={serviceHref(s.slug)}
+                                    onClick={closeMenu}
+                                    aria-current={
+                                      pathname === serviceHref(s.slug) ? "page" : undefined
+                                    }
+                                    className="flex min-h-11 items-center justify-center rounded-full border border-line bg-bg-raised px-3 text-center text-small font-semibold text-fg-muted transition-colors hover:border-fg-subtle hover:text-fg aria-[current=page]:border-accent aria-[current=page]:text-accent"
+                                  >
+                                    {s.shortName}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          ) : null}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </nav>
+              ) : null}
 
-            {menuOpen ? (
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-auto flex flex-col gap-6"
-              >
-                <div className="flex flex-col gap-4 rounded-[var(--radius-card)] border border-line bg-bg-raised p-5">
-                  <p className="text-small font-semibold tracking-[0.12em] text-fg-subtle uppercase">
+              {menuOpen ? (
+                <div
+                  style={{ "--i": 6 } as CSSProperties}
+                  className="menu-in mt-auto flex flex-col gap-3"
+                >
+                  <p className="text-xs font-semibold tracking-[0.12em] text-fg-subtle uppercase">
                     {uiLabels.menuContact}
                   </p>
                   <PhoneWhatsApp
-                    variant="buttons"
+                    variant="pills"
+                    inline
+                    className="justify-between gap-x-2 gap-y-1"
+                    numberClassName="text-small"
                     message={whatsappMessages.default}
                     location="mobile-menu"
                   />
@@ -259,12 +258,17 @@ export function Header() {
                   ) : null}
                   <SocialLinks />
                 </div>
-                <HeaderCta onClick={closeMenu} full />
-              </motion.div>
-            ) : null}
-          </Container>
+              ) : null}
+            </Container>
+          </div>
+
+          <div className="relative shrink-0 border-t border-line bg-bg pt-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
+            <Container>
+              <HeaderCta onClick={closeMenu} full />
+            </Container>
+          </div>
         </dialog>
       </header>
-    </MotionConfig>
+    </>
   );
 }

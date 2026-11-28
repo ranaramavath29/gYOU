@@ -4,7 +4,7 @@ import type { Placeholder } from "@/lib/ph";
  * Site-wide business details. Only confirmed facts go in as plain strings.
  * Anything not yet supplied by gYOU stays as ph(...).
  */
-export type SocialPlatform = "linkedin" | "instagram" | "facebook" | "x";
+export type SocialPlatform = "linkedin" | "instagram" | "facebook";
 export type SocialLink = {
   platform: SocialPlatform;
   label: string;
@@ -82,7 +82,6 @@ export const site: SiteContent = {
       label: "Facebook",
       href: "https://www.facebook.com/profile.php?id=61596724598139",
     },
-    { platform: "x", label: "X", href: "https://x.com/gYOUdigital", handle: "@gYOUdigital" },
   ],
   // Same office as `address`. Madhapur, Hyderabad is in Telangana.
   postalAddress: {

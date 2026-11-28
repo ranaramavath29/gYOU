@@ -59,7 +59,7 @@ Read BUILD_PROMPT.md before starting any phase. These rules condense it; the spe
 ## Stack (already set up — build on it, don't redo)
 
 Next.js 16 App Router, TypeScript strict + noUncheckedIndexedAccess, Tailwind v4 (@tailwindcss/postcss, tokens
-via `@theme`), `motion` (import from `motion/react`), @next/mdx, react-hook-form + zod, ESLint 9 flat config,
+via `@theme`), CSS-only motion (no animation library; Reveal uses IntersectionObserver), @next/mdx, react-hook-form + zod/mini, ESLint 9 flat config,
 Prettier + Tailwind plugin, Playwright (desktop + mobile). Root metadata stays `noindex` until Phase 8.
 Check official docs / web search for version-specific Next 16, Tailwind v4 or Motion behaviour; don't trust memory.
 

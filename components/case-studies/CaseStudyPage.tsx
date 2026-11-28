@@ -47,7 +47,7 @@ export function CaseStudyPage({ meta, Content, next }: Props) {
       ) : null}
 
       {/* Hero */}
-      <section aria-labelledby="cs-title" className="pt-6 pb-16 md:pt-10 md:pb-24">
+      <section aria-labelledby="cs-title" className="pt-6 pb-12 md:pt-10 md:pb-16">
         <Container>
           <Breadcrumb
             label={L.breadcrumbLabel}
@@ -82,7 +82,7 @@ export function CaseStudyPage({ meta, Content, next }: Props) {
               ))}
             </ul>
           </Reveal>
-          <div className="mt-12 md:mt-16">
+          <div className="mt-10 md:mt-12">
             <MediaFrame
               media={meta.cover ? { kind: "image", ...meta.cover } : undefined}
               placeholder={meta.title}
@@ -196,7 +196,7 @@ export function CaseStudyPage({ meta, Content, next }: Props) {
             ))}
           </ul>
           {meta.testimonial ? (
-            <figure className="mt-16 flex flex-col gap-8">
+            <figure className="mt-12 flex flex-col gap-8">
               <blockquote className="max-w-[24ch] font-display text-h2 font-normal italic">
                 “{meta.testimonial.quote}”
               </blockquote>

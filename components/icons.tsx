@@ -141,36 +141,31 @@ function brand({ size = 18, ...rest }: IconProps): SVGProps<SVGSVGElement> {
   };
 }
 
+/** Current LinkedIn logo: "in" in a rounded square. */
 export function LinkedInIcon(props: IconProps) {
   return (
     <svg {...brand(props)}>
-      <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3.5a1.97 1.97 0 1 0 0 3.94 1.97 1.97 0 0 0 0-3.94ZM20.44 13.4c0-3.06-1.63-4.48-3.81-4.48a3.3 3.3 0 0 0-2.98 1.64V8.5h-3.38V20h3.38v-6.06c0-1.6.3-3.14 2.28-3.14 1.95 0 1.98 1.82 1.98 3.24V20h3.38v-6.6Z" />
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.063 2.063 0 1 1 0-4.126 2.063 2.063 0 0 1 0 4.126zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
     </svg>
   );
 }
 
+/** Current Instagram glyph: rounded-square camera with lens and flash dot. */
 export function InstagramIcon(props: IconProps) {
   return (
-    <svg {...base({ size: 18, ...props })}>
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none" />
+    <svg {...base({ size: 18, strokeWidth: 2.2, ...props })}>
+      <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+      <circle cx="12" cy="12" r="4.3" />
+      <circle cx="17.6" cy="6.4" r="1.25" fill="currentColor" stroke="none" />
     </svg>
   );
 }
 
+/** Current Facebook logo: "f" cut out of a circle. */
 export function FacebookIcon(props: IconProps) {
   return (
     <svg {...brand(props)}>
-      <path d="M14 8.5V6.8c0-.8.5-1.3 1.4-1.3H17V2.6h-2.4C12 2.6 10.6 4.1 10.6 6.6v1.9H8v3.1h2.6v9.8H14v-9.8h2.6l.4-3.1H14Z" />
-    </svg>
-  );
-}
-
-export function XIcon(props: IconProps) {
-  return (
-    <svg {...brand({ size: 16, ...props })}>
-      <path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77L17.75 3Zm-1.08 16.2h1.7L7.4 4.73H5.58l11.09 14.47Z" />
+      <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" />
     </svg>
   );
 }

@@ -17,6 +17,8 @@ type Props = {
   location?: string;
   /** Number and actions on one line (wraps on narrow screens). */
   inline?: boolean;
+  /** Extra classes for the number (e.g. a smaller size in tight spaces). */
+  numberClassName?: string;
 };
 
 const styles: Record<Variant, { call: string; wa: string }> = {
@@ -43,6 +45,7 @@ export function PhoneWhatsApp({
   className,
   location,
   inline = false,
+  numberClassName,
 }: Props) {
   if (!isSameNumber(site.phone, site.whatsapp)) return null;
   const tel = telHref(site.phone);
@@ -63,7 +66,10 @@ export function PhoneWhatsApp({
       {showNumber ? (
         <a
           href={tel}
-          className="inline-flex min-h-11 w-fit items-center font-semibold text-fg tabular-nums hover:text-fg-muted"
+          className={cn(
+            "inline-flex min-h-11 w-fit items-center font-semibold text-fg tabular-nums hover:text-fg-muted",
+            numberClassName,
+          )}
         >
           {site.phone}
         </a>

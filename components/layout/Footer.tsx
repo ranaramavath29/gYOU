@@ -59,7 +59,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-line bg-bg">
-      <Container className="grid gap-12 py-16 md:py-20 lg:grid-cols-[1.3fr_1.8fr_1.1fr] lg:gap-10">
+      <Container className="grid gap-12 py-12 md:py-16 lg:grid-cols-[1.3fr_1.8fr_1.1fr] lg:gap-10">
         <div className="flex flex-col items-start gap-6">
           <Link
             href="/"
