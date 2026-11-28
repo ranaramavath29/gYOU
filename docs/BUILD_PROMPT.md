@@ -246,7 +246,7 @@ Start with **Performance Marketing** as the reference page, then the other five.
 
 ## PHASE 8 — SEO
 
-- `generateMetadata` on every route: unique title and description, canonical URL, Open Graph and Twitter cards
+- `generateMetadata` on every route: unique title and description, canonical URL, Open Graph card (Twitter/X card removed with the X profile, 28 Nov 2026)
 - Dynamic OG images with `next/og` in the warm ivory, ink and lime palette
 - `app/sitemap.ts` and `app/robots.ts`; non-production deployments are `noindex`
 - JSON-LD: `Organization`, `LocalBusiness` (only with a real address), `Service`, `BreadcrumbList`, `Article`, `FAQPage` (only where FAQs are visible on the page)

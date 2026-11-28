@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { FacebookIcon, InstagramIcon, LinkedInIcon, XIcon } from "@/components/icons";
+import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@/components/icons";
 import { uiLabels } from "@/content/navigation";
 import { site, type SocialPlatform } from "@/content/site";
 import { cn } from "@/lib/cn";
@@ -9,7 +9,6 @@ const icons: Record<SocialPlatform, ComponentType<{ size?: number }>> = {
   linkedin: LinkedInIcon,
   instagram: InstagramIcon,
   facebook: FacebookIcon,
-  x: XIcon,
 };
 
 type SocialLinksProps = {

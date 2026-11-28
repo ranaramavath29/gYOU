@@ -36,7 +36,7 @@ export const insightsCopy = {
   publishedOn: "Published",
   by: "By",
   shareHeading: "Share this article",
-  share: { linkedin: "LinkedIn", x: "X", facebook: "Facebook", whatsapp: "WhatsApp" },
+  share: { linkedin: "LinkedIn", facebook: "Facebook", whatsapp: "WhatsApp" },
   relatedHeading: { lead: "Related", accent: "Reading" },
   draftBanner: "Draft preview. Drafts are never shown on the live site.",
   breadcrumbInsights: "Insights",

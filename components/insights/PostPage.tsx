@@ -14,13 +14,11 @@ type Props = { meta: PostMeta; Content: ComponentType; related: readonly PostCar
 
 function shareLinks(title: string, url: string) {
   const u = encodeURIComponent(url);
-  const t = encodeURIComponent(title);
   return [
     {
       label: copy.share.linkedin,
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
     },
-    { label: copy.share.x, href: `https://twitter.com/intent/tweet?url=${u}&text=${t}` },
     { label: copy.share.facebook, href: `https://www.facebook.com/sharer/sharer.php?u=${u}` },
     {
       label: copy.share.whatsapp,
