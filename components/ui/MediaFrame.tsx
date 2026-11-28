@@ -120,7 +120,7 @@ export function MediaFrame({
           height={dimensions[aspect][1]}
           sizes={sizes}
           quality={75}
-          priority={priority}
+          preload={priority}
           style={media.position ? { objectPosition: media.position } : undefined}
           className={cn("absolute inset-0 size-full object-cover", zoom)}
         />

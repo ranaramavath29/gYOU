@@ -73,7 +73,7 @@ export function PostPage({ meta, Content, related }: Props) {
                   src={meta.cover.src}
                   alt={meta.cover.alt}
                   fill
-                  priority
+                  preload
                   sizes="(min-width: 1024px) 64rem, 100vw"
                   className="object-cover"
                 />

@@ -1,9 +1,8 @@
 "use client";
 
-import { motion, MotionConfig } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { ArrowUpRightIcon, CloseIcon, MailIcon, MenuIcon } from "@/components/icons";
 import { PhoneWhatsApp } from "@/components/sections/PhoneWhatsApp";
 import { SocialLinks } from "@/components/sections/SocialLinks";
@@ -86,17 +85,17 @@ export function Header() {
   const email = mailHref(site.email);
 
   return (
-    <MotionConfig reducedMotion="user">
+    <>
       <header
         className={cn(
-          "sticky top-0 z-40 border-b transition-[background-color,border-color,backdrop-filter] duration-300",
-          scrolled ? "border-line bg-bg/90 backdrop-blur-xl" : "border-line bg-bg",
+          "sticky top-0 z-40 border-b border-line transition-colors duration-300",
+          // Constant height: shrinking a sticky header reflows the whole page mid-scroll.
+          scrolled ? "bg-bg/90 backdrop-blur-md" : "bg-bg",
         )}
       >
         <Container
           className={cn(
-            "flex items-center justify-between gap-4 transition-[height] duration-300 lg:grid lg:grid-cols-[1fr_auto_1fr]",
-            scrolled ? "h-16" : "h-20",
+            "flex h-[4.5rem] items-center justify-between gap-4 lg:grid lg:h-20 lg:grid-cols-[1fr_auto_1fr]",
           )}
         >
           <Link
@@ -140,7 +139,7 @@ export function Header() {
             aria-hidden
             className="pointer-events-none absolute -top-32 right-[-20%] h-[420px] w-[520px] rounded-full bg-accent/10 blur-[120px]"
           />
-          <Container className="relative flex h-16 shrink-0 items-center justify-between border-b border-line">
+          <Container className="relative flex h-[4.5rem] shrink-0 items-center justify-between border-b border-line">
             <Link
               href="/"
               aria-label={uiLabels.homeLink}
@@ -169,12 +168,10 @@ export function Header() {
                     {primaryNav.map((item, i) => {
                       const active = isActive(pathname, item.href);
                       return (
-                        <motion.li
+                        <li
                           key={item.href}
-                          initial={{ opacity: 0, y: 12 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.35, delay: 0.04 * i, ease: [0.22, 1, 0.36, 1] }}
-                          className="border-b border-line"
+                          style={{ "--i": i } as CSSProperties}
+                          className="menu-in border-b border-line"
                         >
                           <Link
                             href={item.href}
@@ -227,7 +224,7 @@ export function Header() {
                               ))}
                             </ul>
                           ) : null}
-                        </motion.li>
+                        </li>
                       );
                     })}
                   </ul>
@@ -235,11 +232,9 @@ export function Header() {
               ) : null}
 
               {menuOpen ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.35, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                  className="mt-auto flex flex-col gap-3"
+                <div
+                  style={{ "--i": 6 } as CSSProperties}
+                  className="menu-in mt-auto flex flex-col gap-3"
                 >
                   <p className="text-xs font-semibold tracking-[0.12em] text-fg-subtle uppercase">
                     {uiLabels.menuContact}
@@ -262,7 +257,7 @@ export function Header() {
                     </a>
                   ) : null}
                   <SocialLinks />
-                </motion.div>
+                </div>
               ) : null}
             </Container>
           </div>
@@ -274,6 +269,6 @@ export function Header() {
           </div>
         </dialog>
       </header>
-    </MotionConfig>
+    </>
   );
 }

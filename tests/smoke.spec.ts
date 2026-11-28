@@ -45,13 +45,23 @@ for (const route of routes) {
 test("unknown routes and drafts are 404", async ({ page }) => {
   for (const route of [
     "/services/not-a-service",
-    "/services/branding-creative-design",
-    "/services/video-content-production",
     "/case-studies/example-case-study",
     "/insights/example-post",
   ]) {
     const response = await page.goto(route);
     expect(response?.status(), route).toBe(404);
+  }
+});
+
+test("retired service URLs redirect to live pages", async ({ page }) => {
+  for (const [from, to] of [
+    ["/services/branding-creative-design", /\/services$/],
+    ["/services/video-content-production", /\/services\/social-media-marketing$/],
+    ["/cookie-policy", /\/privacy-policy#cookies$/],
+  ] as const) {
+    const response = await page.goto(from);
+    expect(response?.status(), from).toBe(200);
+    await expect(page, from).toHaveURL(to);
   }
 });
 
@@ -133,10 +143,10 @@ test("consultation email form reaches the thank-you page", async ({ page }) => {
   await page.goto("/");
   const field = page.getByRole("textbox", { name: "Your business email" });
   await field.fill("not-an-email");
-  await page.getByRole("button", { name: "Start a Conversation" }).click();
+  await page.getByRole("button", { name: /Discuss Your Project/ }).click();
   await expect(page.getByText("Enter a valid email address.")).toBeVisible();
   await field.fill("test@example.com");
-  await page.getByRole("button", { name: "Start a Conversation" }).click();
+  await page.getByRole("button", { name: /Discuss Your Project/ }).click();
   await expect(page).toHaveURL(/\/thank-you\?form=consultation$/);
 });
 
@@ -148,6 +158,24 @@ test("audit request form validates the website URL", async ({ page }) => {
   await page.getByLabel("Business email", { exact: true }).fill("test@example.com");
   await page.getByRole("button", { name: "Request audit" }).click();
   await expect(page).toHaveURL(/\/thank-you\?form=audit$/);
+});
+
+test("hero audit form rejects an invalid website and accepts a bare domain", async ({ page }) => {
+  await page.goto("/");
+  const form = page.locator("#free-audit form");
+  // Chip radios: the input is visually hidden, so click its label like a visitor.
+  await form.getByText("Google & Meta Ads").click();
+  await form.getByLabel("Monthly marketing budget").selectOption({ index: 1 });
+  await form.getByRole("button", { name: /Continue/ }).click();
+  await form.getByLabel("Business name").fill("Acme Test");
+  await form.getByLabel("Industry").selectOption({ index: 1 });
+  const website = form.getByPlaceholder("yourbusiness.com");
+  await website.fill("not a url");
+  await form.getByRole("button", { name: /Continue/ }).click();
+  await expect(form.getByText(/Enter a valid website address/)).toBeVisible();
+  await website.fill("example.com");
+  await form.getByRole("button", { name: /Continue/ }).click();
+  await expect(form.getByText(/Step 3 of 3/)).toBeVisible();
 });
 
 test("styleguide is noindex and shows form errors", async ({ page }) => {
