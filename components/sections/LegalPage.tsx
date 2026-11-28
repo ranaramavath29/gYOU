@@ -5,7 +5,6 @@ import { legalLabels, legalPages, type LegalPageKey } from "@/content/legal";
 import { uiLabels } from "@/content/navigation";
 import { site } from "@/content/site";
 import { mailHref } from "@/lib/contact";
-import { formatDate } from "@/lib/insights";
 import { Breadcrumb } from "./Breadcrumb";
 
 // Document sections sit under the page's one H2, so MDX ## renders as H3 and ### as H4.
@@ -43,12 +42,6 @@ export function LegalPage({
           <h1 id="legal-title" className="font-display text-h2 font-semibold">
             {meta.title}
           </h1>
-          {meta.lastUpdated ? (
-            <p className="mt-4 text-small text-fg-subtle">
-              {legalLabels.lastUpdated}:{" "}
-              <time dateTime={meta.lastUpdated}>{formatDate(meta.lastUpdated)}</time>
-            </p>
-          ) : null}
           <div className="mt-12 border-t border-line pt-10">
             {meta.pending ? (
               // Approved text not supplied yet: show an honest notice, never the placeholder.
