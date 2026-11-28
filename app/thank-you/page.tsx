@@ -15,7 +15,7 @@ export default function ThankYouPage() {
   return (
     <section
       aria-labelledby="thanks-title"
-      className="relative overflow-hidden py-[clamp(5rem,3rem+7vw,10rem)]"
+      className="relative overflow-hidden py-[clamp(4rem,2.5rem+5vw,7rem)]"
     >
       <div
         aria-hidden

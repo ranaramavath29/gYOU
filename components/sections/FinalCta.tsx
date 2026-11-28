@@ -41,7 +41,7 @@ export function FinalCta({
 
   // "Studio Daylight" closing band: dark rounded panel, heading left, actions right.
   return (
-    <section aria-labelledby="cta-heading" className="py-[clamp(3.5rem,2rem+5vw,7rem)]">
+    <section aria-labelledby="cta-heading" className="py-[clamp(2.5rem,1.8rem+2vw,4rem)]">
       <Container>
         <Reveal className="tone-ink relative overflow-hidden rounded-[var(--radius-sheet)] bg-ink px-6 py-12 text-bg md:px-12 md:py-16 lg:px-16">
           <div

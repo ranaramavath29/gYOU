@@ -30,7 +30,7 @@ export function LegalPage({
 }) {
   const meta = legalPages[page];
   return (
-    <article aria-labelledby="legal-title" className="pt-6 pb-24 md:pt-10">
+    <article aria-labelledby="legal-title" className="pt-6 pb-16 md:pt-10 md:pb-20">
       <Container>
         <Breadcrumb
           label={uiLabels.breadcrumb}

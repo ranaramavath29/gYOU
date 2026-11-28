@@ -68,7 +68,7 @@ Check every text/background pair for 4.5:1 contrast (3:1 for 24px+).
 - Buttons and nav: fully rounded pills (`999px`), min height 44px
 - Cards and media: radius 22–28px; light section top corners 40px
 - Container max-width 1320px, side padding 32px (20px on mobile)
-- Section vertical padding 120–140px desktop, 72–88px mobile
+- Section vertical padding about 64–72px desktop, 48px mobile (tightened from 120–140px / 72–88px on request, 28 Nov 2026)
 
 **Signature elements** (homepage layout, option J)
 - Flat header bar on cream: logo, plain nav links with the current page raised, tomato CTA pill

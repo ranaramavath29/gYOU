@@ -88,7 +88,7 @@ export default async function OurWorkPage() {
         <Section
           aria-label={ourWork.metaTitle}
           spacing="none"
-          className="pb-[clamp(4.5rem,2.9rem+5vw,8.5rem)]"
+          className="pb-[clamp(3rem,2.4rem+2vw,4.5rem)]"
         >
           {/* useSearchParams needs a Suspense boundary on a static page. The
               fallback is the full, unfiltered grid, so the server HTML (and

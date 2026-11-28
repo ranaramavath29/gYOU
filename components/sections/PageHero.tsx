@@ -27,7 +27,7 @@ export function PageHero({
   media,
 }: PageHeroProps) {
   return (
-    <section aria-labelledby={id} className="relative overflow-hidden pt-6 pb-16 md:pt-10 md:pb-24">
+    <section aria-labelledby={id} className="relative overflow-hidden pt-6 pb-12 md:pt-10 md:pb-16">
       <Container className="relative">
         <Breadcrumb
           label={breadcrumb.label}
@@ -56,7 +56,7 @@ export function PageHero({
           {actions ? <div className="mt-10 flex flex-col gap-3 sm:flex-row">{actions}</div> : null}
         </div>
         {media ? (
-          <div className="mt-12 md:mt-16">
+          <div className="mt-10 md:mt-12">
             <figure className="rounded-[36px] border border-line bg-bg-raised p-2.5 shadow-[0_40px_80px_-48px_rgb(29_27_24/0.45)]">
               <MediaFrame
                 media={media}
