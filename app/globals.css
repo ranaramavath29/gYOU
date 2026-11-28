@@ -125,6 +125,16 @@
   }
 }
 
+/*
+ * Two padded sections on the same background read as one block, so their
+ * stacked padding looked like an empty band. The second one starts with half
+ * the usual top padding. Unlayered so it beats the Section py- utility.
+ */
+[data-section="default"] + [data-section="default"],
+[data-section="paper"] + [data-section="paper"] {
+  padding-top: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+}
+
 @layer base {
   html {
     background: var(--bg);

@@ -30,6 +30,7 @@ export function Section({
   return (
     <section
       {...rest}
+      data-section={spacing === "default" ? tone : undefined}
       className={cn(
         tones[tone],
         spacing === "default" && "py-[clamp(3rem,2.4rem+2vw,4.5rem)]",
